@@ -3,14 +3,18 @@ package com.example.kingsnack;
 import entity.Food;
 import entity.Snake;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -25,7 +29,7 @@ public class GameLayout2 extends Application {
     Snake snake = new Snake(WIDTH/2,HEIGHT/2);
     Food food = new Food();
     Snake boss1 = new Snake(20,20);
-
+    private int score = 0 ;
 
     private void setFood(){
         Random random = new Random();
@@ -49,6 +53,16 @@ public class GameLayout2 extends Application {
 //        gc.setFill(Color.BLUE);
 //        gc.fillRect(boss1.getX(), boss1.getY(), TILE_SIZE,TILE_SIZE);
 
+        gc.setFill(Color.BLACK);
+        gc.fillText("Score : "+score,20,20);
+
+        gc.setStroke(Color.RED);
+        gc.setLineWidth(2);
+        gc.strokeRect(0,0,WIDTH/2,HEIGHT/2);
+    }
+    private void resetGame (){
+        score = 0 ;
+
     }
     private void bossHunter(){
         if(snake.getX() < WIDTH/2 && snake.getY() < HEIGHT/2){
@@ -70,6 +84,20 @@ public class GameLayout2 extends Application {
             return;
         }
 
+    }
+    private void gameOver(Stage primaryStage) {
+        Label label = new Label("Your score: " + score);
+        Button replay = new Button("Replay");
+        replay.setOnAction(actionEvent -> {
+            resetGame();
+            primaryStage.close();
+            start(new Stage());
+        });
+
+        VBox root = new VBox(label, replay);
+        Scene scene1 = new Scene(root, 200, 150);
+        primaryStage.setScene(scene1);
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
@@ -106,9 +134,11 @@ public class GameLayout2 extends Application {
                     }
                 }
                 if(snake.getX() == food.getX() && snake.getY() == food.getY()){
+                    score++;
                     setFood();
                 }
                 draw(gc);
+
             }
         });
         Timer timer = new Timer();
@@ -117,8 +147,12 @@ public class GameLayout2 extends Application {
             public void run() {
                 bossHunter();
                 draw(gc);
+                if (boss1.getX() == snake.getX() && boss1.getY() == snake.getY()) {
+                    timer.cancel(); // Hủy bỏ timer khi trò chơi kết thúc
+                    Platform.runLater(() -> gameOver(primaryStage)); // Gọi phương thức gameOver trên luồng UI
+                }
             }
-        },0,100);
+        }, 0, 100);
         primaryStage.setTitle("Snake Game");
         primaryStage.setScene(scene);
         primaryStage.show();
