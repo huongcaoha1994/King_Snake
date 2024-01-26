@@ -19,12 +19,16 @@ public class Game1 extends Application {
     private static final int HEIGHT = 800 ;
     private static final int TILE_SIZE = 20 ;
     Random random = new Random();
-    Point snake = new Point(WIDTH/2,HEIGHT/2);
+    static Point snake = new Point(WIDTH/2,HEIGHT/2);
     Point boss = new Point(40,40);
-    Point food = new Point();
+    static Point food = new Point();
 
-    public int score = 0 ;
-
+    public static int score = 0 ;
+    public static void udpateScore(){
+        if(snake.getX() == food.getX() && snake.getY() == food.getY()){
+            score++;
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);
@@ -42,20 +46,18 @@ public class Game1 extends Application {
             updateMovie.updateSnake(scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score);
             Draws draws = new Draws() ;
             draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score);
-            if(snake.getX() == food.getX() && snake.getY() == food.getY()){
-                score++;
-            }
+            Game1.udpateScore();
         });
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 UpdateMovie updateMovie = new UpdateMovie();
-                updateMovie.updateBoss(boss,snake,new Point(WIDTH/2,HEIGHT/2),TILE_SIZE);
+                updateMovie.updateBoss(boss,snake,new Point(WIDTH/2-100,HEIGHT/2-100),TILE_SIZE);
                 Draws draws = new Draws() ;
                 draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score);
             }
-        },0,100);
+        },0,70);
 
         primaryStage.setTitle("Game Boss 1");
         primaryStage.setScene(scene);

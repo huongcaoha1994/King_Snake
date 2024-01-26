@@ -32,25 +32,32 @@ public class UpdateMovie {
             KeyCode keyCode = keyEvent.getCode();
             switch (keyCode){
                 case UP :{
-                    snake.setY(snake.getY()-tileSize);
+                   if(snake.getY() - tileSize >= 0){
+                       snake.setY(snake.getY()-tileSize);
+                   }
                     break;
                 }
                 case DOWN:{
-                    snake.setY(snake.getY()+tileSize);
+                    if(snake.getY() + tileSize < height){
+                        snake.setY(snake.getY()+tileSize);
+                    }
                     break;
                 }
                 case LEFT:{
-                    snake.setX(snake.getX()-tileSize);
+                    if(snake.getX() - tileSize >= 0){
+                        snake.setX(snake.getX()-tileSize);
+                    }
                     break;
                 }
                 case RIGHT:{
-                    snake.setX(snake.getX()+tileSize);
+                    if(snake.getX() + tileSize < width){
+                        snake.setX(snake.getX()+tileSize);
+                    }
                     break;
                 }
             }
             if(snake.getX() == food.getX() && snake.getY() == food.getY()){
-                int score1 = score;
-                score1++;
+
                 Random random = new Random();
                 food.setX(random.nextInt(width/tileSize)*tileSize);
                 food.setY(random.nextInt(height/tileSize)*tileSize);
