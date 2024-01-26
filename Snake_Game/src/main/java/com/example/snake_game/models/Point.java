@@ -1,4 +1,4 @@
-package com.example.snakegame.models;
+package com.example.snake_game.models;
 
 public class Point {
     private int x ;

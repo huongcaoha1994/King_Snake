@@ -4,5 +4,5 @@ module com.example.snake_game {
 
 
     opens com.example.snake_game to javafx.fxml;
-    exports com.example.snake_game;
+    exports com.example.snake_game.views;
 }
