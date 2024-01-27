@@ -2,9 +2,8 @@ package com.example.snake_game.controllers;
 
 import com.example.snake_game.models.Point;
 //import com.example.snake_game.utils.Random;
-import com.example.snake_game.views.Game1;
-import com.example.snake_game.views.Main;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.input.KeyCode;
 
 import java.util.Random;
@@ -22,10 +21,7 @@ public class UpdateMovie {
                 boss.setX(boss.getX()+tileSize);
             }
         }
-        if(boss.getX() == snake.getX() && boss.getY() == snake.getY()){
-            System.out.println("Game over");
-            return;
-        }
+
     }
     public void updateSnake(Scene scene,Point snake,int tileSize,Point food,int width,int height,int score){
         scene.setOnKeyPressed(keyEvent -> {
@@ -64,5 +60,17 @@ public class UpdateMovie {
             }
 
         });
+    }
+
+    public void updateMonster(Point monster, Point snake, int tileSize){
+        if(monster.getX() < snake.getX()){
+           monster.setX(monster.getX()+tileSize);
+        } else if (monster.getX() > snake.getX()) {
+            monster.setX(monster.getX()-tileSize);
+        } else if (monster.getX() == snake.getX() && monster.getY() < snake.getY()) {
+            monster.setY(monster.getY()+tileSize);
+        } else if (monster.getX() == snake.getX() && monster.getY() > snake.getY()) {
+            monster.setY(monster.getY()-tileSize);
+        }
     }
 }

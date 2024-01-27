@@ -1,6 +1,7 @@
 module com.example.snake_game {
     requires javafx.controls;
     requires javafx.fxml;
+    requires mongo.java.driver;
 
 
     opens com.example.snake_game to javafx.fxml;

@@ -8,35 +8,31 @@ import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.util.Optional;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class Game1 extends Application {
     private static final int WIDTH = 1200;
     private static final int HEIGHT = 800 ;
     private static final int TILE_SIZE = 40 ;
-    Random random = new Random();
+    static Random random = new Random();
     static Point snake = new Point(WIDTH/2,HEIGHT/2);
     static Point boss = new Point(40,40);
     static Point food = new Point();
-    public static boolean gameOver = false;
-    public static int score = 0 ;
-    public static void udpateScore(){
-        if(snake.getX() == food.getX() && snake.getY() == food.getY()){
-            score++;
-        }
-    }
+    static List<Point> monsters = new ArrayList<>();
+    public  int score = 0 ;
     private static void restart(){
         snake = new Point(WIDTH/2,HEIGHT/2);
         boss = new Point(40,40);
+        monsters.clear();
+        for(int i = 1 ; i <= 1 ; i++){
+            Point point = new Point(random.nextInt(WIDTH/TILE_SIZE)*TILE_SIZE, random.nextInt(HEIGHT/TILE_SIZE)*TILE_SIZE);
+            monsters.add(point);
+        }
     }
     public static void main(String[] args) {
         launch(args);
@@ -44,6 +40,7 @@ public class Game1 extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        restart();
         Canvas canvas = new Canvas(WIDTH,HEIGHT);
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
@@ -53,21 +50,22 @@ public class Game1 extends Application {
             UpdateMovie updateMovie = new UpdateMovie();
             updateMovie.updateSnake(scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score);
             Draws draws = new Draws() ;
-            draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score);
-            Game1.udpateScore();
+            draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
+            if(snake.getX() == food.getX() && snake.getY() == food.getY()){
+                score++;
+            }
         });
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
+        Timer timer1 = new Timer();
+        timer1.schedule(new TimerTask() {
             @Override
             public void run() {
                 UpdateMovie updateMovie = new UpdateMovie();
-                updateMovie.updateBoss(boss,snake,new Point(TILE_SIZE*10,TILE_SIZE*10),TILE_SIZE,gameOver);
+                updateMovie.updateBoss(boss,snake,new Point(TILE_SIZE*10,TILE_SIZE*10),TILE_SIZE);
                 Draws draws = new Draws() ;
-                draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score);
+                draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
                 Platform.runLater(() -> {
                     if(boss.getX() == snake.getX() && boss.getY() == snake.getY()){
-                        gameOver = true;
-                        timer.cancel();
+                        timer1.cancel();
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Game Over");
                         alert.setHeaderText("Information");
@@ -90,6 +88,44 @@ public class Game1 extends Application {
                 });
             }
         },0,100);
+        Timer timer2 = new Timer();
+        timer2.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                UpdateMovie updateMovie = new UpdateMovie();
+                for (Point point:monsters) {
+                    updateMovie.updateMonster(point,snake,TILE_SIZE);
+                }
+                Draws draws = new Draws() ;
+                draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
+                Platform.runLater(() -> {
+                    for (Point point:monsters) {
+                        if(point.getX() == snake.getX() && point.getY() == snake.getY()){
+//                            timer1.cancel();
+                            timer2.cancel();
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Game Over");
+                            alert.setHeaderText("Information");
+                            alert.setContentText("Game Over ! Are you want replay ?");
+                            ButtonType buttonTypeYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+                            ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.NO);
+
+                            alert.getButtonTypes().setAll(buttonTypeYes,buttonTypeNo);
+
+                            Optional<ButtonType> result = alert.showAndWait();
+                            if (result.isPresent() && result.get() == buttonTypeYes) {
+                                restart();
+                                start(primaryStage);
+                            } else if (result.isPresent() && result.get() == buttonTypeNo) {
+                                primaryStage.close();
+                            }
+
+
+                        }
+                    }
+                });
+            }
+        },0,500);
 
         primaryStage.setTitle("Game Boss 1");
         primaryStage.setScene(scene);
