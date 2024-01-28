@@ -4,9 +4,14 @@ import com.example.snake_game.models.Point;
 //import com.example.snake_game.utils.Random;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
+import javafx.stage.Stage;
 
+import java.util.Optional;
 import java.util.Random;
+import java.util.Timer;
 
 public class UpdateMovie {
     public void updateBoss(Point boss,Point snake,Point area, int tileSize){
@@ -71,6 +76,53 @@ public class UpdateMovie {
             monster.setY(monster.getY()+tileSize);
         } else if (monster.getX() == snake.getX() && monster.getY() > snake.getY()) {
             monster.setY(monster.getY()-tileSize);
+        }
+    }
+    public void updateMonsterEat(Point monsterEat,Point food,int width,int height,int tileSize){
+        Random random = new Random();
+        if(food.getX() < width && food.getY() < height/2){
+            if(monsterEat.getX() > food.getX()){
+                monsterEat.setX(monsterEat.getX()- tileSize);
+            }else  if(monsterEat.getX() < food.getX()){
+                monsterEat.setX(monsterEat.getX()+ tileSize);
+            } else if (monsterEat.getX() == food.getX() && monsterEat.getY() > food.getY()) {
+                monsterEat.setY(monsterEat.getY()-tileSize);
+            }else if (monsterEat.getX() == food.getX() && monsterEat.getY() < food.getY()) {
+                monsterEat.setY(monsterEat.getY()+tileSize);
+            }
+        }
+        if(monsterEat.getX() == food.getX() && monsterEat.getY() == food.getY()){
+
+            food.setX(random.nextInt(width/tileSize)*tileSize);
+            food.setY(random.nextInt(height/tileSize)*tileSize);
+        }
+    }
+
+    public void updateMonsterBotLelt(Point monsterBotLeft,Point snake,int width , int height ,int tileSize){
+        if(snake.getX() < width/4 && snake.getY() > (height/4)*3){
+            if(monsterBotLeft.getX() > snake.getX()){
+                monsterBotLeft.setX(monsterBotLeft.getX()-tileSize);
+            }else if (monsterBotLeft.getX() < snake.getX()){
+                monsterBotLeft.setX(monsterBotLeft.getX()+tileSize);
+            } else if (monsterBotLeft.getX() == snake.getX() && monsterBotLeft.getY() > snake.getY()) {
+                monsterBotLeft.setY(monsterBotLeft.getY()-tileSize);
+            } else if (monsterBotLeft.getX() == snake.getX() && monsterBotLeft.getY() < snake.getY()) {
+                monsterBotLeft.setY(monsterBotLeft.getY()+tileSize);
+            }
+        }
+    }
+
+    public void updateMonsterBotRight(Point monsterBotRight,Point snake,int width , int height ,int tileSize){
+        if(snake.getX() > (width/4)*3 && snake.getY() > (height/4)*3){
+            if(monsterBotRight.getX() > snake.getX()){
+                monsterBotRight.setX(monsterBotRight.getX()-tileSize);
+            }else if (monsterBotRight.getX() < snake.getX()){
+                monsterBotRight.setX(monsterBotRight.getX()+tileSize);
+            } else if (monsterBotRight.getX() == snake.getX() && monsterBotRight.getY() > snake.getY()) {
+                monsterBotRight.setY(monsterBotRight.getY()-tileSize);
+            } else if (monsterBotRight.getX() == snake.getX() && monsterBotRight.getY() < snake.getY()) {
+                monsterBotRight.setY(monsterBotRight.getY()+tileSize);
+            }
         }
     }
 }

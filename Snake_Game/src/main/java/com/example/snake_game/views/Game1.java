@@ -23,16 +23,15 @@ public class Game1 extends Application {
     static Point snake = new Point(WIDTH/2,HEIGHT/2);
     static Point boss = new Point(40,40);
     static Point food = new Point();
-    static List<Point> monsters = new ArrayList<>();
-    public  int score = 0 ;
+    public static Point monsters ;
+    int score = 0 ;
+
     private static void restart(){
         snake = new Point(WIDTH/2,HEIGHT/2);
         boss = new Point(40,40);
-        monsters.clear();
-        for(int i = 1 ; i <= 1 ; i++){
-            Point point = new Point(random.nextInt(WIDTH/TILE_SIZE)*TILE_SIZE, random.nextInt(HEIGHT/TILE_SIZE)*TILE_SIZE);
-            monsters.add(point);
-        }
+            monsters = new Point(random.nextInt(WIDTH/TILE_SIZE)*TILE_SIZE, random.nextInt(HEIGHT/TILE_SIZE)*TILE_SIZE);
+        food.setX(random.nextInt(WIDTH / TILE_SIZE)*TILE_SIZE);
+        food.setY(random.nextInt(HEIGHT / TILE_SIZE)*TILE_SIZE);
     }
     public static void main(String[] args) {
         launch(args);
@@ -40,6 +39,7 @@ public class Game1 extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+
         restart();
         Canvas canvas = new Canvas(WIDTH,HEIGHT);
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -50,11 +50,14 @@ public class Game1 extends Application {
             UpdateMovie updateMovie = new UpdateMovie();
             updateMovie.updateSnake(scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score);
             Draws draws = new Draws() ;
-            draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
             if(snake.getX() == food.getX() && snake.getY() == food.getY()){
-                score++;
+                if(snake.getX() == food.getX() && snake.getY() == food.getY()){
+                    score++;
+                }
             }
+            draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
         });
+
         Timer timer1 = new Timer();
         timer1.schedule(new TimerTask() {
             @Override
@@ -86,6 +89,7 @@ public class Game1 extends Application {
 
                     }
                 });
+
             }
         },0,100);
         Timer timer2 = new Timer();
@@ -93,15 +97,15 @@ public class Game1 extends Application {
             @Override
             public void run() {
                 UpdateMovie updateMovie = new UpdateMovie();
-                for (Point point:monsters) {
-                    updateMovie.updateMonster(point,snake,TILE_SIZE);
-                }
+
+                    updateMovie.updateMonster(monsters,snake,TILE_SIZE);
+
                 Draws draws = new Draws() ;
                 draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
                 Platform.runLater(() -> {
-                    for (Point point:monsters) {
-                        if(point.getX() == snake.getX() && point.getY() == snake.getY()){
-//                            timer1.cancel();
+
+                        if(monsters.getX() == snake.getX() && monsters.getY() == snake.getY()){
+                            timer1.cancel();
                             timer2.cancel();
                             Alert alert = new Alert(Alert.AlertType.INFORMATION);
                             alert.setTitle("Game Over");
@@ -115,6 +119,8 @@ public class Game1 extends Application {
                             Optional<ButtonType> result = alert.showAndWait();
                             if (result.isPresent() && result.get() == buttonTypeYes) {
                                 restart();
+                                timer1.cancel();
+                                timer2.cancel();
                                 start(primaryStage);
                             } else if (result.isPresent() && result.get() == buttonTypeNo) {
                                 primaryStage.close();
@@ -122,7 +128,7 @@ public class Game1 extends Application {
 
 
                         }
-                    }
+
                 });
             }
         },0,500);
@@ -132,4 +138,5 @@ public class Game1 extends Application {
         primaryStage.setResizable(false);
         primaryStage.show();
     }
+
 }
