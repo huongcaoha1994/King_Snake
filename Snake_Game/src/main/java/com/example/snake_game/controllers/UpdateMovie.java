@@ -9,6 +9,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 import java.util.Timer;
@@ -28,7 +29,7 @@ public class UpdateMovie {
         }
 
     }
-    public void updateSnake(Scene scene,Point snake,int tileSize,Point food,int width,int height,int score){
+    public void updateSnake(Scene scene,Point snake,int tileSize,Point food,int width,int height){
         scene.setOnKeyPressed(keyEvent -> {
             KeyCode keyCode = keyEvent.getCode();
             switch (keyCode){
@@ -99,7 +100,7 @@ public class UpdateMovie {
     }
 
     public void updateMonsterBotLelt(Point monsterBotLeft,Point snake,int width , int height ,int tileSize){
-        if(snake.getX() < width/4 && snake.getY() > (height/4)*3){
+        if(snake.getX() < width/2 && snake.getY() > height/2){
             if(monsterBotLeft.getX() > snake.getX()){
                 monsterBotLeft.setX(monsterBotLeft.getX()-tileSize);
             }else if (monsterBotLeft.getX() < snake.getX()){
@@ -113,7 +114,7 @@ public class UpdateMovie {
     }
 
     public void updateMonsterBotRight(Point monsterBotRight,Point snake,int width , int height ,int tileSize){
-        if(snake.getX() > (width/4)*3 && snake.getY() > (height/4)*3){
+        if(snake.getX() > width/2 && snake.getY() > height/2){
             if(monsterBotRight.getX() > snake.getX()){
                 monsterBotRight.setX(monsterBotRight.getX()-tileSize);
             }else if (monsterBotRight.getX() < snake.getX()){
@@ -122,6 +123,45 @@ public class UpdateMovie {
                 monsterBotRight.setY(monsterBotRight.getY()-tileSize);
             } else if (monsterBotRight.getX() == snake.getX() && monsterBotRight.getY() < snake.getY()) {
                 monsterBotRight.setY(monsterBotRight.getY()+tileSize);
+            }
+        }
+    }
+    public void updateMonsterEat3(Point monsterEat,Point food,int width,int height,int tileSize){
+        Random random = new Random();
+        if(food.getX() < width && food.getY() < height){
+            if(monsterEat.getX() > food.getX()){
+                monsterEat.setX(monsterEat.getX()- tileSize);
+            }else  if(monsterEat.getX() < food.getX()){
+                monsterEat.setX(monsterEat.getX()+ tileSize);
+            } else if (monsterEat.getX() == food.getX() && monsterEat.getY() > food.getY()) {
+                monsterEat.setY(monsterEat.getY()-tileSize);
+            }else if (monsterEat.getX() == food.getX() && monsterEat.getY() < food.getY()) {
+                monsterEat.setY(monsterEat.getY()+tileSize);
+            }
+        }
+        if(monsterEat.getX() == food.getX() && monsterEat.getY() == food.getY()){
+
+            food.setX(random.nextInt(width/tileSize)*tileSize);
+            food.setY(random.nextInt(height/tileSize)*tileSize);
+        }
+    }
+
+    public void updateMonsterGun(Point monsterGun , Point snake, int tileSize, List<Point> pullets){
+        if(monsterGun.getX() > snake.getX() ){
+            monsterGun.setX(monsterGun.getX()-tileSize);
+        } else if (monsterGun.getX() < snake.getX()) {
+            monsterGun.setX(monsterGun.getX()+tileSize);
+        } else if (monsterGun.getX() == snake.getX()) {
+            pullets.add(new Point(monsterGun.getX(), monsterGun.getY()+tileSize));
+        }
+    }
+
+    public void updateBullet(List<Point> bullets ,int tileSize,int height){
+        for (int i = 0 ; i < bullets.size() ; i++){
+            if(bullets.get(i).getY() > height){
+                bullets.remove(i);
+            }else {
+                bullets.get(i).setY(bullets.get(i).getY()+tileSize);
             }
         }
     }

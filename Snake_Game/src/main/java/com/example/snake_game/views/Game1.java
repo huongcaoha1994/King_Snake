@@ -16,15 +16,16 @@ import javafx.stage.Stage;
 import java.util.*;
 
 public class Game1 extends Application {
-    private static final int WIDTH = 1200;
-    private static final int HEIGHT = 800 ;
-    private static final int TILE_SIZE = 40 ;
+    private static  int WIDTH = 1200;
+    private static  int HEIGHT = 800 ;
+    private static  int TILE_SIZE = 40 ;
+    int score = 0 ;
     static Random random = new Random();
     static Point snake = new Point(WIDTH/2,HEIGHT/2);
     static Point boss = new Point(40,40);
     static Point food = new Point();
     public static Point monsters ;
-    int score = 0 ;
+
 
     private static void restart(){
         snake = new Point(WIDTH/2,HEIGHT/2);
@@ -38,8 +39,8 @@ public class Game1 extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-
+    public void  start(Stage primaryStage) {
+        Game1 game1 = new Game1();
         restart();
         Canvas canvas = new Canvas(WIDTH,HEIGHT);
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -48,11 +49,12 @@ public class Game1 extends Application {
         Scene scene = new Scene(layout,WIDTH,HEIGHT);
         scene.setOnKeyPressed(keyEvent -> {
             UpdateMovie updateMovie = new UpdateMovie();
-            updateMovie.updateSnake(scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score);
+            updateMovie.updateSnake(scene,snake,TILE_SIZE,food,WIDTH,HEIGHT);
             Draws draws = new Draws() ;
             if(snake.getX() == food.getX() && snake.getY() == food.getY()){
                 if(snake.getX() == food.getX() && snake.getY() == food.getY()){
                     score++;
+
                 }
             }
             draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
@@ -67,31 +69,11 @@ public class Game1 extends Application {
                 Draws draws = new Draws() ;
                 draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
                 Platform.runLater(() -> {
-                    if(boss.getX() == snake.getX() && boss.getY() == snake.getY()){
-                        timer1.cancel();
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Game Over");
-                        alert.setHeaderText("Information");
-                        alert.setContentText("Game Over ! Are you want replay ?");
-                        ButtonType buttonTypeYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
-                        ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.NO);
-
-                        alert.getButtonTypes().setAll(buttonTypeYes,buttonTypeNo);
-
-                        Optional<ButtonType> result = alert.showAndWait();
-                        if (result.isPresent() && result.get() == buttonTypeYes) {
-                            restart();
-                            start(primaryStage);
-                        } else if (result.isPresent() && result.get() == buttonTypeNo) {
-                            primaryStage.close();
-                        }
-
-
-                    }
+                   game1.GameoverAlert(timer1,primaryStage,boss);
                 });
 
             }
-        },0,100);
+        },0,200);
         Timer timer2 = new Timer();
         timer2.schedule(new TimerTask() {
             @Override
@@ -103,35 +85,10 @@ public class Game1 extends Application {
                 Draws draws = new Draws() ;
                 draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
                 Platform.runLater(() -> {
-
-                        if(monsters.getX() == snake.getX() && monsters.getY() == snake.getY()){
-                            timer1.cancel();
-                            timer2.cancel();
-                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                            alert.setTitle("Game Over");
-                            alert.setHeaderText("Information");
-                            alert.setContentText("Game Over ! Are you want replay ?");
-                            ButtonType buttonTypeYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
-                            ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.NO);
-
-                            alert.getButtonTypes().setAll(buttonTypeYes,buttonTypeNo);
-
-                            Optional<ButtonType> result = alert.showAndWait();
-                            if (result.isPresent() && result.get() == buttonTypeYes) {
-                                restart();
-                                timer1.cancel();
-                                timer2.cancel();
-                                start(primaryStage);
-                            } else if (result.isPresent() && result.get() == buttonTypeNo) {
-                                primaryStage.close();
-                            }
-
-
-                        }
-
+                    game1.GameoverAlert(timer2,primaryStage,monsters);
                 });
             }
-        },0,500);
+        },0,210);
 
         primaryStage.setTitle("Game Boss 1");
         primaryStage.setScene(scene);
@@ -139,4 +96,28 @@ public class Game1 extends Application {
         primaryStage.show();
     }
 
+    public void GameoverAlert(Timer timer,Stage primaryStage,Point monster){
+        if(monster.getX() == snake.getX() && monster.getY() == snake.getY()){
+            timer.cancel();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Game Over");
+            alert.setHeaderText("Information");
+            alert.setContentText("Game Over ! Are you want replay ?");
+            ButtonType buttonTypeYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+            ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.NO);
+
+            alert.getButtonTypes().setAll(buttonTypeYes,buttonTypeNo);
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == buttonTypeYes) {
+                timer.cancel();
+                start(primaryStage);
+                restart();
+            } else if (result.isPresent() && result.get() == buttonTypeNo) {
+                primaryStage.close();
+            }
+
+
+        }
+    }
 }
