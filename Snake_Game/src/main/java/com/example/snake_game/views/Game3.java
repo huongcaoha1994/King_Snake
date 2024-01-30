@@ -90,6 +90,20 @@ public class Game3 extends Application {
             }
         },0,200);
 
+//        Timer timerMonster = new Timer();
+//        timerMonster.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//
+//                updateMovie.updateMonster(monster,snake,tileSize);
+//                draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster);
+//                Platform.runLater(() -> {
+//                    Game3.this.GameoverAlert(timerMonster,timerMonsterGun,primaryStage,monster);
+//                });
+//            }
+//        },0,300);
+
+
         Timer timerBullet = new Timer();
         timerBullet.schedule(new TimerTask() {
             @Override
