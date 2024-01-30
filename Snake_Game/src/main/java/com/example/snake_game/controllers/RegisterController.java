@@ -1,4 +1,4 @@
-package com.example.snake_game.views;
+package com.example.snake_game.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
