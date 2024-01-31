@@ -8,7 +8,7 @@ import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.*;
+import javafx.scene.control.*; 
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -44,16 +44,15 @@ public class Game1 extends Application {
         restart();
         Canvas canvas = new Canvas(WIDTH,HEIGHT);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-
+        Draws draws = new Draws() ;
         Pane layout = new Pane(canvas);
         Scene scene = new Scene(layout,WIDTH,HEIGHT);
         scene.setOnKeyPressed(keyEvent -> {
             UpdateMovie updateMovie = new UpdateMovie();
             updateMovie.updateSnake(scene,snake,TILE_SIZE,food,WIDTH,HEIGHT);
-            Draws draws = new Draws() ;
             if(snake.getX() == food.getX() && snake.getY() == food.getY()){
                 if(snake.getX() == food.getX() && snake.getY() == food.getY()){
-                    score++;
+                    score = 2;
 
                 }
             }
@@ -66,7 +65,6 @@ public class Game1 extends Application {
             public void run() {
                 UpdateMovie updateMovie = new UpdateMovie();
                 updateMovie.updateBoss(boss,snake,new Point(TILE_SIZE*10,TILE_SIZE*10),TILE_SIZE);
-                Draws draws = new Draws() ;
                 draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
                 Platform.runLater(() -> {
                    game1.GameoverAlert(timer1,primaryStage,boss);
@@ -82,7 +80,6 @@ public class Game1 extends Application {
 
                     updateMovie.updateMonster(monsters,snake,TILE_SIZE);
 
-                Draws draws = new Draws() ;
                 draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
                 Platform.runLater(() -> {
                     game1.GameoverAlert(timer2,primaryStage,monsters);

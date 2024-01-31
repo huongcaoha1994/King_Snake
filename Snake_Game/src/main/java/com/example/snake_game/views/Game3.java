@@ -120,6 +120,7 @@ public class Game3 extends Application {
 
         primaryStage.setTitle("Game 3");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

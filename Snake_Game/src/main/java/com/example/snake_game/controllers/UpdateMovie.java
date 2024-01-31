@@ -2,7 +2,9 @@ package com.example.snake_game.controllers;
 
 import com.example.snake_game.models.Point;
 //import com.example.snake_game.utils.Random;
+import com.example.snake_game.resources.Draws;
 import javafx.scene.Scene;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;

@@ -1,6 +1,7 @@
 package com.example.snake_game.resources;
 
 import com.example.snake_game.models.Point;
+import com.example.snake_game.resources.image.GetImage;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
@@ -9,17 +10,20 @@ import javafx.scene.text.Font;
 import java.util.List;
 
 public class Draws {
-    Image snakeImage = new Image("file:///C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\snake.jpg");
-    Image bossImage = new Image("file:///C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\pacman.png");
-    Image foodImage = new Image("file:///C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\food.jpg");
-    Image monsterImage = new Image("file:///C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monster.jpg");
-    Image monsterEatImage = new Image("file:///C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monsterEat.jpg");
-    Image monsterGunImage = new Image("file:///C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monsterGun.jpg");
-    Image bulletImage = new Image("file:///C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\bullet.jpg");
+    Image snakeImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\snake.png");
+    Image bossImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\pacman.png");
+    Image foodImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\food.jpg");
+    Image monsterImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monster.jpg");
+    Image monsterEatImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monsterEat.jpg");
+    Image monsterGunImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monsterGun.jpg");
+    Image bulletImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\bullet.jpg");
+    Image background = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\hinhnen.jpg");
 
     public void draw(Point food, Point boss, Point snake, int width, int height, GraphicsContext gc, int tileSize, int score, Point monsters) {
-        gc.setFill(Color.WHITE);
+        gc.setFill(Color.GREEN);
         gc.fillRect(0, 0, width, height);
+//        gc.drawImage(background,0,0,width,height);
+
         gc.drawImage(snakeImage, snake.getX(), snake.getY(), tileSize, tileSize);
 
         gc.drawImage(bossImage, boss.getX(), boss.getY(), tileSize, tileSize);
@@ -28,9 +32,9 @@ public class Draws {
 
 
         gc.setFill(Color.RED);
-        gc.strokeRect(0, 0, tileSize * 10 - 2, tileSize * 10 - 2);
+        gc.strokeRect(0, 0, tileSize * 10 - 3, tileSize * 10 - 3);
 
-        gc.setStroke(Color.BLACK);
+        gc.setStroke(Color.WHITE);
         for (int x = 0; x < width; x += tileSize) {
             gc.strokeLine(x, 0, x, height);
         }
@@ -113,4 +117,24 @@ public class Draws {
             gc.drawImage(bulletImage, bullets.get(i).getX(), bullets.get(i).getY(), tileSize, tileSize);
         }
     }
+    public void drawsnake(GraphicsContext gc ,Point snake,int tileSize){
+        gc.drawImage(snakeImage, snake.getX(), snake.getY(), tileSize, tileSize);
+    }
+
+    public void drawboss(GraphicsContext gc ,Point boss,int tileSize){
+        gc.drawImage(bossImage, boss.getX(), boss.getY(), tileSize, tileSize);
+    }
+
+    public void drawmonster(GraphicsContext gc ,Point monster,int tileSize){
+        gc.drawImage(monsterImage, monster.getX(), monster.getY(), tileSize, tileSize);
+    }
+
+    public void drawfood(GraphicsContext gc ,Point food,int tileSize){
+        gc.drawImage(foodImage, food.getX(), food.getY(), tileSize, tileSize);
+    }
+
+    public void drawbackground(GraphicsContext gc,int width ,int height){
+        gc.drawImage(background, 0, 0, width, height);
+    }
+
 }

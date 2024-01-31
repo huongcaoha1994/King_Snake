@@ -30,7 +30,7 @@ public class LoginController implements Initializable {
     private ImageView brandingImageView;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        File brandingFile = new File("java/com/example/snake_game/resources/image/logo.jpg");
+        File brandingFile = new File("file:///C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\logo.jpg");
         Image brandingImage = new Image(brandingFile.toURI().toString());
         brandingImageView.setImage(brandingImage);
     }
