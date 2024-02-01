@@ -5,6 +5,8 @@ import com.example.snake_game.models.Point;
 import com.example.snake_game.resources.Draws;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -16,20 +18,27 @@ import javafx.stage.Stage;
 import java.util.*;
 
 public class Game1 extends Application {
-    private static  int WIDTH = 1200;
-    private static  int HEIGHT = 800 ;
-    private static  int TILE_SIZE = 40 ;
-    int score = 0 ;
+    private static  int TILE_SIZE = 60 ;
+    private static  int WIDTH = TILE_SIZE*20;
+    private static  int HEIGHT = TILE_SIZE*15 ;
+
+    private IntegerProperty score = new SimpleIntegerProperty(0);
     static Random random = new Random();
-    static Point snake = new Point(WIDTH/2,HEIGHT/2);
-    static Point boss = new Point(40,40);
+    static Point snake = new Point(WIDTH,HEIGHT);
+    static Point boss = new Point(TILE_SIZE,TILE_SIZE);
     static Point food = new Point();
     public static Point monsters ;
 
+    public void setFood(){
+        food.setX(random.nextInt(WIDTH / TILE_SIZE)*TILE_SIZE);
+        food.setY(random.nextInt(HEIGHT / TILE_SIZE)*TILE_SIZE);
+
+    }
+
 
     private static void restart(){
-        snake = new Point(WIDTH/2,HEIGHT/2);
-        boss = new Point(40,40);
+        snake = new Point(TILE_SIZE*10,TILE_SIZE*7);
+        boss = new Point(TILE_SIZE,TILE_SIZE);
             monsters = new Point(random.nextInt(WIDTH/TILE_SIZE)*TILE_SIZE, random.nextInt(HEIGHT/TILE_SIZE)*TILE_SIZE);
         food.setX(random.nextInt(WIDTH / TILE_SIZE)*TILE_SIZE);
         food.setY(random.nextInt(HEIGHT / TILE_SIZE)*TILE_SIZE);
@@ -49,13 +58,8 @@ public class Game1 extends Application {
         Scene scene = new Scene(layout,WIDTH,HEIGHT);
         scene.setOnKeyPressed(keyEvent -> {
             UpdateMovie updateMovie = new UpdateMovie();
-            updateMovie.updateSnake(scene,snake,TILE_SIZE,food,WIDTH,HEIGHT);
-            if(snake.getX() == food.getX() && snake.getY() == food.getY()){
-                if(snake.getX() == food.getX() && snake.getY() == food.getY()){
-                    score = 2;
+            updateMovie.updateSnake(scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score);
 
-                }
-            }
             draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
         });
 

@@ -2,6 +2,7 @@ package com.example.snake_game.resources;
 
 import com.example.snake_game.models.Point;
 import com.example.snake_game.resources.image.GetImage;
+import javafx.beans.property.IntegerProperty;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
@@ -10,16 +11,16 @@ import javafx.scene.text.Font;
 import java.util.List;
 
 public class Draws {
-    Image snakeImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\snake.png");
-    Image bossImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\pacman.png");
-    Image foodImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\food.jpg");
-    Image monsterImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monster.jpg");
+    Image snakeImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\snake.gif");
+    Image bossImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\hero.gif");
+    Image foodImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\conech.gif");
+    Image monsterImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\hero2.gif");
     Image monsterEatImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monsterEat.jpg");
     Image monsterGunImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monsterGun.jpg");
     Image bulletImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\bullet.jpg");
     Image background = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\hinhnen.jpg");
 
-    public void draw(Point food, Point boss, Point snake, int width, int height, GraphicsContext gc, int tileSize, int score, Point monsters) {
+    public void draw(Point food, Point boss, Point snake, int width, int height, GraphicsContext gc, int tileSize, IntegerProperty score, Point monsters) {
         gc.setFill(Color.GREEN);
         gc.fillRect(0, 0, width, height);
 //        gc.drawImage(background,0,0,width,height);
@@ -46,16 +47,16 @@ public class Draws {
 
         Font font = new Font("Arial", 24); // Đặt kích thước chữ
         gc.setFont(font);
-        gc.fillText("Score : " + score, width / 2, tileSize);
+        gc.fillText("Score : " + score.get(), width / 2, tileSize);
     }
 
-    public void drawGame2(GraphicsContext gc, Point snake, Point monsterEat, Point monsterLeft, Point monsterRight, Point food, int tileSize, int width, int height, int score) {
-        gc.setFill(Color.WHITE);
+    public void drawGame2(GraphicsContext gc, Point snake, Point monsterEat, Point monsterLeft, Point monsterRight, Point food, int tileSize, int width, int height, IntegerProperty score) {
+        gc.setFill(Color.YELLOW);
         gc.fillRect(0, 0, width, height);
         gc.drawImage(snakeImage, snake.getX(), snake.getY(), tileSize, tileSize);
 
         gc.drawImage(monsterImage, monsterLeft.getX(), monsterLeft.getY(), tileSize, tileSize);
-        gc.drawImage(monsterImage, monsterRight.getX(), monsterRight.getY(), tileSize, tileSize);
+        gc.drawImage(bossImage, monsterRight.getX(), monsterRight.getY(), tileSize, tileSize);
 
 
         gc.drawImage(foodImage, food.getX(), food.getY(), tileSize, tileSize);
@@ -71,17 +72,17 @@ public class Draws {
         }
 
         gc.setFill(Color.RED);
-        gc.fillRect(0, height / 2 + tileSize, width, 2);
-        gc.fillRect(width / 2, height / 2 + tileSize, 2, height / 2);
+        gc.fillRect(0, tileSize*7 + tileSize, width, 2);
+        gc.fillRect(width / 2, tileSize*7 + tileSize, 2, height / 2);
 
         Font font = new Font("Arial", 24); // Đặt kích thước chữ
         gc.setFont(font);
         gc.setFill(Color.RED);
-        gc.fillText("Score : " + score, width / 2, tileSize);
+        gc.fillText("Score : " + score.get(), width / 2, tileSize);
     }
 
-    public void drawGame3(GraphicsContext gc, int width, int height, int tileSize, Point snake, Point monsterEat, Point monsterGun, List<Point> bullets,Point food,int score,Point monster) {
-        gc.setFill(Color.WHITE);
+    public void drawGame3(GraphicsContext gc, int width, int height, int tileSize, Point snake, Point monsterEat, Point monsterGun, List<Point> bullets,Point food,IntegerProperty score,Point monster) {
+        gc.setFill(Color.OLDLACE);
         gc.fillRect(0, 0, width, height);
 
         gc.setStroke(Color.BLACK);
@@ -108,7 +109,7 @@ public class Draws {
         Font font = new Font("Arial", 24); // Đặt kích thước chữ
         gc.setFont(font);
         gc.setFill(Color.RED);
-        gc.fillText("Score : " + score, width / 2, tileSize);
+        gc.fillText("Score : " + score.get(), width / 2, tileSize);
 
     }
 
@@ -135,6 +136,12 @@ public class Draws {
 
     public void drawbackground(GraphicsContext gc,int width ,int height){
         gc.drawImage(background, 0, 0, width, height);
+    }
+
+    public void demo(GraphicsContext gc , Point snake , int tileSize,int width ,int height){
+        gc.drawImage(background, 0, 0,width,height);
+        gc.drawImage(snakeImage, snake.getX(), snake.getY(),tileSize,tileSize);
+
     }
 
 }

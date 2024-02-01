@@ -5,6 +5,8 @@ import com.example.snake_game.models.Point;
 import com.example.snake_game.resources.Draws;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -20,24 +22,24 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Game2 extends Application {
-    private static  int WIDTH = 1200;
-    private static  int HEIGHT = 800 ;
-    private static  int TILE_SIZE = 40 ;
+    private static  int TILE_SIZE = 60 ;
+    private static  int WIDTH = TILE_SIZE*20;
+    private static  int HEIGHT = TILE_SIZE*15 ;
     static Random random = new Random();
-    public static Point snake = new Point(WIDTH/2,HEIGHT/2);
+    public static Point snake = new Point(TILE_SIZE*10,TILE_SIZE*7);
     public static Point monsterEat = new Point(WIDTH/2,HEIGHT/4);
     public static Point monsterLeft  = new Point(WIDTH/4,(HEIGHT/4)*3);
     public static Point monsterRight = new Point((WIDTH/4)*3,(HEIGHT/4)*3);
     public static Point food = new Point();
-     static int score = 0 ;
+    private IntegerProperty score = new SimpleIntegerProperty(0);
     public static void restart(){
-        snake = new Point(WIDTH/2,HEIGHT/2);
-        monsterEat = new Point(WIDTH/2,HEIGHT/4);
-        monsterLeft  = new Point(160,720);
-        monsterRight = new Point(760,720);
+        snake = new Point(TILE_SIZE*10,TILE_SIZE*7);
+        monsterEat = new Point(WIDTH/2,TILE_SIZE*5);
+        monsterLeft  = new Point(TILE_SIZE*5,TILE_SIZE*12);
+        monsterRight = new Point(TILE_SIZE*15,TILE_SIZE*12);
        food.setX(random.nextInt(WIDTH / TILE_SIZE)*TILE_SIZE);
        food.setY(random.nextInt(HEIGHT / TILE_SIZE)*TILE_SIZE);
-        score = 0 ;
+
     }
     public static void setFood(){
         food.setX(random.nextInt(WIDTH / TILE_SIZE)*TILE_SIZE);
@@ -61,9 +63,9 @@ public class Game2 extends Application {
         Pane layout = new Pane(canvas);
         Scene scene = new Scene(layout,WIDTH,HEIGHT);
         scene.setOnKeyPressed(keyEvent -> {
-            updateMovie.updateSnake(scene,snake,TILE_SIZE,food,WIDTH,HEIGHT);
+            updateMovie.updateSnake(scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score);
             if(snake.getX() == food.getX() && snake.getY() == food.getY()){
-                score++;
+
             }
             draws.drawGame2(gc,snake,monsterEat,monsterLeft,monsterRight,food,TILE_SIZE,WIDTH,HEIGHT,score);
         });

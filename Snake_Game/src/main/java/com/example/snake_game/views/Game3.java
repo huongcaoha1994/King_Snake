@@ -6,6 +6,8 @@ import com.example.snake_game.resources.Draws;
 import com.example.snake_game.utils.Food;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -20,10 +22,10 @@ import javafx.stage.Stage;
 import java.util.*;
 
 public class Game3 extends Application {
-    private static int width = 1200;
-    private static int height = 800;
-    private static int tileSize = 40 ;
-    private static int score = 0 ;
+    private static int tileSize = 60 ;
+    private static int width = tileSize*20;
+    private static int height = tileSize*16;
+    private IntegerProperty score = new SimpleIntegerProperty(0);
     private Point snake ;
     private Point monsterGun ;
     private Point monsterEat ;
@@ -42,7 +44,7 @@ public class Game3 extends Application {
         monsterEat = new Point(random.nextInt(width/tileSize)*tileSize,(height/tileSize)*tileSize);
         food = new Point(random.nextInt(width/tileSize)*tileSize, random.nextInt(height/tileSize)*tileSize );
         monster = new Point(random.nextInt(width/tileSize)*tileSize, random.nextInt(height/tileSize)*tileSize );
-        score = 0 ;
+
     }
 
     public static void main(String[] args) {
@@ -61,10 +63,8 @@ public class Game3 extends Application {
         Pane layout = new Pane(canvas);
         Scene scene = new Scene(layout,width,height);
         scene.setOnKeyPressed(keyEvent -> {
-            updateMovie.updateSnake(scene,snake,tileSize,food,width,height);
-            if(snake.getX() == food.getX() && snake.getY() == food.getY()){
-                score++;
-            }
+            updateMovie.updateSnake(scene,snake,tileSize,food,width,height,score);
+
 
         });
         Timer timerMonsterGun = new Timer();
@@ -81,27 +81,27 @@ public class Game3 extends Application {
             @Override
             public void run() {
                 updateMovie.updateMonsterEat3(monsterEat,food,width,height,tileSize);
-                updateMovie.updateMonster(monster,snake,tileSize);
+//                updateMovie.updateMonster(monster,snake,tileSize);
                 draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster);
                 Platform.runLater(() -> {
                     Game3.this.GameoverAlert(timerMonsterEat,timerMonsterGun,primaryStage,monsterEat);
-                    Game3.this.GameoverAlert(timerMonsterEat,timerMonsterGun,primaryStage,monster);
+//                    Game3.this.GameoverAlert(timerMonsterEat,timerMonsterGun,primaryStage,monster);
                 });
             }
         },0,200);
 
-//        Timer timerMonster = new Timer();
-//        timerMonster.schedule(new TimerTask() {
-//            @Override
-//            public void run() {
-//
-//                updateMovie.updateMonster(monster,snake,tileSize);
-//                draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster);
-//                Platform.runLater(() -> {
-//                    Game3.this.GameoverAlert(timerMonster,timerMonsterGun,primaryStage,monster);
-//                });
-//            }
-//        },0,300);
+        Timer timerMonster = new Timer();
+        timerMonster.schedule(new TimerTask() {
+            @Override
+            public void run() {
+
+                updateMovie.updateMonster(monster,snake,tileSize);
+                draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster);
+                Platform.runLater(() -> {
+                    Game3.this.GameoverAlert(timerMonster,timerMonsterGun,primaryStage,monster);
+                });
+            }
+        },0,300);
 
 
         Timer timerBullet = new Timer();
