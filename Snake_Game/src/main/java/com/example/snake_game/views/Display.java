@@ -9,9 +9,10 @@ import javafx.stage.Stage;
 public class Display extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("display.fxml"));
-        Parent root = loader.load();
-        primaryStage.setScene(new Scene(root, 850 ,600));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/snake_game/display.fxml"));
+        Scene scene = new Scene(root, 800, 500);
+        scene.getStylesheets().add(getClass().getResource("/css/Style.css").toExternalForm());
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
