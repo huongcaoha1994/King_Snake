@@ -10,15 +10,15 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-public class HistoryController {
+public class RankingController {
     @FXML
-    private TableView<History> tableView;
+    private TableView<Ranking> tableView;
 
     @FXML
-    private TableColumn<History, String> playerColumn;
+    private TableColumn<Ranking, String> nameColumn;
 
     @FXML
-    private TableColumn<History, String> resultColumn;
+    private TableColumn<Ranking, String> rankColumn;
 
     public void initialize() {
         // Connect to MongoDB
@@ -29,13 +29,13 @@ public class HistoryController {
         // Query MongoDB and populate the table view
         FindIterable<Document> documents = collection.find();
         for (Document document : documents) {
-            String player = document.getString("name");
-            String result = document.getString("point");
-            tableView.getItems().add(new History(player, result));
+            String name = document.getString("name");
+            String rank = document.getString("rank");
+            tableView.getItems().add(new Ranking(name, rank));
         }
 
         // Configure table columns
-        playerColumn.setCellValueFactory(cellData -> cellData.getValue().playerProperty());
-        resultColumn.setCellValueFactory(cellData -> cellData.getValue().resultProperty());
+        nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        rankColumn.setCellValueFactory(cellData -> cellData.getValue().rankProperty());
     }
 }

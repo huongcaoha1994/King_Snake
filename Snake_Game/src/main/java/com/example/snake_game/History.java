@@ -1,23 +1,38 @@
 package com.example.snake_game;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
-import java.io.IOException;
+public class History {
+    private final StringProperty player;
+    private final StringProperty result;
 
-public class History extends Application {
-    @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(History.class.getResource("history-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("History");
-        stage.setScene(scene);
-        stage.show();
+    public History(String player, String result) {
+        this.player = new SimpleStringProperty(player);
+        this.result = new SimpleStringProperty(result);
     }
 
-    public static void main(String[] args) {
-        launch();
+    public String getPlayer() {
+        return player.get();
+    }
+
+    public StringProperty playerProperty() {
+        return player;
+    }
+
+    public void setPlayer(String player) {
+        this.player.set(player);
+    }
+
+    public String getResult() {
+        return result.get();
+    }
+
+    public StringProperty resultProperty() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result.set(result);
     }
 }

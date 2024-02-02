@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snake_game.HistoryController">
+    <children>
+        <TableView fx:id="tableView" layoutX="50.0" layoutY="50.0" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #CD5C5C;">
+            <columns>
+                <TableColumn fx:id="playerColumn" prefWidth="200.0" text="Player" />
+                <TableColumn fx:id="resultColumn" prefWidth="200.0" text="Result" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
