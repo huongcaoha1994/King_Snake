@@ -10,5 +10,7 @@ module com.example.snake_game {
     exports com.example.snake_game.controllers;
     exports com.example.snake_game.views;
     exports com.example.snake_game;
+    exports com.example.snake_game.utils;
+
 
 }

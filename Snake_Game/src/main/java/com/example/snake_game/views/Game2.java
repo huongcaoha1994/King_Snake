@@ -24,7 +24,7 @@ import java.util.TimerTask;
 public class Game2 extends Application {
     private static  int TILE_SIZE = 60 ;
     private static  int WIDTH = TILE_SIZE*20;
-    private static  int HEIGHT = TILE_SIZE*15 ;
+    private static  int HEIGHT = TILE_SIZE*16 ;
     static Random random = new Random();
     public static Point snake = new Point(TILE_SIZE*10,TILE_SIZE*7);
     public static Point monsterEat = new Point(WIDTH/2,HEIGHT/4);
@@ -63,7 +63,7 @@ public class Game2 extends Application {
         Pane layout = new Pane(canvas);
         Scene scene = new Scene(layout,WIDTH,HEIGHT);
         scene.setOnKeyPressed(keyEvent -> {
-            updateMovie.updateSnake(scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score);
+            updateMovie.updateSnake(gc,scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score);
             if(snake.getX() == food.getX() && snake.getY() == food.getY()){
 
             }

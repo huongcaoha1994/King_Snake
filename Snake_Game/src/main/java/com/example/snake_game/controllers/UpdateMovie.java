@@ -2,20 +2,15 @@ package com.example.snake_game.controllers;
 
 import com.example.snake_game.models.Point;
 //import com.example.snake_game.utils.Random;
-import com.example.snake_game.resources.Draws;
+import com.example.snake_game.resources.image.GetImage;
 import javafx.beans.property.IntegerProperty;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
-import javafx.stage.Stage;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
-import java.util.Timer;
 
 public class UpdateMovie {
     public void updateBoss(Point boss,Point snake,Point area, int tileSize){
@@ -32,7 +27,8 @@ public class UpdateMovie {
         }
 
     }
-    public void updateSnake(Scene scene, Point snake, int tileSize, Point food, int width, int height, IntegerProperty scoreProperty){
+    public void updateSnake(GraphicsContext gc,Scene scene, Point snake, int tileSize, Point food, int width, int height, IntegerProperty scoreProperty){
+        Image gateImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\gate.png");
         scene.setOnKeyPressed(keyEvent -> {
             KeyCode keyCode = keyEvent.getCode();
             switch (keyCode){
@@ -61,8 +57,7 @@ public class UpdateMovie {
                     break;
                 }
             }
-            if(snake.getX() == food.getX() && snake.getY() == food.getY()){
-
+             if (snake.getX() == food.getX() && snake.getY() == food.getY() && scoreProperty.get() < 15) {
                 Random random = new Random();
                 food.setX(random.nextInt(width/tileSize)*tileSize);
                 food.setY(random.nextInt(height/tileSize)*tileSize);

@@ -63,7 +63,7 @@ public class Game3 extends Application {
         Pane layout = new Pane(canvas);
         Scene scene = new Scene(layout,width,height);
         scene.setOnKeyPressed(keyEvent -> {
-            updateMovie.updateSnake(scene,snake,tileSize,food,width,height,score);
+            updateMovie.updateSnake(gc,scene,snake,tileSize,food,width,height,score);
 
 
         });
