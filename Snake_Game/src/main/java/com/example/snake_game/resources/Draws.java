@@ -15,7 +15,7 @@ public class Draws {
     Image bossImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\hero.gif");
     Image foodImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\key.gif");
     Image monsterImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\hero2.gif");
-    Image monsterEatImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monsterEat.jpg");
+    Image monsterEatImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monsterEat.gif");
     Image monsterGunImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monsterGun.jpg");
     Image bulletImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\bullet.jpg");
     Image background = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\hinhnen.jpg");
@@ -64,7 +64,11 @@ public class Draws {
         gc.drawImage(bossImage, monsterRight.getX(), monsterRight.getY(), tileSize, tileSize);
 
 
-        gc.drawImage(foodImage, food.getX(), food.getY(), tileSize, tileSize);
+        if(score.get() >= 15){
+            gc.drawImage(gateImage,width/2,0,tileSize,tileSize);
+        }else {
+            gc.drawImage(foodImage, food.getX(), food.getY(), tileSize, tileSize);
+        }
 
         gc.drawImage(monsterEatImage, monsterEat.getX(), monsterEat.getY(), tileSize, tileSize);
 
@@ -106,7 +110,11 @@ public class Draws {
 
         gc.drawImage(monsterGunImage, monsterGun.getX(), monsterGun.getY(), tileSize, tileSize);
 
-        gc.drawImage(foodImage , food.getX(), food.getY(),tileSize,tileSize);
+        if(score.get() >= 15){
+            gc.drawImage(gateImage,width/2,0,tileSize,tileSize);
+        }else {
+            gc.drawImage(foodImage, food.getX(), food.getY(), tileSize, tileSize);
+        }
 
         gc.setFill(Color.RED);
         gc.fillRect(0, tileSize, width, 2);

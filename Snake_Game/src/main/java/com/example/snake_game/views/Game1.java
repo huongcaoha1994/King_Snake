@@ -61,10 +61,7 @@ public class Game1 extends Application {
         scene.setOnKeyPressed(keyEvent -> {
             UpdateMovie updateMovie = new UpdateMovie();
             updateMovie.updateSnake(gc,scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score);
-            if(snake.getX() == gate.getX() && gate.getY() == food.getY() && score.get() >= 15){
-                start(primaryStage);
-                restart();
-            }
+
             draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
 
 
@@ -78,8 +75,9 @@ public class Game1 extends Application {
                 updateMovie.updateBoss(boss,snake,new Point(TILE_SIZE*10,TILE_SIZE*10),TILE_SIZE);
                 draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
                 Platform.runLater(() -> {
-                    timer1.cancel();
+
                     if(boss.getX() == snake.getX() && boss.getY() == snake.getY()){
+                        timer1.cancel();
                         SceneGameover gameover = new SceneGameover();
                         gameover.start(primaryStage);
                     }

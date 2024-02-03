@@ -25,12 +25,13 @@ public class Game3 extends Application {
     private static int tileSize = 60 ;
     private static int width = tileSize*20;
     private static int height = tileSize*16;
-    private IntegerProperty score = new SimpleIntegerProperty(0);
+    private IntegerProperty score = new SimpleIntegerProperty(14);
     private Point snake ;
     private Point monsterGun ;
     private Point monsterEat ;
     private Point monster ;
     private Point food ;
+    public static Point gate = new Point(width/2,0);
     private List<Point> bullets = new ArrayList<>();
     Random random = new Random();
     public void setFood(){
@@ -53,6 +54,7 @@ public class Game3 extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        SceneGameover3 sceneGameover3 = new SceneGameover3();
         restart();
         UpdateMovie updateMovie = new UpdateMovie();
         Draws draws = new Draws();
@@ -64,6 +66,7 @@ public class Game3 extends Application {
         Scene scene = new Scene(layout,width,height);
         scene.setOnKeyPressed(keyEvent -> {
             updateMovie.updateSnake(gc,scene,snake,tileSize,food,width,height,score);
+            draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster);
 
 
         });
@@ -81,11 +84,13 @@ public class Game3 extends Application {
             @Override
             public void run() {
                 updateMovie.updateMonsterEat3(monsterEat,food,width,height,tileSize);
-//                updateMovie.updateMonster(monster,snake,tileSize);
                 draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster);
                 Platform.runLater(() -> {
-                    Game3.this.GameoverAlert(timerMonsterEat,timerMonsterGun,primaryStage,monsterEat);
-//                    Game3.this.GameoverAlert(timerMonsterEat,timerMonsterGun,primaryStage,monster);
+                    if(monsterEat.getX() == snake.getX() && monsterEat.getY() == snake.getY()){
+                        timerMonsterEat.cancel();
+                        timerMonsterGun.cancel();
+                        sceneGameover3.start(primaryStage);
+                    }
                 });
             }
         },0,200);
@@ -98,7 +103,12 @@ public class Game3 extends Application {
                 updateMovie.updateMonster(monster,snake,tileSize);
                 draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster);
                 Platform.runLater(() -> {
-                    Game3.this.GameoverAlert(timerMonster,timerMonsterGun,primaryStage,monster);
+                    if(monster.getX() == snake.getX() && monster.getY() == snake.getY()){
+                        timerMonster.cancel();
+                        timerMonsterEat.cancel();
+                        timerMonsterGun.cancel();
+                        sceneGameover3.start(primaryStage);
+                    }
                 });
             }
         },0,300);
@@ -112,8 +122,22 @@ public class Game3 extends Application {
                 draws.drawBullet(gc,bullets,tileSize);
                 Platform.runLater(() -> {
                    for(int i = 0 ; i < bullets.size() ; i++){
-                       Game3.this.GameoverAlert(timerBullet,timerMonsterGun,primaryStage,bullets.get(i));
+                       if(bullets.get(i).getX() == snake.getX() && bullets.get(i).getY() == snake.getY()){
+                           timerBullet.cancel();
+                           timerMonster.cancel();
+                           timerMonsterEat.cancel();
+                           timerMonsterGun.cancel();
+                           sceneGameover3.start(primaryStage);
+                       }
                    }
+                    if(snake.getX() == gate.getX() && snake.getY() == gate.getY() && score.get() >= 15){
+                        timerBullet.cancel();
+                        timerMonster.cancel();
+                        timerMonsterEat.cancel();
+                        timerMonsterGun.cancel();
+                        SceneWinner3 demo = new SceneWinner3();
+                        demo.start(primaryStage);
+                    }
                 });
             }
         },0,100);
