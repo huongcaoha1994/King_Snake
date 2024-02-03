@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snake_game.RankingController">
+    <TableView fx:id="tableView" layoutX="20.0" layoutY="20.0" prefHeight="260.0" prefWidth="360.0">
+        <columns>
+            <TableColumn fx:id="nameColumn" prefWidth="180.0" text="Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="name"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="rankColumn" prefWidth="180.0" text="Rank">
+                <cellValueFactory>
+                    <PropertyValueFactory property="score"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+</AnchorPane>
