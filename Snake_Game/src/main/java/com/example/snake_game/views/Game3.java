@@ -4,6 +4,7 @@ import com.example.snake_game.controllers.UpdateMovie;
 import com.example.snake_game.models.Point;
 import com.example.snake_game.resources.Draws;
 import com.example.snake_game.utils.Food;
+import com.example.snake_game.utils.MediaPlay;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
@@ -54,6 +55,7 @@ public class Game3 extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\wingame.mp3");
         SceneGameover3 sceneGameover3 = new SceneGameover3();
         restart();
         UpdateMovie updateMovie = new UpdateMovie();

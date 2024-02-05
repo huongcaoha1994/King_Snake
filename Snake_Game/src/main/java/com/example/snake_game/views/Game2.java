@@ -3,6 +3,7 @@ package com.example.snake_game.views;
 import com.example.snake_game.controllers.UpdateMovie;
 import com.example.snake_game.models.Point;
 import com.example.snake_game.resources.Draws;
+import com.example.snake_game.utils.MediaPlay;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
@@ -53,10 +54,11 @@ public class Game2 extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
         SceneGameover2 sceneGameover2 = new SceneGameover2();
-        restart();
         UpdateMovie updateMovie = new UpdateMovie();
         Draws draws = new Draws() ;
+        restart();
 
         Canvas canvas = new Canvas(WIDTH,HEIGHT);
         GraphicsContext gc = canvas.getGraphicsContext2D();

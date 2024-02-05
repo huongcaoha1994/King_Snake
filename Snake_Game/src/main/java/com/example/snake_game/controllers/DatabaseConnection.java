@@ -22,7 +22,7 @@ public class DatabaseConnection {
             mongoClient = new MongoClient("localhost", 27017);
 
             // Choose the database
-            database = mongoClient.getDatabase("demo");
+            database = mongoClient.getDatabase("demo_mongodb");
 
             System.out.println("Connected to MongoDB successfully!");
         } catch (Exception e) {

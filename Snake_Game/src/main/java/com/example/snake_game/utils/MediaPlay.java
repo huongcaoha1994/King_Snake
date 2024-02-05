@@ -8,12 +8,10 @@ import java.io.File;
 public class MediaPlay {
 
     public static void playMusic(String pathAbsolute) {
-        String relativePath = pathAbsolute;
-        File file = new File(relativePath);
-        String absolutePath = file.getAbsolutePath();
-        Media media = new Media(new File(absolutePath).toURI().toString());
+
+        Media media = new Media(new File(pathAbsolute).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
-
+        mediaPlayer.play();
     }
 }
