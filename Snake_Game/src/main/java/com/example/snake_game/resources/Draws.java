@@ -1,7 +1,7 @@
 package com.example.snake_game.resources;
 
 import com.example.snake_game.models.Point;
-import com.example.snake_game.resources.image.GetImage;
+import com.example.snake_game.utils.GetImage;
 import javafx.beans.property.IntegerProperty;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;

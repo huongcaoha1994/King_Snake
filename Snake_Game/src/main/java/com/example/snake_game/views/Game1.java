@@ -3,6 +3,7 @@ package com.example.snake_game.views;
 import com.example.snake_game.controllers.UpdateMovie;
 import com.example.snake_game.models.Point;
 import com.example.snake_game.resources.Draws;
+import com.example.snake_game.utils.MediaPlay;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
@@ -51,6 +52,8 @@ public class Game1 extends Application {
 
     @Override
     public void  start(Stage primaryStage) {
+        SceneGameover gameover = new SceneGameover();
+        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
         Game1 game1 = new Game1();
         restart();
         Canvas canvas = new Canvas(WIDTH,HEIGHT);
@@ -77,8 +80,8 @@ public class Game1 extends Application {
                 Platform.runLater(() -> {
 
                     if(boss.getX() == snake.getX() && boss.getY() == snake.getY()){
+                        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\gameover.mp3");
                         timer1.cancel();
-                        SceneGameover gameover = new SceneGameover();
                         gameover.start(primaryStage);
                     }
                 });
@@ -96,12 +99,14 @@ public class Game1 extends Application {
                 draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
                 Platform.runLater(() -> {
                     if(monsters.getX() == snake.getX() && monsters.getY() == snake.getY()){
+                        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\gameover.mp3");
                         timer2.cancel();
                         timer1.cancel();
-                        SceneGameover gameover = new SceneGameover();
                         gameover.start(primaryStage);
                     }
                     if(snake.getX() == gate.getX() && snake.getY() == gate.getY() && score.get() >= 15){
+
+                        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\wingame.mp3");
                         timer2.cancel();
                         timer1.cancel();
                         SceneWinner demo = new SceneWinner();
@@ -116,7 +121,7 @@ public class Game1 extends Application {
         primaryStage.setResizable(false);
         primaryStage.show();
 
-        Canvas canvas1 = new Canvas();
+
     }
 
 

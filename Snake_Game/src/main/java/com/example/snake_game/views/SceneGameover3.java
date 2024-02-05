@@ -1,6 +1,6 @@
 package com.example.snake_game.views;
 
-import com.example.snake_game.resources.image.GetImage;
+import com.example.snake_game.utils.GetImage;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
