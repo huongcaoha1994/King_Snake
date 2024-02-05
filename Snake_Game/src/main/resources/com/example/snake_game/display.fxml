@@ -12,13 +12,13 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="body-style" stylesheets="@../../../../java/com/example/snake_game/css/Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="body-style" stylesheets="@../../../../java/com/example/snake_game/css/Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snake_game.controllers.DisplayController">
    <top>
       <HBox prefHeight="74.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER" prefHeight="56.0" prefWidth="149.0">
                <children>
-                  <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserImage" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#handleUserImageClick">
                      <image>
                         <Image url="@../../../../java/com/example/snake_game/resources/image/user.png" />
                      </image>
@@ -33,7 +33,7 @@
             <HBox prefHeight="75.0" prefWidth="487.0" />
             <HBox alignment="CENTER" prefHeight="75.0" prefWidth="162.0">
                <children>
-                  <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="SettingImage" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#handleSettingImageClick">
                      <image>
                         <Image url="@../../../../java/com/example/snake_game/resources/image/setting.png" />
                      </image>
@@ -51,7 +51,7 @@
          <children>
             <VBox alignment="BOTTOM_CENTER" prefHeight="188.0" prefWidth="188.0">
                <children>
-                  <ImageView fitHeight="112.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="RankingImage" fitHeight="112.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#handleRankingImageClick">
                      <image>
                         <Image url="@../../../../java/com/example/snake_game/resources/image/ranking.png" />
                      </image>
@@ -65,7 +65,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fitHeight="112.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="EventImage" fitHeight="112.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#handleEventImageClick">
                      <image>
                         <Image url="@../../../../java/com/example/snake_game/resources/image/event.png" />
                      </image>
@@ -83,7 +83,7 @@
    <right>
       <VBox alignment="CENTER" prefHeight="421.0" prefWidth="190.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" opacity="0.85" prefHeight="50.0" prefWidth="143.0" styleClass="start-button" stylesheets="@../../../../java/com/example/snake_game/css/Style.css" text="Start">
+            <Button fx:id="StartButton" mnemonicParsing="false" opacity="0.85" prefHeight="50.0" prefWidth="143.0" styleClass="start-button" stylesheets="@../../../../java/com/example/snake_game/css/Style.css" text="Start" onMouseClicked="#handleStartButtonClick">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
@@ -91,7 +91,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="143.0" styleClass="skins-button" stylesheets="@../../../../java/com/example/snake_game/css/Style.css" text="Start">
+            <Button fx:id="SkinsButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="143.0" styleClass="skins-button" stylesheets="@../../../../java/com/example/snake_game/css/Style.css" text="Start" onMouseClicked="#handleSkinsButtonClick">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
