@@ -2,19 +2,15 @@ package com.example.snake_game.controllers;
 
 import com.example.snake_game.models.Point;
 //import com.example.snake_game.utils.Random;
-import com.example.snake_game.resources.Draws;
+import com.example.snake_game.resources.image.GetImage;
+import javafx.beans.property.IntegerProperty;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
-import javafx.stage.Stage;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
-import java.util.Timer;
 
 public class UpdateMovie {
     public void updateBoss(Point boss,Point snake,Point area, int tileSize){
@@ -31,7 +27,8 @@ public class UpdateMovie {
         }
 
     }
-    public void updateSnake(Scene scene,Point snake,int tileSize,Point food,int width,int height){
+    public void updateSnake(GraphicsContext gc,Scene scene, Point snake, int tileSize, Point food, int width, int height, IntegerProperty scoreProperty){
+        Image gateImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\gate.png");
         scene.setOnKeyPressed(keyEvent -> {
             KeyCode keyCode = keyEvent.getCode();
             switch (keyCode){
@@ -60,11 +57,11 @@ public class UpdateMovie {
                     break;
                 }
             }
-            if(snake.getX() == food.getX() && snake.getY() == food.getY()){
-
+             if (snake.getX() == food.getX() && snake.getY() == food.getY() && scoreProperty.get() < 15) {
                 Random random = new Random();
                 food.setX(random.nextInt(width/tileSize)*tileSize);
                 food.setY(random.nextInt(height/tileSize)*tileSize);
+                scoreProperty.set(scoreProperty.get()+1);
             }
 
         });
@@ -102,7 +99,7 @@ public class UpdateMovie {
     }
 
     public void updateMonsterBotLelt(Point monsterBotLeft,Point snake,int width , int height ,int tileSize){
-        if(snake.getX() < width/2 && snake.getY() > height/2){
+        if(snake.getX() < width/2 && snake.getY() > tileSize*7){
             if(monsterBotLeft.getX() > snake.getX()){
                 monsterBotLeft.setX(monsterBotLeft.getX()-tileSize);
             }else if (monsterBotLeft.getX() < snake.getX()){
@@ -116,7 +113,7 @@ public class UpdateMovie {
     }
 
     public void updateMonsterBotRight(Point monsterBotRight,Point snake,int width , int height ,int tileSize){
-        if(snake.getX() > width/2 && snake.getY() > height/2){
+        if(snake.getX() > width/2 && snake.getY() > tileSize*7){
             if(monsterBotRight.getX() > snake.getX()){
                 monsterBotRight.setX(monsterBotRight.getX()-tileSize);
             }else if (monsterBotRight.getX() < snake.getX()){

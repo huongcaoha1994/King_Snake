@@ -5,34 +5,45 @@ import com.example.snake_game.models.Point;
 import com.example.snake_game.resources.Draws;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.*; 
-import javafx.scene.image.Image;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.util.*;
 
 public class Game1 extends Application {
-    private static  int WIDTH = 1200;
-    private static  int HEIGHT = 800 ;
-    private static  int TILE_SIZE = 40 ;
-    int score = 0 ;
+    private static  int TILE_SIZE = 60 ;
+    private static  int WIDTH = TILE_SIZE*20;
+    private static  int HEIGHT = TILE_SIZE*16 ;
+
+    private IntegerProperty score = new SimpleIntegerProperty(0);
     static Random random = new Random();
-    static Point snake = new Point(WIDTH/2,HEIGHT/2);
-    static Point boss = new Point(40,40);
+    static Point snake = new Point(WIDTH,HEIGHT);
+    static Point boss = new Point(TILE_SIZE,TILE_SIZE);
     static Point food = new Point();
     public static Point monsters ;
+    public static Point gate = new Point(WIDTH/2,0);
+
+
+    public void setFood(){
+        food.setX(random.nextInt(WIDTH / TILE_SIZE)*TILE_SIZE);
+        food.setY(random.nextInt(HEIGHT / TILE_SIZE)*TILE_SIZE);
+
+    }
 
 
     private static void restart(){
-        snake = new Point(WIDTH/2,HEIGHT/2);
-        boss = new Point(40,40);
-            monsters = new Point(random.nextInt(WIDTH/TILE_SIZE)*TILE_SIZE, random.nextInt(HEIGHT/TILE_SIZE)*TILE_SIZE);
+        snake = new Point(TILE_SIZE*10,TILE_SIZE*7);
+        boss = new Point(TILE_SIZE,TILE_SIZE);
+            monsters = new Point(0, random.nextInt(HEIGHT/TILE_SIZE)*TILE_SIZE);
         food.setX(random.nextInt(WIDTH / TILE_SIZE)*TILE_SIZE);
         food.setY(random.nextInt(HEIGHT / TILE_SIZE)*TILE_SIZE);
+         gate = new Point(WIDTH/2,0);
     }
     public static void main(String[] args) {
         launch(args);
@@ -49,14 +60,14 @@ public class Game1 extends Application {
         Scene scene = new Scene(layout,WIDTH,HEIGHT);
         scene.setOnKeyPressed(keyEvent -> {
             UpdateMovie updateMovie = new UpdateMovie();
-            updateMovie.updateSnake(scene,snake,TILE_SIZE,food,WIDTH,HEIGHT);
-            if(snake.getX() == food.getX() && snake.getY() == food.getY()){
-                if(snake.getX() == food.getX() && snake.getY() == food.getY()){
-                    score = 2;
-
-                }
+            updateMovie.updateSnake(gc,scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score);
+            if(snake.getX() == gate.getX() && gate.getY() == food.getY() && score.get() >= 15){
+                start(primaryStage);
+                restart();
             }
             draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
+
+
         });
 
         Timer timer1 = new Timer();
@@ -67,7 +78,11 @@ public class Game1 extends Application {
                 updateMovie.updateBoss(boss,snake,new Point(TILE_SIZE*10,TILE_SIZE*10),TILE_SIZE);
                 draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
                 Platform.runLater(() -> {
-                   game1.GameoverAlert(timer1,primaryStage,boss);
+                    timer1.cancel();
+                    if(boss.getX() == snake.getX() && boss.getY() == snake.getY()){
+                        SceneGameover gameover = new SceneGameover();
+                        gameover.start(primaryStage);
+                    }
                 });
 
             }
@@ -82,39 +97,29 @@ public class Game1 extends Application {
 
                 draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
                 Platform.runLater(() -> {
-                    game1.GameoverAlert(timer2,primaryStage,monsters);
+                    if(monsters.getX() == snake.getX() && monsters.getY() == snake.getY()){
+                        timer2.cancel();
+                        timer1.cancel();
+                        SceneGameover gameover = new SceneGameover();
+                        gameover.start(primaryStage);
+                    }
+                    if(snake.getX() == gate.getX() && snake.getY() == gate.getY() && score.get() >= 15){
+                        timer2.cancel();
+                        timer1.cancel();
+                        SceneWinner demo = new SceneWinner();
+                        demo.start(primaryStage);
+                    }
                 });
             }
-        },0,210);
+        },0,310);
 
         primaryStage.setTitle("Game Boss 1");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
+
+        Canvas canvas1 = new Canvas();
     }
 
-    public void GameoverAlert(Timer timer,Stage primaryStage,Point monster){
-        if(monster.getX() == snake.getX() && monster.getY() == snake.getY()){
-            timer.cancel();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Game Over");
-            alert.setHeaderText("Information");
-            alert.setContentText("Game Over ! Are you want replay ?");
-            ButtonType buttonTypeYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
-            ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.NO);
 
-            alert.getButtonTypes().setAll(buttonTypeYes,buttonTypeNo);
-
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.isPresent() && result.get() == buttonTypeYes) {
-                timer.cancel();
-                start(primaryStage);
-                restart();
-            } else if (result.isPresent() && result.get() == buttonTypeNo) {
-                primaryStage.close();
-            }
-
-
-        }
-    }
 }
