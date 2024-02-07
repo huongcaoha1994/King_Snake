@@ -15,7 +15,9 @@ public class Display extends Application {
         Parent root = fxmlLoader.load();
 
         Scene scene =new Scene(root, 800,500);
-        scene.getStylesheets().add(getClass().getResource("/com/example/snake_game/css/Style.css").toExternalForm());
+        scene.getStylesheets().add("file:/C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\css\\Style.css");
+//        scene.getStylesheets().add("file:/C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/css/Style.css");
+
 
         primaryStage.setScene(scene);
         primaryStage.show();

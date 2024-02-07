@@ -80,6 +80,7 @@ public class Game1 extends Application {
                 Platform.runLater(() -> {
 
                     if(boss.getX() == snake.getX() && boss.getY() == snake.getY()){
+
                         timer1.cancel();
                         gameover.start(primaryStage);
                     }
