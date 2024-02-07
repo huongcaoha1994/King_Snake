@@ -1,5 +1,6 @@
 package com.example.snake_game.controllers;
 
+import com.example.snake_game.dao.MongoDBConnection;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import javafx.event.ActionEvent;
@@ -69,7 +70,7 @@ public class RegisterController implements Initializable {
     }
     private void registerUser(String username, String password, String comFirmPassword) throws IOException {
         try {
-            MongoDatabase database = DatabaseConnection.getDatabase();
+            MongoDatabase database = MongoDBConnection.connectToMongoDB();
             if (database==null){
                 throw  new IOException(" Registration failed");
             }

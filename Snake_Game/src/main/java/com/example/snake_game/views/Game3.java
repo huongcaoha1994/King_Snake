@@ -55,7 +55,8 @@ public class Game3 extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\wingame.mp3");
+
+        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
         SceneGameover3 sceneGameover3 = new SceneGameover3();
         restart();
         UpdateMovie updateMovie = new UpdateMovie();
@@ -150,29 +151,5 @@ public class Game3 extends Application {
         primaryStage.show();
     }
 
-    public void GameoverAlert(Timer timerMonsterEat ,Timer timerbullet ,Stage primaryStage,Point monster){
-        if(monster.getX() == snake.getX() && monster.getY() == snake.getY()){
-            timerMonsterEat.cancel();
-            timerbullet.cancel();
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Game Over");
-            alert.setHeaderText("Information");
-            alert.setContentText("Game Over ! Are you want replay ?");
-            ButtonType buttonTypeYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
-            ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.NO);
-
-            alert.getButtonTypes().setAll(buttonTypeYes,buttonTypeNo);
-
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.isPresent() && result.get() == buttonTypeYes) {
-                start(primaryStage);
-                restart();
-            } else if (result.isPresent() && result.get() == buttonTypeNo) {
-                primaryStage.close();
-            }
-
-
-        }
-    }
 }
