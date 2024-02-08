@@ -1,7 +1,9 @@
 package com.example.snake_game.views;
 
 import com.example.snake_game.controllers.UpdateMovie;
+import com.example.snake_game.models.GetScore;
 import com.example.snake_game.models.Point;
+import com.example.snake_game.models.UpdateScore;
 import com.example.snake_game.resources.Draws;
 import com.example.snake_game.utils.MediaPlay;
 import javafx.application.Application;
@@ -80,7 +82,10 @@ public class Game1 extends Application {
                 Platform.runLater(() -> {
 
                     if(boss.getX() == snake.getX() && boss.getY() == snake.getY()){
-
+                        int oldScore = GetScore.getScore("huongcaoha1994");
+                        if(score.get() > oldScore){
+                            UpdateScore.updateScore("huongcaoha1994",score.get());
+                        }
                         timer1.cancel();
                         gameover.start(primaryStage);
                     }
@@ -99,11 +104,19 @@ public class Game1 extends Application {
                 draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
                 Platform.runLater(() -> {
                     if(monsters.getX() == snake.getX() && monsters.getY() == snake.getY()){
+                        int oldScore = GetScore.getScore("huongcaoha1994");
+                        if(score.get() > oldScore){
+                            UpdateScore.updateScore("huongcaoha1994",score.get());
+                        }
                         timer2.cancel();
                         timer1.cancel();
                         gameover.start(primaryStage);
                     }
                     if(snake.getX() == gate.getX() && snake.getY() == gate.getY() && score.get() >= 15){
+                        int oldScore = GetScore.getScore("huongcaoha1994");
+                        if(score.get() > oldScore){
+                            UpdateScore.updateScore("huongcaoha1994",score.get());
+                        }
                         timer2.cancel();
                         timer1.cancel();
                         SceneWinner demo = new SceneWinner();
