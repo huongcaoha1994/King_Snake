@@ -2,7 +2,8 @@ package com.example.snake_game.controllers;
 
 import com.example.snake_game.models.Point;
 //import com.example.snake_game.utils.Random;
-import com.example.snake_game.resources.image.GetImage;
+import com.example.snake_game.utils.GetImage;
+import com.example.snake_game.utils.MediaPlay;
 import javafx.beans.property.IntegerProperty;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
@@ -62,6 +63,7 @@ public class UpdateMovie {
                 food.setX(random.nextInt(width/tileSize)*tileSize);
                 food.setY(random.nextInt(height/tileSize)*tileSize);
                 scoreProperty.set(scoreProperty.get()+1);
+                 MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\tingting2.mp3");
             }
 
         });

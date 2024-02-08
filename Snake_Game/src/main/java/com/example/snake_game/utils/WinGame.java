@@ -1,6 +1,5 @@
 package com.example.snake_game.utils;
 
-import com.example.snake_game.resources.image.GetImage;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;

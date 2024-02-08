@@ -1,6 +1,7 @@
 package com.example.snake_game.views;
 
-import com.example.snake_game.resources.image.GetImage;
+import com.example.snake_game.utils.GetImage;
+import com.example.snake_game.utils.MediaPlay;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -18,6 +19,7 @@ public class SceneGameover extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\gameover.mp3");
         Image backgroundImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\gameover.gif");
         BackgroundImage background = new BackgroundImage(backgroundImage,
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
