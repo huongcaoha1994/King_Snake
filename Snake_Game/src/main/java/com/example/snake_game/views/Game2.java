@@ -1,7 +1,7 @@
 package com.example.snake_game.views;
 
 import com.example.snake_game.controllers.UpdateMovie;
-import com.example.snake_game.models.Point;
+import com.example.snake_game.models.*;
 import com.example.snake_game.resources.Draws;
 import com.example.snake_game.utils.MediaPlay;
 import javafx.application.Application;
@@ -34,6 +34,7 @@ public class Game2 extends Application {
     public static Point food = new Point();
     private IntegerProperty score = new SimpleIntegerProperty(14);
     public static Point gate = new Point(WIDTH/2,0);
+    private static String username = "huongcaoha";
     public static void restart(){
         snake = new Point(TILE_SIZE*10,TILE_SIZE*7);
         monsterEat = new Point(WIDTH/2,TILE_SIZE*5);
@@ -78,6 +79,10 @@ public class Game2 extends Application {
                 draws.drawGame2(gc,snake,monsterEat,monsterLeft,monsterRight,food,TILE_SIZE,WIDTH,HEIGHT,score);
                 Platform.runLater(() -> {
                     if(monsterEat.getX() == snake.getX() && monsterEat.getY() == snake.getY()){
+                        int oldScore = GetScore.getScore(username);
+                        if(score.get() > oldScore){
+                            UpdateScore.updateScore(username,score.get());
+                        }
                         timerMonsterEAt.cancel();
                         sceneGameover2.start(primaryStage);
                     }
@@ -94,6 +99,10 @@ public class Game2 extends Application {
                 draws.drawGame2(gc,snake,monsterEat,monsterLeft,monsterRight,food,TILE_SIZE,WIDTH,HEIGHT,score);
                 Platform.runLater(() -> {
                     if(monsterLeft.getX() == snake.getX() && monsterLeft.getY() == snake.getY()){
+                        int oldScore = GetScore.getScore(username);
+                        if(score.get() > oldScore){
+                            UpdateScore.updateScore(username,score.get());
+                        }
                         timerMonsterEAt.cancel();
                         timerMonsterLeft.cancel();
                         sceneGameover2.start(primaryStage);
@@ -110,12 +119,24 @@ public class Game2 extends Application {
                 draws.drawGame2(gc,snake,monsterEat,monsterLeft,monsterRight,food,TILE_SIZE,WIDTH,HEIGHT,score);
                 Platform.runLater(() -> {
                     if(monsterRight.getX() == snake.getX() && monsterRight.getY() == snake.getY()){
+                        int oldScore = GetScore.getScore(username);
+                        if(score.get() > oldScore){
+                            UpdateScore.updateScore(username,score.get());
+                        }
                         timerMonsterEAt.cancel();
                         timerMonsterRight.cancel();
                         timerMonsterLeft.cancel();
                         sceneGameover2.start(primaryStage);
                     }
                     if(snake.getX() == gate.getX() && snake.getY() == gate.getY() && score.get() >= 15){
+                        int oldLevel = GetLevel.getLevel(username);
+                        if(oldLevel < 3){
+                            UpdateLevel.updateLevel(username,3);
+                        }
+                        int oldScore = GetScore.getScore(username);
+                        if(score.get() > oldScore){
+                            UpdateScore.updateScore(username,score.get());
+                        }
                         timerMonsterEAt.cancel();
                         timerMonsterRight.cancel();
                         timerMonsterLeft.cancel();

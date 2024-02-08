@@ -7,7 +7,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c3e3fc2-7d32-4662-8f7f-e409c662005f" name="Changes" comment="" />
+    <list default="true" id="6c3e3fc2-7d32-4662-8f7f-e409c662005f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Game1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Game1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Game2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Game2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Game3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Game3.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,9 +34,9 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2c34lGDFEgHwdN8BpR3zvu23Ajt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -39,10 +45,20 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Display.executor": "Run",
+    "Application.Game1 (1).executor": "Run",
+    "Application.Game1 (2).executor": "Run",
+    "Application.Game1 (3).executor": "Run",
+    "Application.Game1 (4).executor": "Run",
+    "Application.Game1 (5).executor": "Run",
+    "Application.Game1.executor": "Run",
+    "Application.GameLevel.executor": "Run",
+    "Application.LoginDisplay.executor": "Run",
+    "Application.Register.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "hieu",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/Windows 11/IdeaProjects/King_Snake",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -58,9 +74,9 @@
       <recent name="C:\Users\Windows 11\IdeaProjects\Snake_Game\src\main\java\com\example\snake_game\resources\image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SceneInformation">
-    <configuration name="Display" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Display" />
+  <component name="RunManager" selected="Application.Game1 (1)">
+    <configuration name="Game1 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Game1" />
       <module name="Snake_Game" />
       <extension name="coverage">
         <pattern>
@@ -72,8 +88,47 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SceneInformation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.SceneInformation" />
+    <configuration name="Game1 (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Game1" />
+      <module name="Snake_Game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.snake_game.views.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Game1 (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Game1" />
+      <module name="Snake_Game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.snake_game.views.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Game1 (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Game1" />
+      <module name="Snake_Game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.snake_game.views.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Game1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Game1" />
       <module name="Snake_Game" />
       <extension name="coverage">
         <pattern>
@@ -87,8 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SceneInformation" />
-        <item itemvalue="Application.Display" />
+        <item itemvalue="Application.Game1 (1)" />
+        <item itemvalue="Application.Game1 (5)" />
+        <item itemvalue="Application.Game1" />
+        <item itemvalue="Application.Game1 (4)" />
+        <item itemvalue="Application.Game1 (3)" />
       </list>
     </recent_temporary>
   </component>
