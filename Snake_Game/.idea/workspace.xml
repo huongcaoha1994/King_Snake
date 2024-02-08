@@ -8,11 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c3e3fc2-7d32-4662-8f7f-e409c662005f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/snake_game/Register.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Game1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Game1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Game2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Game2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Game3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Game3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/controllers/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Register.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
-        <option value="FxmlFile" />
         <option value="CSS File" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -45,20 +45,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Display.executor": "Run",
-    "Application.Game1 (1).executor": "Run",
-    "Application.Game1 (2).executor": "Run",
-    "Application.Game1 (3).executor": "Run",
-    "Application.Game1 (4).executor": "Run",
-    "Application.Game1 (5).executor": "Run",
-    "Application.Game1.executor": "Run",
-    "Application.GameLevel.executor": "Run",
-    "Application.LoginDisplay.executor": "Run",
-    "Application.Register.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Nguyenvantruc",
     "last_opened_file_path": "C:/Users/Windows 11/IdeaProjects/King_Snake",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -74,9 +64,9 @@
       <recent name="C:\Users\Windows 11\IdeaProjects\Snake_Game\src\main\java\com\example\snake_game\resources\image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Game1 (1)">
-    <configuration name="Game1 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Game1" />
+  <component name="RunManager" selected="Application.Register">
+    <configuration name="Display" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Display" />
       <module name="Snake_Game" />
       <extension name="coverage">
         <pattern>
@@ -88,8 +78,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Game1 (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Game1" />
+    <configuration name="LoginDisplay" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.LoginDisplay" />
       <module name="Snake_Game" />
       <extension name="coverage">
         <pattern>
@@ -101,8 +91,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Game1 (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Game1" />
+    <configuration name="Register" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Register" />
       <module name="Snake_Game" />
       <extension name="coverage">
         <pattern>
@@ -114,21 +104,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Game1 (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Game1" />
-      <module name="Snake_Game" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.snake_game.views.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Game1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Game1" />
+    <configuration name="SceneInformation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.SceneInformation" />
       <module name="Snake_Game" />
       <extension name="coverage">
         <pattern>
@@ -142,11 +119,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Game1 (1)" />
-        <item itemvalue="Application.Game1 (5)" />
-        <item itemvalue="Application.Game1" />
-        <item itemvalue="Application.Game1 (4)" />
-        <item itemvalue="Application.Game1 (3)" />
+        <item itemvalue="Application.Register" />
+        <item itemvalue="Application.LoginDisplay" />
+        <item itemvalue="Application.SceneInformation" />
+        <item itemvalue="Application.Display" />
       </list>
     </recent_temporary>
   </component>
