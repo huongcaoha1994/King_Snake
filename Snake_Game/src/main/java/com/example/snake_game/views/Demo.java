@@ -13,7 +13,7 @@ public class Demo extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        System.out.println(GetLevel.getLevel("huongcaoha1994"));
+        System.out.println(CheckUsernamePassword.checkUsernamePassword("nguyenthutrang","123456789"));
 
     }
 }

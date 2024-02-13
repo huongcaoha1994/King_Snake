@@ -1,7 +1,7 @@
 package com.example.snake_game.views;
 
 import com.example.snake_game.controllers.UpdateMovie;
-import com.example.snake_game.models.Point;
+import com.example.snake_game.models.*;
 import com.example.snake_game.resources.Draws;
 import com.example.snake_game.utils.MediaPlay;
 import javafx.application.Application;
@@ -22,13 +22,14 @@ public class Game1 extends Application {
     private static  int WIDTH = TILE_SIZE*20;
     private static  int HEIGHT = TILE_SIZE*16 ;
 
-    private IntegerProperty score = new SimpleIntegerProperty(0);
+    private IntegerProperty score = new SimpleIntegerProperty(14);
     static Random random = new Random();
     static Point snake = new Point(WIDTH,HEIGHT);
     static Point boss = new Point(TILE_SIZE,TILE_SIZE);
     static Point food = new Point();
     public static Point monsters ;
     public static Point gate = new Point(WIDTH/2,0);
+    public static String username = "huongcaoha" ;
 
 
     public void setFood(){
@@ -80,7 +81,10 @@ public class Game1 extends Application {
                 Platform.runLater(() -> {
 
                     if(boss.getX() == snake.getX() && boss.getY() == snake.getY()){
-
+                        int oldScore = GetScore.getScore(username);
+                        if(score.get() > oldScore){
+                            UpdateScore.updateScore(username,score.get());
+                        }
                         timer1.cancel();
                         gameover.start(primaryStage);
                     }
@@ -99,11 +103,24 @@ public class Game1 extends Application {
                 draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
                 Platform.runLater(() -> {
                     if(monsters.getX() == snake.getX() && monsters.getY() == snake.getY()){
+                        int oldScore = GetScore.getScore(username);
+                        if(score.get() > oldScore){
+                            UpdateScore.updateScore(username,score.get());
+                        }
                         timer2.cancel();
                         timer1.cancel();
                         gameover.start(primaryStage);
                     }
                     if(snake.getX() == gate.getX() && snake.getY() == gate.getY() && score.get() >= 15){
+                        int oldScore = GetScore.getScore(username);
+                        if(score.get() > oldScore){
+                            UpdateScore.updateScore(username,score.get());
+                        }
+
+                        int oldLevel = GetLevel.getLevel(username);
+                        if(oldLevel < 2){
+                            UpdateLevel.updateLevel(username,2);
+                        }
                         timer2.cancel();
                         timer1.cancel();
                         SceneWinner demo = new SceneWinner();

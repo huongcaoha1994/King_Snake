@@ -1,6 +1,8 @@
 package com.example.snake_game.controllers;
 
 import com.example.snake_game.dao.MongoDBConnection;
+import com.example.snake_game.models.CheckUsername;
+import com.example.snake_game.models.InsertUser;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import javafx.event.ActionEvent;
@@ -69,29 +71,35 @@ public class RegisterController implements Initializable {
         alert.showAndWait();
     }
     private void registerUser(String username, String password, String comFirmPassword) throws IOException {
-        try {
-            MongoDatabase database = MongoDBConnection.connectToMongoDB();
-            if (database==null){
-                throw  new IOException(" Registration failed");
-            }
-            // lấy collection User từ Mongodb
-            MongoCollection<Document> collection = database.getCollection("Users");
-
-            //kiểm tra xem tài khoản đã tồn tại chưa
-            Document existingUser = collection.find(new Document("username",username)).first();
-
-            if (existingUser != null){
-                throw new IOException("Username already exists. Please choose a different username.");
-            }
+//        try {
+//            MongoDatabase database = MongoDBConnection.connectToMongoDB();
+//            if (database==null){
+//                throw  new IOException(" Registration failed");
+//            }
+//            // lấy collection User từ Mongodb
+//            MongoCollection<Document> collection = database.getCollection("user");
+//
+//            //kiểm tra xem tài khoản đã tồn tại chưa
+//            Document existingUser = collection.find(new Document("username",username)).first();
+//
+//            if (existingUser != null){
+//                throw new IOException("Username already exists. Please choose a different username.");
+//            }
 //            // mã hóa mất khẩu
 //            String hashedPassword =  BCrypt.hashpw(password,BCrypt.gensalt());
 
             // thông thông tin đăng ký vào database
-            Document newUser = new Document("username",username).append("password", password).append("comFirmPassword",comFirmPassword);
-            collection.insertOne(newUser);
-        }catch (Exception e) {
-            e.printStackTrace();
-            IOException ioException = new IOException("Registration failed. Please try again.");
+//            Document newUser = new Document("username",username).append("password", password).append("comFirmPassword",comFirmPassword);
+//            collection.insertOne(newUser);
+//        }catch (Exception e) {
+//            e.printStackTrace();
+//            IOException ioException = new IOException("Registration failed. Please try again.");
+//        }
+        if(CheckUsername.checkUsernameExist(username)){
+            throw new IOException("Username already exists. Please choose a different username.");
+        }
+        else {
+            InsertUser.insertUser(username,password);
         }
     }
 
