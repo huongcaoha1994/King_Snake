@@ -142,9 +142,9 @@ public class PlayScreen extends Application {
 
 
 
-        VBox centerVBox1 = createVBoxWithImageAndButton("", playMan1Button);
-        VBox centerVBox2 = createVBoxWithImageAndButton("", playMan2Button);
-        VBox centerVBox3 = createVBoxWithImageAndButton("", playMan3Button);
+        VBox centerVBox1 = createVBoxWithImageAndButton("File:C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\Black and Gold snake _ Poster _ Wall Art _ Home Decor _.jpg", playMan1Button);
+        VBox centerVBox2 = createVBoxWithImageAndButton("File:C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\Reptile Wallpaper \uD83D\uDC0D.jpg", playMan2Button);
+        VBox centerVBox3 = createVBoxWithImageAndButton("File:C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\tải xuống (1).jpg", playMan3Button);
 
 
         HBox hBox = new HBox(centerVBox1, centerVBox2, centerVBox3); // HBox để chứa 3 màn chơi
