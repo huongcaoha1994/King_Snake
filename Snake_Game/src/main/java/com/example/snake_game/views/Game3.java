@@ -60,7 +60,6 @@ public class Game3 extends Application {
     public void start(Stage primaryStage) {
 
         MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
-        SceneGameover3 sceneGameover3 = new SceneGameover3();
         restart();
         UpdateMovie updateMovie = new UpdateMovie();
         Draws draws = new Draws();
@@ -99,7 +98,8 @@ public class Game3 extends Application {
                         }
                         timerMonsterEat.cancel();
                         timerMonsterGun.cancel();
-                        sceneGameover3.start(primaryStage);
+                        primaryStage.setScene(SceenGameover.SceneClose(primaryStage,3));
+                        primaryStage.show();
                     }
                 });
             }
@@ -121,7 +121,8 @@ public class Game3 extends Application {
                         timerMonster.cancel();
                         timerMonsterEat.cancel();
                         timerMonsterGun.cancel();
-                        sceneGameover3.start(primaryStage);
+                        primaryStage.setScene(SceenGameover.SceneClose(primaryStage,3));
+                        primaryStage.show();
                     }
                 });
             }
@@ -145,7 +146,8 @@ public class Game3 extends Application {
                            timerMonster.cancel();
                            timerMonsterEat.cancel();
                            timerMonsterGun.cancel();
-                           sceneGameover3.start(primaryStage);
+                           primaryStage.setScene(SceenGameover.SceneClose(primaryStage,3));
+                           primaryStage.show();
                        }
                    }
                     if(snake.getX() == gate.getX() && snake.getY() == gate.getY() && score.get() >= 15){
@@ -157,8 +159,8 @@ public class Game3 extends Application {
                         timerMonster.cancel();
                         timerMonsterEat.cancel();
                         timerMonsterGun.cancel();
-                        SceneWinner3 demo = new SceneWinner3();
-                        demo.start(primaryStage);
+                        primaryStage.setScene(SceenGameWin.WinGame(primaryStage,3));
+                        primaryStage.show();
                     }
                 });
             }

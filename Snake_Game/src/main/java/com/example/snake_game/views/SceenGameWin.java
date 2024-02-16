@@ -2,7 +2,6 @@ package com.example.snake_game.views;
 
 import com.example.snake_game.utils.GetImage;
 import com.example.snake_game.utils.MediaPlay;
-import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,15 +9,13 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-public class SceneWinner extends Application {
-        private static int width = 1200 ;
-        private static int height = 960 ;
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage) {
+public class SceenGameWin {
+    public static Scene WinGame(Stage primaryStage,int levelGame){
+        int width = 1200 ;
+        int height = 960 ;
+        Game1 game1 = new Game1();
+        Game2 game2 = new Game2();
+        Game3 game3 = new Game3();
         MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\wingame.mp3");
         Image backgroundImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\winner1.gif");
         BackgroundImage background = new BackgroundImage(backgroundImage,
@@ -31,8 +28,20 @@ public class SceneWinner extends Application {
         buttonReplay.setPrefHeight(40);
         buttonReplay.setStyle("-fx-background-color: #c8ff00;");
         buttonReplay.setOnAction(even -> {
-           Game1 game1 = new Game1();
-           game1.start(primaryStage);
+            switch (levelGame){
+                case 1 : {
+                    game1.start(primaryStage);
+                    break;
+                }
+                case 2 : {
+                    game2.start(primaryStage);
+                    break;
+                }
+                case 3 : {
+                    game3.start(primaryStage);
+                    break;
+                }
+            }
         });
 
         Button buttonBackMain = new Button("Main");
@@ -48,8 +57,20 @@ public class SceneWinner extends Application {
         buttonNext.setPrefHeight(40);
         buttonNext.setStyle("-fx-background-color: #c8ff00;");
         buttonNext.setOnAction(actionEvent -> {
-           Game2 game2 = new Game2();
-           game2.start(primaryStage);
+            switch (levelGame){
+                case 1 : {
+                    game2.start(primaryStage);
+                    break;
+                }
+                case 2 : {
+                    game3.start(primaryStage);
+                    break;
+                }
+                case 3 : {
+                    System.out.println("Coming soon");
+                    break;
+                }
+            }
         });
 
         // Tạo AnchorPane
@@ -73,8 +94,6 @@ public class SceneWinner extends Application {
 
         // Tạo Scene với AnchorPane làm nội dung
         Scene scene = new Scene(pane, width, height);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
+        return  scene ;
     }
 }

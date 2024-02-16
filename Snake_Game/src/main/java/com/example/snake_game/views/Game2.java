@@ -56,7 +56,6 @@ public class Game2 extends Application {
     @Override
     public void start(Stage primaryStage) {
         MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
-        SceneGameover2 sceneGameover2 = new SceneGameover2();
         UpdateMovie updateMovie = new UpdateMovie();
         Draws draws = new Draws() ;
         restart();
@@ -84,7 +83,8 @@ public class Game2 extends Application {
                             UpdateScore.updateScore(username,score.get());
                         }
                         timerMonsterEAt.cancel();
-                        sceneGameover2.start(primaryStage);
+                        primaryStage.setScene(SceenGameover.SceneClose(primaryStage,2));
+                        primaryStage.show();
                     }
 
                 });
@@ -105,7 +105,8 @@ public class Game2 extends Application {
                         }
                         timerMonsterEAt.cancel();
                         timerMonsterLeft.cancel();
-                        sceneGameover2.start(primaryStage);
+                        primaryStage.setScene(SceenGameover.SceneClose(primaryStage,2));
+                        primaryStage.show();
                     }
                 });
             }
@@ -126,7 +127,8 @@ public class Game2 extends Application {
                         timerMonsterEAt.cancel();
                         timerMonsterRight.cancel();
                         timerMonsterLeft.cancel();
-                        sceneGameover2.start(primaryStage);
+                        primaryStage.setScene(SceenGameover.SceneClose(primaryStage,2));
+                        primaryStage.show();
                     }
                     if(snake.getX() == gate.getX() && snake.getY() == gate.getY() && score.get() >= 15){
                         int oldLevel = GetLevel.getLevel(username);
@@ -140,8 +142,8 @@ public class Game2 extends Application {
                         timerMonsterEAt.cancel();
                         timerMonsterRight.cancel();
                         timerMonsterLeft.cancel();
-                        SceneWinner2 demo = new SceneWinner2();
-                        demo.start(primaryStage);
+                        primaryStage.setScene(SceenGameWin.WinGame(primaryStage,2));
+                        primaryStage.show();
                     }
                 });
 
