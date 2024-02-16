@@ -9,9 +9,15 @@
   <component name="ChangeListManager">
     <list default="true" id="6c3e3fc2-7d32-4662-8f7f-e409c662005f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/CheckUsername.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/CheckUsername.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/CheckUsernamePassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/CheckUsernamePassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/GetLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/GetLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/GetScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/GetScore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/GetTop10User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/GetTop10User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/InsertUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/InsertUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/UpdateLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/UpdateLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/UpdateScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/UpdateScore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/GuidePlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/GuidePlay.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
