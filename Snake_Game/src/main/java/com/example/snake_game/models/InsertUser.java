@@ -9,12 +9,13 @@ import org.bson.Document;
 public class InsertUser {
     public static void insertUser(String username ,String password){
         // Kết nối tới MongoDB local
-        try (MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017")) {
+        String connectionString = "mongodb+srv://<huongcaoha1994>:<huongcaoha1994>@kingsnake.ruun7y8.mongodb.net/?retryWrites=true&w=majority";
+        try (MongoClient mongoClient = MongoClients.create(connectionString)) {
             // Chọn database
             MongoDatabase database = mongoClient.getDatabase("kingsnake");
 
             // Chọn collection
-            MongoCollection<Document> collection = database.getCollection("user");
+            MongoCollection<Document> collection = database.getCollection("users");
 
             // Tạo document
             Document document = new Document("username", username)
