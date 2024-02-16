@@ -13,8 +13,9 @@ public class Demo extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        int level = GetLevel.getLevel("huongcaoha1994");
-        System.out.println(level);
+       primaryStage.setScene(GuidePlay.guidePlay(primaryStage,1));
+        primaryStage.setResizable(false);
+       primaryStage.show();
 
     }
 }
