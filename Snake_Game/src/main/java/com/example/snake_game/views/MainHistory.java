@@ -1,4 +1,4 @@
-package com.example.snake_game;
+package com.example.snake_game.views;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,12 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MainRanking extends Application {
+public class MainHistory extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("ranking.fxml"));
-        primaryStage.setTitle("Bảng Xếp Hạng");
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/snake_game/history.fxml"));
+        primaryStage.setTitle("Lịch sử đấu");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }
@@ -20,4 +20,3 @@ public class MainRanking extends Application {
         launch(args);
     }
 }
-

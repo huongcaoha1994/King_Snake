@@ -1,44 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snake_game.HistoryController">
-
-
-    <top>
-        <HBox>
-            <!-- Your top components here -->
-        </HBox>
-    </top>
-
-    <center>
-        <StackPane>
-            <ImageView>
-                <image>
-                    <Image url="@resources/image/bgr1.jpg" />
-                </image>
-            </ImageView>
-
-            <TableView fx:id="tableView">
-                <columns>
-                    <TableColumn fx:id="nameColumn" prefWidth="200.0" text="Player" />
-                    <TableColumn fx:id="pointColumn" prefWidth="200.0" text="Point" />
-                    <TableColumn fx:id="timeColumn" prefWidth="200.0" text="Time" />
-                </columns>
-            </TableView>
-        </StackPane>
-    </center>
-
-    <bottom>
-        <HBox>
-            <!-- Your bottom components here -->
-        </HBox>
-    </bottom>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snake_game.controllers.HistoryController">
+   <top>
+      <AnchorPane prefHeight="43.0" prefWidth="600.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="256.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="History">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="nameColumn" prefWidth="193.33331298828125" text="Player" />
+          <TableColumn fx:id="pointColumn" prefWidth="206.6666259765625" text="Point" />
+            <TableColumn fx:id="timeColumn" prefWidth="199.3333740234375" text="Time" />
+        </columns>
+      </TableView>
+   </center>
 </BorderPane>
