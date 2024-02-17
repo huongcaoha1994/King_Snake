@@ -45,7 +45,8 @@ public class Demo extends Application {
 //
 //        // Đóng kết nối
 //        mongoClient.close();
-      InsertUser.insertUser("huongcaoha1994","huongcaoha");
+       primaryStage.setScene(SceneDisplay.display());
+       primaryStage.show();
 
     }
 }

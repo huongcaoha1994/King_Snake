@@ -18,14 +18,11 @@ import javafx.stage.Stage;
 import java.util.Stack;
 
 public class GuidePlay {
-    public static Scene guidePlay(Stage primaryStage ,int levelGame){
+    public static Scene guidePlay(Stage primaryStage ,int levelGame,String username){
         int width = 1200 ;
         int height = 960;
         int sizeImage = 100 ;
         int fontSize = 20 ;
-        Game1 game1 = new Game1();
-        Game2 game2 = new Game2();
-        Game3 game3 = new Game3();
 
 
         MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\gameover.mp3");
@@ -132,15 +129,15 @@ public class GuidePlay {
         next.setOnAction(actionEvent -> {
             switch (levelGame){
                 case 1 : {
-                    game1.start(primaryStage);
+                    primaryStage.setScene(SceneGame1.game1(primaryStage,username));
                     break;
                 }
                 case 2 : {
-                    game2.start(primaryStage);
+                    primaryStage.setScene(SceneGame2.game2(primaryStage,username));
                     break;
                 }
                 case 3 : {
-                    game3.start(primaryStage);
+                    primaryStage.setScene(SceneGame3.game3(primaryStage, username));
                     break;
                 }
             }

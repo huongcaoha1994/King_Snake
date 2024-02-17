@@ -17,7 +17,7 @@ public class GetTop10User {
             // Kết nối thành công
 
             // Chọn cơ sở dữ liệu
-            database = mongoClient.getDatabase("kingsnake");
+            database = mongoClient.getDatabase("huongcaoha");
             MongoCollection<Document> collection = database.getCollection("users");
              result = collection.find()
                     .sort(new Document("score", -1))

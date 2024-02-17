@@ -1,27 +1,23 @@
 package com.example.snake_game.views;
 
-import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.File;
-
-
-public class PlayScreen extends Application {
-
+public class ScenePlaygame {
     StackPane rootPane = new StackPane();
-    private boolean man1Completed = true;
-    private boolean man2Completed = false;
-    private boolean man3Completed = true;
-
-    @Override
-    public void start(Stage primaryStage) {
+    private static boolean man1Completed = true;
+    private static boolean man2Completed = false;
+    private static boolean man3Completed = true;
+    public static Scene playgame(Stage primaryStage){
         Button playMan1Button = new Button("Chơi màn 1");
         Button playMan2Button = new Button("Chơi màn 2");
         Button playMan3Button = new Button("Chơi màn 3");
@@ -162,13 +158,9 @@ public class PlayScreen extends Application {
         scene.getRoot().setStyle(
                 "-fx-background-color: linear-gradient(to bottom right, #00FFFF, #8A2BE2);"
         );
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Game");
-        primaryStage.setResizable(false); // Tắt tính năng thu phóng của cửa sổ
-        primaryStage.show();
+        return scene;
     }
-
-    private VBox createVBoxWithImageAndButton(String imagePath, Button button) {
+    private static VBox createVBoxWithImageAndButton(String imagePath, Button button) {
         VBox vBox = new VBox();
         vBox.setAlignment(Pos.CENTER);
 
@@ -185,15 +177,11 @@ public class PlayScreen extends Application {
         return vBox;
     }
 
-    private void showIncompleteAlert(String incompleteMan) {
+    private static void showIncompleteAlert(String incompleteMan) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Cảnh báo");
         alert.setHeaderText(null);
         alert.setContentText("Bạn chưa qua màn " + incompleteMan + ". "+"Hãy qua màn.");
         alert.showAndWait();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

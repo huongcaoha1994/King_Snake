@@ -4,6 +4,8 @@ import com.example.snake_game.models.CheckUsername;
 import com.example.snake_game.models.CheckUsernamePassword;
 import com.example.snake_game.views.Display;
 import com.example.snake_game.views.LoginDisplay;
+import com.example.snake_game.views.Register;
+import com.example.snake_game.views.SceneDisplay;
 import com.mongodb.connection.Connection;
 import com.mongodb.connection.ConnectionId;
 import javafx.application.Application;
@@ -11,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -54,16 +57,22 @@ public class LoginController implements Initializable {
         password = passwordField.getText();
 //        loginMessageLabel.setText("You Try to Login");
         if (CheckUsernamePassword.checkUsernamePassword(username,password)){
-            Stage stage = new Stage();
-            Display display = new Display();
-            LoginDisplay loginDisplay = new LoginDisplay() ;
-            loginDisplay.stop();
-            display.start(stage);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(SceneDisplay.display());
+            stage.show();
+
         }
         else{
             showAlert("Login Error","Acount or Password fail !");
             return;
         }
+    }
+    public void register(ActionEvent event) throws Exception {
+        Parent registerPage = FXMLLoader.load(getClass().getResource("/com/example/snake_game/Register.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(registerPage));
+        stage.show();
+
     }
     public void cancelButtonOnAction(ActionEvent event){
         Stage stage = (Stage) cancelButton.getScene().getWindow();

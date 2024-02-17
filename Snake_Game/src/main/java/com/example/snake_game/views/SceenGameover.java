@@ -10,12 +10,9 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class SceenGameover {
-    public static Scene SceneClose(Stage primaryStage ,int gameLevel){
+    public static Scene SceneClose(Stage primaryStage ,int gameLevel,String username){
         int width = 1200;
         int height = 960 ;
-        Game1 game1 = new Game1();
-        Game2 game2 = new Game2();
-        Game3 game3 = new Game3();
 
         MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\gameover.mp3");
         Image backgroundImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\gameover.gif");
@@ -31,15 +28,15 @@ public class SceenGameover {
         buttonReplay.setOnAction(even -> {
             switch (gameLevel){
                 case 1 : {
-                    game1.start(primaryStage);
+                   primaryStage.setScene(SceneGame1.game1(primaryStage,username));
                     break;
                 }
                 case 2 : {
-                    game2.start(primaryStage);
+                    primaryStage.setScene(SceneGame2.game2(primaryStage,username));
                     break;
                 }
                 case 3 : {
-                    game3.start(primaryStage);
+                   primaryStage.setScene(SceneGame3.game3(primaryStage, username));
                     break;
                 }
 

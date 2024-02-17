@@ -12,12 +12,12 @@ public class GetScore {
         MongoDatabase database = null;
         // Thay đổi URI kết nối theo cấu hình MongoDB của bạn
         String connectionString = "mongodb+srv://kingsnake:kingsnake@cluster0.baduwey.mongodb.net/?retryWrites=true&w=majority";
-        int score = 0;
+        int score = -1;
         try (MongoClient mongoClient = new MongoClient(new MongoClientURI(connectionString))) {
             // Kết nối thành công
 
             // Chọn cơ sở dữ liệu
-            database = mongoClient.getDatabase("kingsnake");
+            database = mongoClient.getDatabase("huongcaoha");
             MongoCollection<Document> collection = database.getCollection("users");
             Document query = new Document("username",(username));
             Document rs = collection.find(query).first();
@@ -28,6 +28,7 @@ public class GetScore {
         } catch (Exception e) {
             // Xử lý lỗi kết nối
             e.printStackTrace();
+            System.out.println("Not found username");
         }
         return score;
     }
