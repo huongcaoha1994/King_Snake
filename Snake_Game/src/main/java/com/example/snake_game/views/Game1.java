@@ -11,7 +11,6 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -53,7 +52,6 @@ public class Game1 extends Application {
 
     @Override
     public void  start(Stage primaryStage) {
-        SceneGameover gameover = new SceneGameover();
         MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
         Game1 game1 = new Game1();
         restart();
@@ -86,7 +84,10 @@ public class Game1 extends Application {
                             UpdateScore.updateScore(username,score.get());
                         }
                         timer1.cancel();
-                        gameover.start(primaryStage);
+
+
+                        primaryStage.setScene(SceenGameover.SceneClose(primaryStage,1));
+                        primaryStage.show();
                     }
                 });
 
@@ -109,7 +110,9 @@ public class Game1 extends Application {
                         }
                         timer2.cancel();
                         timer1.cancel();
-                        gameover.start(primaryStage);
+
+                        primaryStage.setScene(SceenGameover.SceneClose(primaryStage,1));
+                        primaryStage.show();
                     }
                     if(snake.getX() == gate.getX() && snake.getY() == gate.getY() && score.get() >= 15){
                         int oldScore = GetScore.getScore(username);
@@ -123,8 +126,8 @@ public class Game1 extends Application {
                         }
                         timer2.cancel();
                         timer1.cancel();
-                        SceneWinner demo = new SceneWinner();
-                        demo.start(primaryStage);
+                        primaryStage.setScene(SceenGameWin.WinGame(primaryStage,1));
+                        primaryStage.show();
                     }
                 });
             }

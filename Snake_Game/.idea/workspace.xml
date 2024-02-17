@@ -8,13 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c3e3fc2-7d32-4662-8f7f-e409c662005f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/CheckUsernamePassword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/InsertUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/controllers/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/CheckUsername.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/CheckUsername.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/CheckUsernamePassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/CheckUsernamePassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/GetLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/GetLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/GetScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/GetScore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/GetTop10User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/GetTop10User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/InsertUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/InsertUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/UpdateLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/UpdateLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/UpdateScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/UpdateScore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,8 +52,18 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Demo.executor": "Run",
+    "Application.Display.executor": "Run",
+    "Application.Game1 (1).executor": "Run",
+    "Application.Game1 (2).executor": "Run",
+    "Application.Game1.executor": "Run",
+    "Application.Game2.executor": "Run",
+    "Application.Game3 (1).executor": "Run",
+    "Application.Game3.executor": "Run",
     "Application.LoginDisplay.executor": "Run",
+    "Application.PlayScreen.executor": "Run",
     "Application.Register.executor": "Run",
+    "Application.SceneGameover.executor": "Run",
+    "Application.SceneInformation.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -71,7 +83,7 @@
       <recent name="C:\Users\Windows 11\IdeaProjects\Snake_Game\src\main\java\com\example\snake_game\resources\image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LoginDisplay">
+  <component name="RunManager" selected="Application.Demo">
     <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Demo" />
       <module name="Snake_Game" />
@@ -85,8 +97,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Display" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Display" />
+    <configuration name="Game1 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Game1" />
       <module name="Snake_Game" />
       <extension name="coverage">
         <pattern>
@@ -98,8 +110,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginDisplay" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.LoginDisplay" />
+    <configuration name="Game1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Game1" />
       <module name="Snake_Game" />
       <extension name="coverage">
         <pattern>
@@ -111,8 +123,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Register" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Register" />
+    <configuration name="Game2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Game2" />
       <module name="Snake_Game" />
       <extension name="coverage">
         <pattern>
@@ -124,8 +136,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SceneInformation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.SceneInformation" />
+    <configuration name="Game3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Game3" />
       <module name="Snake_Game" />
       <extension name="coverage">
         <pattern>
@@ -139,11 +151,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LoginDisplay" />
         <item itemvalue="Application.Demo" />
-        <item itemvalue="Application.Register" />
-        <item itemvalue="Application.SceneInformation" />
-        <item itemvalue="Application.Display" />
+        <item itemvalue="Application.Game1" />
+        <item itemvalue="Application.Game3" />
+        <item itemvalue="Application.Game2" />
+        <item itemvalue="Application.Game1 (1)" />
       </list>
     </recent_temporary>
   </component>
