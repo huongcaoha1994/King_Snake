@@ -13,7 +13,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 public class Display extends Application {
     @Override
@@ -23,6 +27,14 @@ public class Display extends Application {
 
         String backgroundImage = "file:C:/Users/pc/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/game_background.gif";
         root.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover");
+        String audioFile = "C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\TFT Set 10 - 8-bit Music.mp4";
+        Media media = new Media(new File(audioFile).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        // Đặt số lần lặp lại là vô hạn
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+
+        // Phát âm thanh
+        mediaPlayer.play();
 
 
         // Top
@@ -168,6 +180,7 @@ public class Display extends Application {
     private void handleExitButtonClick() {
         System.exit(0); // Đóng ứng dụng
     }
+
 
     public static void main(String[] args) {
         launch(args);

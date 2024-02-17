@@ -1,5 +1,6 @@
 package com.example.snake_game.views;
 
+import com.example.snake_game.utils.MediaPlay;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -159,9 +160,8 @@ public class PlayScreen extends Application {
         root.setTop(topBox);
         root.setCenter(hBox); // Đặt HBox vào phần center của BorderPane
         Scene scene = new Scene(root, 1200, 800);
-        scene.getRoot().setStyle(
-                "-fx-background-color: linear-gradient(to bottom right, #00FFFF, #8A2BE2);"
-        );
+        MediaPlay.playMusic("C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\TFT Set 10 - Maestro Jhin Music.mp4");        String backgroundImage = "file:C:/Users/pc/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/bg.gif";
+        root.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover");
         primaryStage.setScene(scene);
         primaryStage.setTitle("Game");
         primaryStage.setResizable(false); // Tắt tính năng thu phóng của cửa sổ
