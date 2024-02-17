@@ -1,7 +1,9 @@
 package com.example.snake_game.views;
 
 import com.example.snake_game.controllers.UpdateMovie;
+import com.example.snake_game.models.GetScore;
 import com.example.snake_game.models.Point;
+import com.example.snake_game.models.UpdateScore;
 import com.example.snake_game.resources.Draws;
 import com.example.snake_game.utils.Food;
 import com.example.snake_game.utils.MediaPlay;
@@ -34,6 +36,7 @@ public class Game3 extends Application {
     private Point food ;
     public static Point gate = new Point(width/2,0);
     private List<Point> bullets = new ArrayList<>();
+    private static String username = "huongcaoha";
     Random random = new Random();
     public void setFood(){
         Random random = new Random();
@@ -57,7 +60,6 @@ public class Game3 extends Application {
     public void start(Stage primaryStage) {
 
         MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
-        SceneGameover3 sceneGameover3 = new SceneGameover3();
         restart();
         UpdateMovie updateMovie = new UpdateMovie();
         Draws draws = new Draws();
@@ -90,9 +92,14 @@ public class Game3 extends Application {
                 draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster);
                 Platform.runLater(() -> {
                     if(monsterEat.getX() == snake.getX() && monsterEat.getY() == snake.getY()){
+                        int oldScore = GetScore.getScore(username);
+                        if(score.get() > oldScore){
+                            UpdateScore.updateScore(username,score.get());
+                        }
                         timerMonsterEat.cancel();
                         timerMonsterGun.cancel();
-                        sceneGameover3.start(primaryStage);
+                        primaryStage.setScene(SceenGameover.SceneClose(primaryStage,3));
+                        primaryStage.show();
                     }
                 });
             }
@@ -107,10 +114,15 @@ public class Game3 extends Application {
                 draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster);
                 Platform.runLater(() -> {
                     if(monster.getX() == snake.getX() && monster.getY() == snake.getY()){
+                        int oldScore = GetScore.getScore(username);
+                        if(score.get() > oldScore){
+                            UpdateScore.updateScore(username,score.get());
+                        }
                         timerMonster.cancel();
                         timerMonsterEat.cancel();
                         timerMonsterGun.cancel();
-                        sceneGameover3.start(primaryStage);
+                        primaryStage.setScene(SceenGameover.SceneClose(primaryStage,3));
+                        primaryStage.show();
                     }
                 });
             }
@@ -126,20 +138,29 @@ public class Game3 extends Application {
                 Platform.runLater(() -> {
                    for(int i = 0 ; i < bullets.size() ; i++){
                        if(bullets.get(i).getX() == snake.getX() && bullets.get(i).getY() == snake.getY()){
+                           int oldScore = GetScore.getScore(username);
+                           if(score.get() > oldScore){
+                               UpdateScore.updateScore(username,score.get());
+                           }
                            timerBullet.cancel();
                            timerMonster.cancel();
                            timerMonsterEat.cancel();
                            timerMonsterGun.cancel();
-                           sceneGameover3.start(primaryStage);
+                           primaryStage.setScene(SceenGameover.SceneClose(primaryStage,3));
+                           primaryStage.show();
                        }
                    }
                     if(snake.getX() == gate.getX() && snake.getY() == gate.getY() && score.get() >= 15){
+                        int oldScore = GetScore.getScore(username);
+                        if(score.get() > oldScore){
+                            UpdateScore.updateScore(username,score.get());
+                        }
                         timerBullet.cancel();
                         timerMonster.cancel();
                         timerMonsterEat.cancel();
                         timerMonsterGun.cancel();
-                        SceneWinner3 demo = new SceneWinner3();
-                        demo.start(primaryStage);
+                        primaryStage.setScene(SceenGameWin.WinGame(primaryStage,3));
+                        primaryStage.show();
                     }
                 });
             }

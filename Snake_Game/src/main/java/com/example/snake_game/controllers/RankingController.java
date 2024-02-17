@@ -1,5 +1,6 @@
-package com.example.snake_game;
+package com.example.snake_game.controllers;
 
+import com.example.snake_game.models.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;

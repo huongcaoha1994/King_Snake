@@ -6,8 +6,8 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
-public class CheckUsername {
-    public static boolean checkUsernameExist(String username){
+public class CheckUsernamePassword {
+    public static boolean checkUsernamePassword(String username,String password){
         MongoDatabase database = null;
         // Thay đổi URI kết nối theo cấu hình MongoDB của bạn
         String connectionString = "mongodb+srv://kingsnake:kingsnake@cluster0.baduwey.mongodb.net/?retryWrites=true&w=majority";
@@ -18,7 +18,7 @@ public class CheckUsername {
             // Chọn cơ sở dữ liệu
             database = mongoClient.getDatabase("kingsnake");
             MongoCollection<Document> collection = database.getCollection("users");
-            Document query = new Document("username",(username));
+            Document query = new Document("username", username).append("password", password);
             Document rs = collection.find(query).first();
             if(rs != null){
                 checkUsername = true;
@@ -28,6 +28,6 @@ public class CheckUsername {
             // Xử lý lỗi kết nối
             e.printStackTrace();
         }
-      return checkUsername;
+        return checkUsername;
     }
 }
