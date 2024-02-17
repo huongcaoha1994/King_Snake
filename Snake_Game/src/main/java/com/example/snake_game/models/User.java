@@ -1,4 +1,5 @@
-package com.example.snake_game;
+package com.example.snake_game.models;
+
 
 import javafx.beans.property.*;
 

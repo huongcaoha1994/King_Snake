@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 
-<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snake_game.RankingController">
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snake_game.controllers.RankingController">
     <TableView fx:id="tableView" layoutX="20.0" layoutY="20.0" prefHeight="260.0" prefWidth="360.0">
         <columns>
             <TableColumn fx:id="nameColumn" prefWidth="180.0" text="Name">

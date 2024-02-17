@@ -1,5 +1,6 @@
-package com.example.snake_game;
+package com.example.snake_game.controllers;
 
+import com.example.snake_game.models.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -11,7 +12,10 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-public class RankingController {
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+
+public class HistoryController {
     @FXML
     private TableView<User> tableView;
 
@@ -19,7 +23,9 @@ public class RankingController {
     private TableColumn<User, String> nameColumn;
 
     @FXML
-    private TableColumn<User, String> rankColumn;
+    private TableColumn<User, Integer> pointColumn;
+    @FXML
+    private TableColumn<User, LocalDateTime> timeColumn;
 
     public void initialize() {
         // Connect to MongoDB
@@ -29,15 +35,19 @@ public class RankingController {
 
         // Configure table columns
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        rankColumn.setCellValueFactory(new PropertyValueFactory<>("rank"));
+        pointColumn.setCellValueFactory(new PropertyValueFactory<>("point"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+
         // Query MongoDB and populate the table view
         FindIterable<Document> documents = collection.find();
         for (Document document : documents) {
             String name = document.getString("name");
-            String rank = document.getString("rank");
+            int point = document.getInteger("point");
+            LocalDateTime time = document.getDate("time").toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
             User user = new User();
             user.setName(name);
-            user.setRank(rank);
+            user.setPoint(point);
+            user.setTime(time);
             tableView.getItems().add(user);
         }
     }
