@@ -53,7 +53,7 @@ public class Game1 extends Application {
     @Override
     public void  start(Stage primaryStage) {
         SceneGameover gameover = new SceneGameover();
-        MediaPlay.playMusic("C:\\Users\\user\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
+        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
         Game1 game1 = new Game1();
         restart();
         Canvas canvas = new Canvas(WIDTH,HEIGHT);

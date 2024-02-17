@@ -9,8 +9,8 @@ module com.example.snake_game {
     opens com.example.snake_game to javafx.fxml;
     exports com.example.snake_game.controllers;
     exports com.example.snake_game.views;
+    exports com.example.snake_game;
     exports com.example.snake_game.utils;
-    opens com.example.snake_game.models;
 
 
 }
