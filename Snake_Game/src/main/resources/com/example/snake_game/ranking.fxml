@@ -3,21 +3,27 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snake_game.controllers.RankingController">
-    <TableView fx:id="tableView" layoutX="20.0" layoutY="20.0" prefHeight="260.0" prefWidth="360.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snake_game.controllers.RankingController">
+   <top>
+      <AnchorPane prefHeight="64.0" prefWidth="600.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="254.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ranking">
+               <font>
+                  <Font size="26.0" />
+               </font></Text>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-            <TableColumn fx:id="nameColumn" prefWidth="180.0" text="Name">
-                <cellValueFactory>
-                    <PropertyValueFactory property="name"/>
-                </cellValueFactory>
-            </TableColumn>
-            <TableColumn fx:id="rankColumn" prefWidth="180.0" text="Rank">
-                <cellValueFactory>
-                    <PropertyValueFactory property="score"/>
-                </cellValueFactory>
-            </TableColumn>
+          <TableColumn fx:id="nameColumn" prefWidth="142.66668701171875" text="Player" />
+          <TableColumn fx:id="rankColumn" prefWidth="139.33340454101562" text="Rank" />
         </columns>
-    </TableView>
-</AnchorPane>
+      </TableView>
+   </center>
+</BorderPane>
