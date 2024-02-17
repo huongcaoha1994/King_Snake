@@ -7,12 +7,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import java.io.File;
+
+
 public class PlayScreen extends Application {
+
+    StackPane rootPane = new StackPane();
     private boolean man1Completed = true;
     private boolean man2Completed = false;
     private boolean man3Completed = true;
@@ -142,9 +145,9 @@ public class PlayScreen extends Application {
 
 
 
-        VBox centerVBox1 = createVBoxWithImageAndButton("", playMan1Button);
-        VBox centerVBox2 = createVBoxWithImageAndButton("", playMan2Button);
-        VBox centerVBox3 = createVBoxWithImageAndButton("", playMan3Button);
+        VBox centerVBox1 = createVBoxWithImageAndButton("File:C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\game1a.gif", playMan1Button);
+        VBox centerVBox2 = createVBoxWithImageAndButton("File:C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\game2a.gif", playMan2Button);
+        VBox centerVBox3 = createVBoxWithImageAndButton("File:C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\game3.gif", playMan3Button);
 
 
         HBox hBox = new HBox(centerVBox1, centerVBox2, centerVBox3); // HBox để chứa 3 màn chơi
@@ -155,7 +158,7 @@ public class PlayScreen extends Application {
         BorderPane root = new BorderPane();
         root.setTop(topBox);
         root.setCenter(hBox); // Đặt HBox vào phần center của BorderPane
-        Scene scene = new Scene(root, 1000, 600);
+        Scene scene = new Scene(root, 1200, 800);
         scene.getRoot().setStyle(
                 "-fx-background-color: linear-gradient(to bottom right, #00FFFF, #8A2BE2);"
         );

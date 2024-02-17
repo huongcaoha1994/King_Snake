@@ -83,7 +83,7 @@
       <recent name="C:\Users\Windows 11\IdeaProjects\Snake_Game\src\main\java\com\example\snake_game\resources\image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LoginDisplay">
+  <component name="RunManager" selected="Application.PlayScreen">
     <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Demo" />
       <module name="Snake_Game" />
@@ -136,8 +136,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginDisplay" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.LoginDisplay" />
+    <configuration name="PlayScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.PlayScreen" />
       <module name="Snake_Game" />
       <extension name="coverage">
         <pattern>
@@ -151,7 +151,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LoginDisplay" />
+        <item itemvalue="Application.PlayScreen" />
         <item itemvalue="Application.Demo" />
         <item itemvalue="Application.Game1" />
         <item itemvalue="Application.Game3" />
