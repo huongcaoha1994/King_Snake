@@ -1,5 +1,6 @@
 package com.example.snake_game.views;
 
+import com.example.snake_game.models.GetUsername;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -32,6 +33,7 @@ import javafx.stage.Stage;
 
 public class SceneDisplay {
     public static Scene display(){
+        String username = GetUsername.getUsername();
         BorderPane root = new BorderPane();
         root.setPrefSize(900, 650);
 

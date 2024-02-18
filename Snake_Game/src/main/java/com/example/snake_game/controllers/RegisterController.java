@@ -1,10 +1,8 @@
 package com.example.snake_game.controllers;
 
-import com.example.snake_game.dao.MongoDBConnection;
 import com.example.snake_game.models.CheckUsername;
 import com.example.snake_game.models.InsertUser;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.example.snake_game.models.StringToHashCode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +16,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
-import org.bson.Document;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,8 +34,8 @@ public class RegisterController implements Initializable {
    private PasswordField comFirmPasswordField;
     public void register(ActionEvent event){
         String username = usernameField.getText();
-        String password = passwordField.getText();
-        String comFirmPassword = comFirmPasswordField.getText();
+        String password = StringToHashCode.hashString(passwordField.getText());
+        String comFirmPassword = StringToHashCode.hashString(comFirmPasswordField.getText());
 
         //kiểm tra nhập lại Password
         if (!password.equals(comFirmPassword)){
@@ -101,6 +98,13 @@ public class RegisterController implements Initializable {
         else {
             InsertUser.insertUser(username,password);
         }
+    }
+    @FXML
+    private void clickLogin(ActionEvent event) throws Exception{
+        Parent loginPage = FXMLLoader.load(getClass().getResource("/com/example/snake_game/login.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(loginPage));
+        stage.show();
     }
 
 

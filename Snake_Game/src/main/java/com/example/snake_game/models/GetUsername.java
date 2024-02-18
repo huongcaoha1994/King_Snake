@@ -6,30 +6,22 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
-public class CheckUsernamePassword {
-    public static boolean checkUsernamePassword(String username,String password){
+public class GetUsername {
+    public static String getUsername(){
         MongoDatabase database = null;
         // Thay đổi URI kết nối theo cấu hình MongoDB của bạn
         String connectionString = "mongodb+srv://kingsnake:kingsnake@cluster0.baduwey.mongodb.net/?retryWrites=true&w=majority";
-        boolean checkUsername = false ;
-        try (MongoClient mongoClient = new MongoClient(new MongoClientURI(connectionString))) {
+        String username = "" ;
+        try (com.mongodb.MongoClient mongoClient = new MongoClient(new MongoClientURI(connectionString))) {
             // Kết nối thành công
 
             // Chọn cơ sở dữ liệu
             database = mongoClient.getDatabase("huongcaoha");
-            MongoCollection<Document> collection = database.getCollection("users");
-            Document query = new Document("username", username);
+            MongoCollection<Document> collection = database.getCollection("getUsername");
+            Document query = new Document();
             Document rs = collection.find(query).first();
             if(rs != null){
-
-                String passworData = rs.getString("password");
-                password = StringToHashCode.hashString(password);
-                if(password.equals(passworData)){
-                    checkUsername = true ;
-                }else {
-                    System.out.println("Password fail");
-                }
-
+                username = rs.getString("username");
             }else {
                 System.out.println("Not found username");
             }
@@ -38,6 +30,6 @@ public class CheckUsernamePassword {
             // Xử lý lỗi kết nối
             e.printStackTrace();
         }
-        return checkUsername;
+        return username;
     }
 }

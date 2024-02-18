@@ -1,6 +1,8 @@
 package com.example.snake_game.views;
 
+import com.example.snake_game.models.GetUsername;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -18,6 +20,7 @@ public class ScenePlaygame {
     private static boolean man2Completed = false;
     private static boolean man3Completed = true;
     public static Scene playgame(Stage primaryStage){
+        String username = GetUsername.getUsername();
         Button playMan1Button = new Button("Chơi màn 1");
         Button playMan2Button = new Button("Chơi màn 2");
         Button playMan3Button = new Button("Chơi màn 3");
@@ -65,25 +68,30 @@ public class ScenePlaygame {
 
 
 
-        playMan1Button.setOnAction(e -> {
+        playMan1Button.setOnAction(event -> {
             if (man1Completed) {
-                System.out.println("Chơi màn 1");
-                // Xử lý chuyển đến màn 1
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(SceneGame1.game1(stage,username));
+                stage.show(); // chơi màn 1
             }
         });
 
-        playMan2Button.setOnAction(e -> {
+        playMan2Button.setOnAction(event -> {
             if (man2Completed) {
-                System.out.println("Chơi màn 2");
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(SceneGame2.game2(stage,username));
+                stage.show();
                 // Xử lý chuyển đến màn 2
             } else {
                 showIncompleteAlert("1");
             }
         });
 
-        playMan3Button.setOnAction(e -> {
+        playMan3Button.setOnAction(event -> {
             if (man2Completed && man3Completed) {
-                System.out.println("Chơi màn 3");
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(SceneGame3.game3(stage,username));
+                stage.show();
                 // Xử lý chuyển đến màn 3
             } else {
                 showIncompleteAlert("2");
@@ -91,8 +99,12 @@ public class ScenePlaygame {
         });
 
         HBox topBox = new HBox(); // Tạo HBox mới cho phần top
-        Button exitButton = new Button("Thoát");
-        exitButton.setOnAction(e -> primaryStage.close()); // Thoát khỏi ứng dụng khi nhấn nút
+        Button exitButton = new Button("Go Back");
+        exitButton.setOnAction(event -> {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(SceneDisplay.display());
+            stage.show();
+                }); // Quay lại màn hình chính
         topBox.getChildren().add(exitButton);
 
         exitButton.setStyle(

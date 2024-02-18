@@ -1,14 +1,9 @@
 package com.example.snake_game.controllers;
 
-import com.example.snake_game.models.CheckUsername;
 import com.example.snake_game.models.CheckUsernamePassword;
-import com.example.snake_game.views.Display;
-import com.example.snake_game.views.LoginDisplay;
-import com.example.snake_game.views.Register;
-import com.example.snake_game.views.SceneDisplay;
-import com.mongodb.connection.Connection;
-import com.mongodb.connection.ConnectionId;
-import javafx.application.Application;
+import com.example.snake_game.models.StringToHashCode;
+import com.example.snake_game.models.UpdateUsername;
+import com.example.snake_game.views.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +19,8 @@ import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -57,6 +54,7 @@ public class LoginController implements Initializable {
         password = passwordField.getText();
 //        loginMessageLabel.setText("You Try to Login");
         if (CheckUsernamePassword.checkUsernamePassword(username,password)){
+            UpdateUsername.udpateUsername(username);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(SceneDisplay.display());
             stage.show();

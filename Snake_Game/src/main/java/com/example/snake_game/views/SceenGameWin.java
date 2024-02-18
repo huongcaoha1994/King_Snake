@@ -3,6 +3,7 @@ package com.example.snake_game.views;
 import com.example.snake_game.utils.GetImage;
 import com.example.snake_game.utils.MediaPlay;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -47,6 +48,9 @@ public class SceenGameWin {
         buttonBackMain.setPrefHeight(40);
         buttonBackMain.setStyle("-fx-background-color: #c8ff00;");
         buttonBackMain.setOnAction(actionEvent -> {
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(SceneDisplay.display());
+            stage.show();
             // chuyển scene về main tại đây
         });
 
