@@ -1,5 +1,21 @@
 package com.example.snake_game.views;
 
+import com.example.snake_game.models.GetUsername;
+import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+
+
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -13,28 +29,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-import java.io.File;
-
-public class Display extends Application {
-    @Override
-    public void start(Stage primaryStage) {
+public class SceneDisplay {
+    public static Scene display(){
+        String username = GetUsername.getUsername();
         BorderPane root = new BorderPane();
         root.setPrefSize(900, 650);
 
-        String backgroundImage = "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/game_background.gif";
-        root.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover");
-        String audioFile = "C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\TFT Set 10 - 8-bit Music.mp4";
-        Media media = new Media(new File(audioFile).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        // Đặt số lần lặp lại là vô hạn
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-
-        // Phát âm thanh
-        mediaPlayer.play();
+        String backgroundImage = "file:/C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/game_background.gif";
+        root.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover;");
 
 
         // Top
@@ -125,7 +129,7 @@ public class Display extends Application {
         startButton.setPrefSize(143, 50);
         startButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #aa00ff, #FFFF00); -fx-background-radius: 15;");
         startButton.setEffect(new DropShadow());
-        startButton.setOnAction(event -> handleStartButtonClick());
+        startButton.setOnAction(event -> handleStartButtonClick(event));
 
         Button skinsButton = new Button("Skins");
         skinsButton.setPrefSize(143, 50);
@@ -148,41 +152,36 @@ public class Display extends Application {
         root.setCenter(centerImageView);
 
         Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
-        primaryStage.setTitle("DisplayKingSnake");
-        primaryStage.show();
+        return scene;
     }
-
-    private void handleUserImageClick() {
+    private static void handleUserImageClick() {
         System.out.println("User Image Clicked");
         // Thực hiện các xử lý khác tại đây
     }
 
-    private void handleRankingImageClick() {
+    private static void handleRankingImageClick() {
         System.out.println("User Image Clicked");
         // Thực hiện các xử lý khác tại đây
     }
 
-    private void handleEventImageClick() {
+    private static void handleEventImageClick() {
         System.out.println("User Image Clicked");
         // Thực hiện các xử lý khác tại đây
     }
 
-    private void handleStartButtonClick() {
-        System.out.println("PlayScreen");
+    private static void handleStartButtonClick(ActionEvent event)  {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(ScenePlaygame.playgame(stage));
+        stage.show();
     }
 
-    private void handleSkinsButtonClick() {
+    private static void handleSkinsButtonClick() {
         System.out.println("Skins Button Clicked");
     }
 
-    private void handleExitButtonClick() {
+    private static void handleExitButtonClick() {
         System.exit(0); // Đóng ứng dụng
     }
 
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

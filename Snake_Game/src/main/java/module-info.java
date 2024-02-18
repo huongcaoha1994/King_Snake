@@ -13,6 +13,7 @@ module com.example.snake_game {
     exports com.example.snake_game.utils;
     exports com.example.snake_game.dao;
     opens com.example.snake_game.dao;
+    exports com.example.snake_game.models;
 
 
 }

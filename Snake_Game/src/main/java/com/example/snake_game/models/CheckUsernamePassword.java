@@ -16,12 +16,22 @@ public class CheckUsernamePassword {
             // Kết nối thành công
 
             // Chọn cơ sở dữ liệu
-            database = mongoClient.getDatabase("kingsnake");
+            database = mongoClient.getDatabase("huongcaoha");
             MongoCollection<Document> collection = database.getCollection("users");
-            Document query = new Document("username", username).append("password", password);
+            Document query = new Document("username", username);
             Document rs = collection.find(query).first();
             if(rs != null){
-                checkUsername = true;
+
+                String passworData = rs.getString("password");
+                password = StringToHashCode.hashString(password);
+                if(password.equals(passworData)){
+                    checkUsername = true ;
+                }else {
+                    System.out.println("Password fail");
+                }
+
+            }else {
+                System.out.println("Not found username");
             }
 
         } catch (Exception e) {

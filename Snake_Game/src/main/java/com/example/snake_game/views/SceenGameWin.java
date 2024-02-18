@@ -3,6 +3,7 @@ package com.example.snake_game.views;
 import com.example.snake_game.utils.GetImage;
 import com.example.snake_game.utils.MediaPlay;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -10,12 +11,10 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class SceenGameWin {
-    public static Scene WinGame(Stage primaryStage,int levelGame){
+    public static Scene WinGame(Stage primaryStage,int levelGame,String username){
         int width = 1200 ;
         int height = 960 ;
-        Game1 game1 = new Game1();
-        Game2 game2 = new Game2();
-        Game3 game3 = new Game3();
+
         MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\wingame.mp3");
         Image backgroundImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\winner1.gif");
         BackgroundImage background = new BackgroundImage(backgroundImage,
@@ -30,15 +29,15 @@ public class SceenGameWin {
         buttonReplay.setOnAction(even -> {
             switch (levelGame){
                 case 1 : {
-                    game1.start(primaryStage);
+                    primaryStage.setScene(SceneGame1.game1(primaryStage,username));
                     break;
                 }
                 case 2 : {
-                    game2.start(primaryStage);
+                    primaryStage.setScene(SceneGame2.game2(primaryStage,username));
                     break;
                 }
                 case 3 : {
-                    game3.start(primaryStage);
+                    primaryStage.setScene(SceneGame3.game3(primaryStage, username));
                     break;
                 }
             }
@@ -49,6 +48,9 @@ public class SceenGameWin {
         buttonBackMain.setPrefHeight(40);
         buttonBackMain.setStyle("-fx-background-color: #c8ff00;");
         buttonBackMain.setOnAction(actionEvent -> {
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(SceneDisplay.display());
+            stage.show();
             // chuyển scene về main tại đây
         });
 
@@ -59,15 +61,15 @@ public class SceenGameWin {
         buttonNext.setOnAction(actionEvent -> {
             switch (levelGame){
                 case 1 : {
-                    game2.start(primaryStage);
+                    primaryStage.setScene(SceneGame2.game2(primaryStage,username));
                     break;
                 }
                 case 2 : {
-                    game3.start(primaryStage);
+                    primaryStage.setScene(SceneGame3.game3(primaryStage,username));
                     break;
                 }
                 case 3 : {
-                    System.out.println("Coming soon");
+                    System.out.println("Comming soon !");
                     break;
                 }
             }

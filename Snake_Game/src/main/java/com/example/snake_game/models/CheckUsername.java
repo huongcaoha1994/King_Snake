@@ -16,7 +16,7 @@ public class CheckUsername {
             // Kết nối thành công
 
             // Chọn cơ sở dữ liệu
-            database = mongoClient.getDatabase("kingsnake");
+            database = mongoClient.getDatabase("huongcaoha");
             MongoCollection<Document> collection = database.getCollection("users");
             Document query = new Document("username",(username));
             Document rs = collection.find(query).first();

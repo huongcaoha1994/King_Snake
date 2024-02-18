@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -10,7 +15,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snake_game.controllers.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snake_game.controllers.LoginController">
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="450.0" BorderPane.alignment="CENTER">
          <children>
@@ -45,7 +50,7 @@
             <Button fx:id="loginButton" layoutX="55.0" layoutY="398.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="26.0" prefWidth="231.0" style="-fx-background-color: #2F4F4F;" text="Login" textFill="#fff6f6" />
             <Button fx:id="cancelButton" layoutX="55.0" layoutY="448.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="26.0" prefWidth="231.0" style="-fx-background-color: #2F4F4F;" text="Cancel" textFill="#fff6f6" />
             <Label layoutX="41.0" layoutY="549.0" text="Do you want to sign up?" />
-            <Button layoutX="204.0" layoutY="544.0" mnemonicParsing="false" style="-fx-background-color: #2F4F4F;" text="Register" textFill="#f2ebeb" />
+            <Button layoutX="204.0" layoutY="544.0" mnemonicParsing="false" onAction="#register" style="-fx-background-color: #2F4F4F;" text="Register" textFill="#f2ebeb" />
             <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="54.0" layoutY="223.0" prefHeight="18.0" prefWidth="241.0" textFill="#330fea" />
          </children>
       </AnchorPane>
