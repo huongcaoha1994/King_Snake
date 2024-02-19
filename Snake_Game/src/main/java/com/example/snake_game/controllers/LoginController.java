@@ -50,11 +50,12 @@ public class LoginController implements Initializable {
         brandingImageView.setImage(brandingImage);
     }
     public void loginButtonOnAction(ActionEvent event) throws Exception {
-        username = usernameTextField.getText();
-        password = passwordField.getText();
+        username = usernameTextField.getText().trim();
+        password = passwordField.getText().trim();
 //        loginMessageLabel.setText("You Try to Login");
         if (CheckUsernamePassword.checkUsernamePassword(username,password)){
-            UpdateUsername.udpateUsername(username);
+            SceneDisplay sceneDisplay = new SceneDisplay();
+            sceneDisplay.setUsername(username);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(SceneDisplay.display());
             stage.show();

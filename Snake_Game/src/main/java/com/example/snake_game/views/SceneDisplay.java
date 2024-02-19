@@ -1,6 +1,5 @@
 package com.example.snake_game.views;
 
-import com.example.snake_game.models.GetUsername;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -11,29 +10,28 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 
-
-import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class SceneDisplay {
+    public static String username;
+    public void setUsername(String username){
+        this.username = username ;
+    }
+    private static void handleStartButtonClick(ActionEvent event)  {
+        ScenePlaygame scenePlaygame = new ScenePlaygame();
+        scenePlaygame.setUsername(username);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(ScenePlaygame.playgame(stage));
+        stage.show();
+    }
     public static Scene display(){
-        String username = GetUsername.getUsername();
+
         BorderPane root = new BorderPane();
         root.setPrefSize(900, 650);
 
@@ -49,7 +47,7 @@ public class SceneDisplay {
         topBox.setPadding(new Insets(20, 0, 0, 20));
 
         ImageView userImageView = new ImageView(new Image("File:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\a.jpg"));
-        userImageView.setOnMouseClicked(event -> handleUserImageClick());
+        userImageView.setOnMouseClicked(event -> handleUserImageClick(event));
         userImageView.setFitWidth(75);
         userImageView.setFitHeight(75);
         Label userLabel = new Label("User");
@@ -154,8 +152,13 @@ public class SceneDisplay {
         Scene scene = new Scene(root);
         return scene;
     }
-    private static void handleUserImageClick() {
-        System.out.println("User Image Clicked");
+    private static void handleUserImageClick(MouseEvent event) {
+      SceneInformation sceneInformation = new SceneInformation();
+      sceneInformation.setUsername(username);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(SceneInformation.information());
+        stage.show();
+
         // Thực hiện các xử lý khác tại đây
     }
 
@@ -169,11 +172,6 @@ public class SceneDisplay {
         // Thực hiện các xử lý khác tại đây
     }
 
-    private static void handleStartButtonClick(ActionEvent event)  {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(ScenePlaygame.playgame(stage));
-        stage.show();
-    }
 
     private static void handleSkinsButtonClick() {
         System.out.println("Skins Button Clicked");

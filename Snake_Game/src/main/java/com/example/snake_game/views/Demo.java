@@ -24,6 +24,8 @@ public class Demo extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        System.out.println( CheckUsernamePassword.checkUsernamePassword("huongcaoha94","123456789"));
+//       primaryStage.setScene(SceneInformation.information());
+        primaryStage.setScene(SceneDisplay.display());
+       primaryStage.show();
     }
 }

@@ -1,5 +1,6 @@
 package com.example.snake_game.views;
 
+import com.example.snake_game.models.GetLevel;
 import com.example.snake_game.models.GetUsername;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -15,12 +16,16 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ScenePlaygame {
+    public static String username ;
+    public void setUsername(String username){
+        this.username = username ;
+    }
     StackPane rootPane = new StackPane();
     private static boolean man1Completed = true;
     private static boolean man2Completed = false;
-    private static boolean man3Completed = true;
+    private static boolean man3Completed = false;
     public static Scene playgame(Stage primaryStage){
-        String username = GetUsername.getUsername();
+
         Button playMan1Button = new Button("Chơi màn 1");
         Button playMan2Button = new Button("Chơi màn 2");
         Button playMan3Button = new Button("Chơi màn 3");
@@ -77,7 +82,7 @@ public class ScenePlaygame {
         });
 
         playMan2Button.setOnAction(event -> {
-            if (man2Completed) {
+            if (GetLevel.getLevel(username) >= 2) {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(SceneGame2.game2(stage,username));
                 stage.show();
@@ -88,7 +93,7 @@ public class ScenePlaygame {
         });
 
         playMan3Button.setOnAction(event -> {
-            if (man2Completed && man3Completed) {
+            if (GetLevel.getLevel(username) >= 3) {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(SceneGame3.game3(stage,username));
                 stage.show();

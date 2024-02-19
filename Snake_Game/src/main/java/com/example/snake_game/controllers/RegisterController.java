@@ -33,9 +33,9 @@ public class RegisterController implements Initializable {
    @FXML
    private PasswordField comFirmPasswordField;
     public void register(ActionEvent event){
-        String username = usernameField.getText();
-        String password = StringToHashCode.hashString(passwordField.getText());
-        String comFirmPassword = StringToHashCode.hashString(comFirmPasswordField.getText());
+        String username = usernameField.getText().trim();
+        String password = StringToHashCode.hashString(passwordField.getText().trim());
+        String comFirmPassword = StringToHashCode.hashString(comFirmPasswordField.getText().trim());
 
         //kiểm tra nhập lại Password
         if (!password.equals(comFirmPassword)){
