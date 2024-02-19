@@ -1,0 +1,4 @@
+.root{
+    -fx-background-image: url("../resources/image/hinhnen.jpg");
+    -fx-background-size: cover;
+}
