@@ -34,7 +34,7 @@ public class SceneInformation extends Application {
         userLabel.setAlignment(Pos.CENTER);
         userLabel.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
         userLabel.setPrefSize(200, 44);
-        userLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 23");
+        userLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: FF00CC;");
 
         HBox userBox = new HBox(userLabel);
         userBox.setAlignment(Pos.CENTER);
@@ -92,16 +92,16 @@ public class SceneInformation extends Application {
         infoGrid.setVgap(100);
 
         Label nameLabel = new Label("Tên:");
-        nameLabel.setStyle("-fx-font-size: 14pt;");
+        nameLabel.setStyle("-fx-font-size: 14pt; -fx-font-weight: bold; -fx-background-color:#20B2AA; -fx-background-radius: 20;");
 
         Label levelLabel = new Label("Cấp:");
-        levelLabel.setStyle("-fx-font-size: 14pt;");
+        levelLabel.setStyle("-fx-font-size: 14pt;-fx-font-weight: bold; -fx-background-color:#20B2AA; -fx-background-radius: 20;");
 
         Label scoreLabel = new Label("Điểm cao:");
-        scoreLabel.setStyle("-fx-font-size: 14pt;");
+        scoreLabel.setStyle("-fx-font-size: 14pt;-fx-font-weight: bold; -fx-background-color:#20B2AA; -fx-background-radius: 20;");
 
         Label timeLabel = new Label("Thời gian:");
-        timeLabel.setStyle("-fx-font-size: 14pt;");
+        timeLabel.setStyle("-fx-font-size: 14pt;-fx-font-weight: bold; -fx-background-color:#20B2AA; -fx-background-radius: 20;");
 
         Label nameText = new Label("hiu");
         nameText.setStyle("-fx-font-size: 14pt;");
