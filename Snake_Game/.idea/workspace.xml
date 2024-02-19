@@ -8,14 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c3e3fc2-7d32-4662-8f7f-e409c662005f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneInformation1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/controllers/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneInformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/ScenePlaygame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/ScenePlaygame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +59,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "last_opened_file_path": "C:/Users/Windows 11/IdeaProjects/King_Snake",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
