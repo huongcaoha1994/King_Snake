@@ -11,13 +11,13 @@ public class UpdateScore {
     public static void updateScore(String username ,int score){
         MongoDatabase database = null;
         // Thay đổi URI kết nối theo cấu hình MongoDB của bạn
-        String connectionString = "mongodb+srv://kingsnake:kingsnake@cluster0.baduwey.mongodb.net/?retryWrites=true&w=majority";
+        String connectionString = "mongodb://localhost:27017";
         try (MongoClient mongoClient = new MongoClient(new MongoClientURI(connectionString))) {
             // Kết nối thành công
 
             // Chọn cơ sở dữ liệu
-            database = mongoClient.getDatabase("huongcaoha");
-            MongoCollection<Document> collection = database.getCollection("users");
+            database = mongoClient.getDatabase("kingsnake");
+            MongoCollection<Document> collection = database.getCollection("user");
             Document query = new Document("username",(username));
             Document update = new Document("$set",new Document("score",score));
             UpdateResult rs = collection.updateOne(query,update);

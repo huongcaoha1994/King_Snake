@@ -1,7 +1,6 @@
 package com.example.snake_game.views;
 
 import com.example.snake_game.models.GetLevel;
-import com.example.snake_game.models.GetUsername;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;

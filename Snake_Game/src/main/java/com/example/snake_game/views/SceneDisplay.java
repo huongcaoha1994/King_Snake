@@ -35,7 +35,7 @@ public class SceneDisplay {
         BorderPane root = new BorderPane();
         root.setPrefSize(900, 650);
 
-        String backgroundImage = "file:/C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/game_background.gif";
+        String backgroundImage = "file:/C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/background.jpg";
         root.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover;");
 
 
