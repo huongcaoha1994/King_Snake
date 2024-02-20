@@ -54,6 +54,35 @@ public class Draws {
 
 
     }
+    public void drawGameRank(Point food, Point boss, Point snake, int width, int height, GraphicsContext gc, int tileSize, IntegerProperty score, Point monsters) {
+        gc.setFill(Color.CORAL);
+        gc.fillRect(0, 0, width, height);
+//        gc.drawImage(background,0,0,width,height);
+            gc.drawImage(foodImage, food.getX(), food.getY(), tileSize, tileSize);
+
+        gc.drawImage(snakeImage, snake.getX(), snake.getY(), tileSize, tileSize);
+
+        gc.drawImage(bossImage, boss.getX(), boss.getY(), tileSize, tileSize);
+
+        gc.setFill(Color.RED);
+        gc.strokeRect(0, 0, tileSize * 10 - 3, tileSize * 10 - 3);
+
+        gc.setStroke(Color.WHITE);
+        for (int x = 0; x < width; x += tileSize) {
+            gc.strokeLine(x, 0, x, height);
+        }
+        for (int y = 0; y < height; y += tileSize) {
+            gc.strokeLine(0, y, width, y);
+        }
+
+        gc.drawImage(monsterImage, monsters.getX(), monsters.getY(), tileSize, tileSize);
+
+        Font font = new Font("Arial", 24); // Đặt kích thước chữ
+        gc.setFont(font);
+        gc.fillText("Score : " + score.get(), width / 2, tileSize);
+
+
+    }
 
     public void drawGame2(GraphicsContext gc, Point snake, Point monsterEat, Point monsterLeft, Point monsterRight, Point food, int tileSize, int width, int height, IntegerProperty score) {
         gc.setFill(Color.YELLOW);

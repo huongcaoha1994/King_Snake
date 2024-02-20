@@ -129,14 +129,14 @@ public class SceneDisplay {
         startButton.setEffect(new DropShadow());
         startButton.setOnAction(event -> handleStartButtonClick(event));
 
-        Button skinsButton = new Button("Skins");
-        skinsButton.setPrefSize(143, 50);
-        skinsButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #FF0000, #00ff55); -fx-background-radius: 15;");
-        skinsButton.setEffect(new DropShadow());
-        skinsButton.setOnAction(event -> handleSkinsButtonClick());
-        VBox.setMargin(skinsButton, new Insets(0, 50, 0, 0));
+        Button rankingMatchButton = new Button("Ranking Match");
+        rankingMatchButton.setPrefSize(143, 50);
+        rankingMatchButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #FF0000, #00ff55); -fx-background-radius: 15;");
+        rankingMatchButton.setEffect(new DropShadow());
+        rankingMatchButton.setOnAction(event -> handleSkinsButtonClick(event));
+        VBox.setMargin(rankingMatchButton, new Insets(0, 50, 0, 0));
 
-        rightBox.getChildren().addAll(startButton, skinsButton);
+        rightBox.getChildren().addAll(startButton, rankingMatchButton);
 
         root.setRight(rightBox);
 
@@ -173,8 +173,12 @@ public class SceneDisplay {
     }
 
 
-    private static void handleSkinsButtonClick() {
-        System.out.println("Skins Button Clicked");
+    private static void handleSkinsButtonClick(ActionEvent event) {
+        GameRank gameRank = new GameRank();
+        gameRank.setUsername(username);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(GameRank.gameRank(stage,username));
+        stage.show();
     }
 
     private static void handleExitButtonClick() {

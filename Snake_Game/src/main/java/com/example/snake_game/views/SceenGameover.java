@@ -29,17 +29,30 @@ public class SceenGameover {
         buttonReplay.setOnAction(even -> {
             switch (gameLevel){
                 case 1 : {
-                   primaryStage.setScene(SceneGame1.game1(primaryStage,username));
+                    Stage stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
+                    stage.setScene(SceneGame1.game1(stage,username));
+                    stage.show();
                     break;
                 }
                 case 2 : {
-                    primaryStage.setScene(SceneGame2.game2(primaryStage,username));
+                    Stage stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
+                    stage.setScene(SceneGame2.game2(stage,username));
+                    stage.show();
                     break;
                 }
                 case 3 : {
-                   primaryStage.setScene(SceneGame3.game3(primaryStage, username));
+                    Stage stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
+                    stage.setScene(SceneGame3.game3(stage,username));
+                    stage.show();
                     break;
                 }
+                case 4 : {
+                    Stage stage = (Stage) ((Node) even.getSource()).getScene().getWindow();
+                    stage.setScene(GameRank.gameRank(stage,username));
+                    stage.show();
+                    break;
+                }
+
 
             }
         });

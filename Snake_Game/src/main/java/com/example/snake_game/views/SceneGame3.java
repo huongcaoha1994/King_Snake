@@ -3,6 +3,7 @@ package com.example.snake_game.views;
 import com.example.snake_game.controllers.UpdateMovie;
 import com.example.snake_game.models.GetScore;
 import com.example.snake_game.models.Point;
+import com.example.snake_game.models.UpdateRank;
 import com.example.snake_game.models.UpdateScore;
 import com.example.snake_game.resources.Draws;
 import com.example.snake_game.utils.MediaPlay;
@@ -83,6 +84,7 @@ public class SceneGame3 {
                         int oldScore = GetScore.getScore(username);
                         if(score.get() > oldScore){
                             UpdateScore.updateScore(username,score.get());
+                            UpdateRank.updateRank(username,score.get());
                         }
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,3,username));
                         primaryStage.show();
@@ -106,6 +108,7 @@ public class SceneGame3 {
                         int oldScore = GetScore.getScore(username);
                         if(score.get() > oldScore){
                             UpdateScore.updateScore(username,score.get());
+                            UpdateRank.updateRank(username,score.get());
                         }
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,3,username));
                         primaryStage.show();
@@ -131,6 +134,7 @@ public class SceneGame3 {
                             int oldScore = GetScore.getScore(username);
                             if(score.get() > oldScore){
                                 UpdateScore.updateScore(username,score.get());
+                                UpdateRank.updateRank(username,score.get());
                             }
                             primaryStage.setScene(SceenGameover.SceneClose(primaryStage,3,username));
                             primaryStage.show();
@@ -144,6 +148,7 @@ public class SceneGame3 {
                         int oldScore = GetScore.getScore(username);
                         if(score.get() > oldScore){
                             UpdateScore.updateScore(username,score.get());
+                            UpdateRank.updateRank(username,score.get());
                         }
                         primaryStage.setScene(SceenGameWin.WinGame(primaryStage,3,username));
                         primaryStage.show();

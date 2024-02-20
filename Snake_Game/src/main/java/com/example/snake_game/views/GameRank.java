@@ -17,18 +17,23 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class SceneGame1 {
+public class GameRank {
+    public static String username;
+    public void setUsername(String username){
+        this.username = username ;
+    }
     private static  int TILE_SIZE = 60 ;
     private static  int WIDTH = TILE_SIZE*20;
     private static  int HEIGHT = TILE_SIZE*16 ;
 
-    private static IntegerProperty score = new SimpleIntegerProperty(14);
+    private static IntegerProperty score = new SimpleIntegerProperty(0);
+    private static IntegerProperty speed = new SimpleIntegerProperty(300);
     static Random random = new Random();
     static Point snake = new Point(WIDTH,HEIGHT);
     static Point boss = new Point(TILE_SIZE,TILE_SIZE);
     static Point food = new Point();
     public static Point monsters ;
-    public static Point gate = new Point(WIDTH/2,0);
+
 
 
 
@@ -45,10 +50,11 @@ public class SceneGame1 {
         monsters = new Point(0, random.nextInt(HEIGHT/TILE_SIZE)*TILE_SIZE);
         food.setX(random.nextInt(WIDTH / TILE_SIZE)*TILE_SIZE);
         food.setY(random.nextInt(HEIGHT / TILE_SIZE)*TILE_SIZE);
-        gate = new Point(WIDTH/2,0);
-        score.set(14);
+
+        score.set(0);
+        speed.set(300);
     }
-    public static Scene game1(Stage primaryStage , String username){
+    public static Scene gameRank(Stage primaryStage , String username){
         MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
         restart();
         Canvas canvas = new Canvas(WIDTH,HEIGHT);
@@ -58,9 +64,9 @@ public class SceneGame1 {
         Scene scene = new Scene(layout,WIDTH,HEIGHT);
         scene.setOnKeyPressed(keyEvent -> {
             UpdateMovie updateMovie = new UpdateMovie();
-            updateMovie.updateSnake(gc,scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score);
+            updateMovie.updateSnakeGameRank(gc,scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score,speed);
+            draws.drawGameRank(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
 
-            draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
 
 
         });
@@ -71,7 +77,7 @@ public class SceneGame1 {
             public void run() {
                 UpdateMovie updateMovie = new UpdateMovie();
                 updateMovie.updateBoss(boss,snake,new Point(TILE_SIZE*10,TILE_SIZE*10),TILE_SIZE);
-                draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
+                draws.drawGameRank(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
                 Platform.runLater(() -> {
 
                     if(boss.getX() == snake.getX() && boss.getY() == snake.getY()){
@@ -81,7 +87,7 @@ public class SceneGame1 {
                             UpdateScore.updateScore(username,score.get());
                             UpdateRank.updateRank(username,score.get());
                         }
-                        primaryStage.setScene(SceenGameover.SceneClose(primaryStage,1,username));
+                        primaryStage.setScene(SceenGameover.SceneClose(primaryStage,4,username));
                         primaryStage.show();
                     }
                 });
@@ -96,7 +102,7 @@ public class SceneGame1 {
 
                 updateMovie.updateMonster(monsters,snake,TILE_SIZE);
 
-                draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
+                draws.drawGameRank(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
                 Platform.runLater(() -> {
                     if(monsters.getX() == snake.getX() && monsters.getY() == snake.getY()){
                         timer2.cancel();
@@ -104,29 +110,29 @@ public class SceneGame1 {
                         int oldScore = GetScore.getScore(username);
                         if(score.get() > oldScore){
                             UpdateScore.updateScore(username,score.get());
-                        }
-                        primaryStage.setScene(SceenGameover.SceneClose(primaryStage,1,username));
-                        primaryStage.show();
-                    }
-                    if(snake.getX() == gate.getX() && snake.getY() == gate.getY() && score.get() >= 15){
-                        timer2.cancel();
-                        timer1.cancel();
-                        int oldScore = GetScore.getScore(username);
-                        if(score.get() > oldScore){
-                            UpdateScore.updateScore(username,score.get());
                             UpdateRank.updateRank(username,score.get());
                         }
-
-                        int oldLevel = GetLevel.getLevel(username);
-                        if(oldLevel < 2){
-                            UpdateLevel.updateLevel(username,2);
-                        }
-                        primaryStage.setScene(SceenGameWin.WinGame(primaryStage,1,username));
+                        primaryStage.setScene(SceenGameover.SceneClose(primaryStage,4,username));
                         primaryStage.show();
                     }
+//                    if(snake.getX() == gate.getX() && snake.getY() == gate.getY() && score.get() >= 15){
+//                        timer2.cancel();
+//                        timer1.cancel();
+//                        int oldScore = GetScore.getScore(username);
+//                        if(score.get() > oldScore){
+//                            UpdateScore.updateScore(username,score.get());
+//                        }
+//
+//                        int oldLevel = GetLevel.getLevel(username);
+//                        if(oldLevel < 2){
+//                            UpdateLevel.updateLevel(username,2);
+//                        }
+//                        primaryStage.setScene(SceenGameWin.WinGame(primaryStage,1,username));
+//                        primaryStage.show();
+//                    }
                 });
             }
-        },0,310);
+        },0,speed.get());
         return scene ;
     }
 }

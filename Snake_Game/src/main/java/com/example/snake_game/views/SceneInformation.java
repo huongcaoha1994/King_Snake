@@ -1,6 +1,7 @@
 package com.example.snake_game.views;
 
 import com.example.snake_game.models.GetLevel;
+import com.example.snake_game.models.GetRank;
 import com.example.snake_game.models.GetScore;
 import com.example.snake_game.utils.GetImage;
 import javafx.geometry.Insets;
@@ -30,20 +31,11 @@ public class SceneInformation {
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.DEFAULT, new BackgroundSize(width, height, false, false, true, true));
 
-        Button buttonBack = new Button("Back");
-        buttonBack.setPrefWidth(100);
-        buttonBack.setPrefHeight(40);
-        buttonBack.setStyle("-fx-background-color: #c8ff00;");
-        buttonBack.setOnAction(event -> {
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(SceneDisplay.display());
-            stage.show();
-        });
 
         // Tạo AnchorPane
         GridPane gridPane = new GridPane(width,height);
         gridPane.setPadding(new Insets(15));
-        gridPane.setHgap(250);
+        gridPane.setHgap(220);
         gridPane.setVgap(10);
 
         Text textTitle = new Text("\t \t    INFORMATION");
@@ -54,17 +46,33 @@ public class SceneInformation {
         Text textName = new Text("Username : \t" + username);
         textName.setFont(Font.font("Arial", fontSize));
         textName.setFill(Color.RED);
-        gridPane.add(textName,1,30);
+        gridPane.add(textName,1,25);
 
         Text textScore = new Text("Score : \t" + GetScore.getScore(username));
         textScore.setFont(Font.font("Arial", fontSize));
         textScore.setFill(Color.RED);
-        gridPane.add(textScore,1,32);
+        gridPane.add(textScore,1,27);
 
         Text textLevel = new Text("Level : \t" + GetLevel.getLevel(username));
         textLevel.setFont(Font.font("Arial", fontSize));
         textLevel.setFill(Color.RED);
-        gridPane.add(textLevel,1,34);
+        gridPane.add(textLevel,1,29);
+
+        Text textRank = new Text("Rank : \t" + GetRank.getRank(username));
+        textRank.setFont(Font.font("Arial", fontSize));
+        textRank.setFill(Color.RED);
+        gridPane.add(textRank,1,31);
+
+        Button buttonBack = new Button("Back");
+        buttonBack.setPrefWidth(100);
+        buttonBack.setPrefHeight(40);
+        buttonBack.setStyle("-fx-background-color: #d51111;");
+        buttonBack.setOnAction(event -> {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(SceneDisplay.display());
+            stage.show();
+        });
+        gridPane.add(buttonBack,1,60);
 
 
 

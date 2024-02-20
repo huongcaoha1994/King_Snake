@@ -68,6 +68,49 @@ public class UpdateMovie {
 
         });
     }
+    public void updateSnakeGameRank(GraphicsContext gc,Scene scene, Point snake, int tileSize, Point food, int width, int height, IntegerProperty scoreProperty,IntegerProperty speed){
+        Image gateImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\gate.png");
+        scene.setOnKeyPressed(keyEvent -> {
+            KeyCode keyCode = keyEvent.getCode();
+            switch (keyCode){
+                case UP :{
+                    if(snake.getY() - tileSize >= 0){
+                        snake.setY(snake.getY()-tileSize);
+                    }
+                    break;
+                }
+                case DOWN:{
+                    if(snake.getY() + tileSize < height){
+                        snake.setY(snake.getY()+tileSize);
+                    }
+                    break;
+                }
+                case LEFT:{
+                    if(snake.getX() - tileSize >= 0){
+                        snake.setX(snake.getX()-tileSize);
+                    }
+                    break;
+                }
+                case RIGHT:{
+                    if(snake.getX() + tileSize < width){
+                        snake.setX(snake.getX()+tileSize);
+                    }
+                    break;
+                }
+            }
+            if (snake.getX() == food.getX() && snake.getY() == food.getY()) {
+                Random random = new Random();
+                food.setX(random.nextInt(width/tileSize)*tileSize);
+                food.setY(random.nextInt(height/tileSize)*tileSize);
+                scoreProperty.set(scoreProperty.get()+1);
+                if(scoreProperty.get() % 5 == 0){
+                    speed.set(speed.get()-50);
+                }
+                MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\tingting2.mp3");
+            }
+
+        });
+    }
 
     public void updateMonster(Point monster, Point snake, int tileSize){
         if(monster.getX() < snake.getX()){

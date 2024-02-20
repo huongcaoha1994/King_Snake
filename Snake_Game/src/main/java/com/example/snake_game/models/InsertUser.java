@@ -27,6 +27,7 @@ public class InsertUser {
                     .append("password", password)
                     .append("level", 1)
                     .append("score", 0)
+                    .append("rank","Iron")
                     .append("created_at", currentDate);
 
 

@@ -2,6 +2,7 @@ package com.example.snake_game.views;
 
 import com.example.snake_game.models.CheckUsernamePassword;
 import com.example.snake_game.models.StringToHashCode;
+import com.example.snake_game.models.UpdateScore;
 import com.example.snake_game.models.UpdateUsername;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
@@ -25,7 +26,8 @@ public class Demo extends Application {
     @Override
     public void start(Stage primaryStage) {
 //       primaryStage.setScene(SceneInformation.information());
-        primaryStage.setScene(SceneDisplay.display());
-       primaryStage.show();
+//        primaryStage.setScene(GameRank.gameRank(primaryStage,"admin"));
+//       primaryStage.show();
+        UpdateScore.updateScore("thutrang1992",0);
     }
 }

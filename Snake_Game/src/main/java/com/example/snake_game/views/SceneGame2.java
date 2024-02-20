@@ -70,6 +70,7 @@ public class SceneGame2 {
                         int oldScore = GetScore.getScore(username);
                         if(score.get() > oldScore){
                             UpdateScore.updateScore(username,score.get());
+                            UpdateRank.updateRank(username,score.get());
                         }
                         timerMonsterEAt.cancel();
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,2,username));
@@ -93,6 +94,7 @@ public class SceneGame2 {
                         int oldScore = GetScore.getScore(username);
                         if(score.get() > oldScore){
                             UpdateScore.updateScore(username,score.get());
+                            UpdateRank.updateRank(username,score.get());
                         }
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,2,username));
                         primaryStage.show();
@@ -115,6 +117,7 @@ public class SceneGame2 {
                         int oldScore = GetScore.getScore(username);
                         if(score.get() > oldScore){
                             UpdateScore.updateScore(username,score.get());
+                            UpdateRank.updateRank(username,score.get());
                         }
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,2,username));
                         primaryStage.show();
@@ -130,6 +133,7 @@ public class SceneGame2 {
                         int oldScore = GetScore.getScore(username);
                         if(score.get() > oldScore){
                             UpdateScore.updateScore(username,score.get());
+                            UpdateRank.updateRank(username,score.get());
                         }
                         primaryStage.setScene(SceenGameWin.WinGame(primaryStage,2,username));
                         primaryStage.show();
