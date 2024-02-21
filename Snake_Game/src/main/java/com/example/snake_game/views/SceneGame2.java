@@ -44,7 +44,7 @@ public class SceneGame2 {
     }
 
     public static Scene game2(Stage primaryStage , String username){
-        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
+//        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
         UpdateMovie updateMovie = new UpdateMovie();
         Draws draws = new Draws() ;
         restart();
