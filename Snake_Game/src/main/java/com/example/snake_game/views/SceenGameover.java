@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 public class SceenGameover {
     public static Scene SceneClose(Stage primaryStage ,int gameLevel,String username){
         int width = 1200;
-        int height = 960 ;
+        int height = 780 ;
 
         MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\gameover.mp3");
         Image backgroundImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\gameover.gif");
@@ -76,11 +76,11 @@ public class SceenGameover {
         pane.setBackground(new Background(background));
 
         // Đặt vị trí và kích thước cho các button
-        AnchorPane.setBottomAnchor(buttonReplay, 200.0);
+        AnchorPane.setBottomAnchor(buttonReplay, 100.0);
         AnchorPane.setLeftAnchor(buttonReplay, 350.0);
 
 
-        AnchorPane.setBottomAnchor(buttonBackMain, 200.0);
+        AnchorPane.setBottomAnchor(buttonBackMain, 100.0);
         AnchorPane.setLeftAnchor(buttonBackMain, 800.0);
 
 

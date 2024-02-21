@@ -8,6 +8,8 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -17,13 +19,13 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class SceneInformation {
-    public static String username ;
+    public static String username = "huongcaoha94" ;
     public void setUsername(String username){
         this.username = username ;
     }
     public static Scene information(){
         int width = 1200;
-        int height = 960;
+        int height = 780;
         int fontSize = 35 ;
 
         Image backgroundImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\bg_information.jpg");
@@ -63,16 +65,18 @@ public class SceneInformation {
         textRank.setFill(Color.RED);
         gridPane.add(textRank,1,31);
 
-        Button buttonBack = new Button("Back");
-        buttonBack.setPrefWidth(100);
-        buttonBack.setPrefHeight(40);
-        buttonBack.setStyle("-fx-background-color: #d51111;");
+        Button buttonBack = new Button("Back Main");
+        Tooltip tooltipStart = new Tooltip("Click để quay lại");
+        buttonBack.setTooltip(tooltipStart);
+        buttonBack.setPrefSize(143, 50);
+        buttonBack.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #aa00ff, #FFFF00); -fx-background-radius: 15;");
+        buttonBack.setEffect(new DropShadow());
         buttonBack.setOnAction(event -> {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(SceneDisplay.display());
             stage.show();
         });
-        gridPane.add(buttonBack,1,60);
+        gridPane.add(buttonBack,1,33);
 
 
 

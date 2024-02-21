@@ -1,5 +1,6 @@
 package com.example.snake_game.views;
 
+import com.example.snake_game.models.GetScore;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -7,6 +8,10 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToolBar;
+import javafx.scene.control.Tooltip;
+import javafx.scene.control.skin.ToolBarSkin;
+import javafx.scene.control.skin.TooltipSkin;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,8 +23,11 @@ import javafx.scene.layout.VBox;
 
 import javafx.stage.Stage;
 
+import java.util.spi.ToolProvider;
+
 public class SceneDisplay {
     public static String username;
+    private static int oldScore = GetScore.getScore(username);
     public void setUsername(String username){
         this.username = username ;
     }
@@ -33,7 +41,7 @@ public class SceneDisplay {
     public static Scene display(){
 
         BorderPane root = new BorderPane();
-        root.setPrefSize(900, 650);
+        root.setPrefSize(1200, 780);
 
         String backgroundImage = "file:/C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/background.jpg";
         root.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover;");
@@ -67,6 +75,8 @@ public class SceneDisplay {
 
 
         Button exitButton = new Button("Exit");
+        Tooltip tooltipExit = new Tooltip("Click để thoát");
+        exitButton.setTooltip(tooltipExit);
         exitButton.setPrefSize(75, 45);
         exitButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #FF0000, #FFFF00); -fx-background-radius: 15;");
         exitButton.setOnAction(event -> handleExitButtonClick());
@@ -124,12 +134,16 @@ public class SceneDisplay {
 
 
         Button startButton = new Button("Start");
+        Tooltip tooltipStart = new Tooltip("Click để chơi game");
+        startButton.setTooltip(tooltipStart);
         startButton.setPrefSize(143, 50);
         startButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #aa00ff, #FFFF00); -fx-background-radius: 15;");
         startButton.setEffect(new DropShadow());
         startButton.setOnAction(event -> handleStartButtonClick(event));
 
-        Button rankingMatchButton = new Button("Ranking Match");
+        Button rankingMatchButton = new Button("Game Rank");
+        Tooltip tooltipRank = new Tooltip("Click để xem bảng xếp hạng");
+        Tooltip.install(rankingMatchButton,tooltipRank);
         rankingMatchButton.setPrefSize(143, 50);
         rankingMatchButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #FF0000, #00ff55); -fx-background-radius: 15;");
         rankingMatchButton.setEffect(new DropShadow());
@@ -177,7 +191,12 @@ public class SceneDisplay {
         GameRank gameRank = new GameRank();
         gameRank.setUsername(username);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(GameRank.gameRank(stage,username));
+        if(oldScore == 0){
+            stage.setScene(GuidePlayGame.guidePlay(stage,4,username));
+        }else {
+            stage.setScene(GameRank.gameRank(stage,username));
+        }
+
         stage.show();
     }
 

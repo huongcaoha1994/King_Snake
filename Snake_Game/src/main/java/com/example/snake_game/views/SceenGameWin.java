@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 public class SceenGameWin {
     public static Scene WinGame(Stage primaryStage,int levelGame,String username){
         int width = 1200 ;
-        int height = 960 ;
+        int height = 780 ;
 
         MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\wingame.mp3");
         Image backgroundImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\winner1.gif");

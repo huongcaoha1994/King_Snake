@@ -50,7 +50,7 @@ public class Draws {
 
         Font font = new Font("Arial", 24); // Đặt kích thước chữ
         gc.setFont(font);
-        gc.fillText("Score : " + score.get(), width / 2, tileSize);
+        gc.fillText("Score : " + score.get(), 300, tileSize);
 
 
     }
@@ -79,7 +79,7 @@ public class Draws {
 
         Font font = new Font("Arial", 24); // Đặt kích thước chữ
         gc.setFont(font);
-        gc.fillText("Score : " + score.get(), width / 2, tileSize);
+        gc.fillText("Score : " + score.get(), 300, tileSize);
 
 
     }
@@ -116,7 +116,7 @@ public class Draws {
         Font font = new Font("Arial", 24); // Đặt kích thước chữ
         gc.setFont(font);
         gc.setFill(Color.RED);
-        gc.fillText("Score : " + score.get(), width / 2, tileSize);
+        gc.fillText("Score : " + score.get(), 300, tileSize);
     }
 
     public void drawGame3(GraphicsContext gc, int width, int height, int tileSize, Point snake, Point monsterEat, Point monsterGun, List<Point> bullets,Point food,IntegerProperty score,Point monster) {
@@ -151,7 +151,7 @@ public class Draws {
         Font font = new Font("Arial", 24); // Đặt kích thước chữ
         gc.setFont(font);
         gc.setFill(Color.RED);
-        gc.fillText("Score : " + score.get(), width / 2, tileSize);
+        gc.fillText("Score : " + score.get(), 300, tileSize);
 
     }
 

@@ -20,7 +20,7 @@ import java.util.TimerTask;
 public class SceneGame1 {
     private static  int TILE_SIZE = 60 ;
     private static  int WIDTH = TILE_SIZE*20;
-    private static  int HEIGHT = TILE_SIZE*16 ;
+    private static  int HEIGHT = TILE_SIZE*13 ;
 
     private static IntegerProperty score = new SimpleIntegerProperty(14);
     static Random random = new Random();

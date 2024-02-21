@@ -21,7 +21,7 @@ import java.util.*;
 public class SceneGame3 {
     private static int tileSize = 60 ;
     private static int width = tileSize*20;
-    private static int height = tileSize*16;
+    private static int height = tileSize*13;
     private static IntegerProperty score = new SimpleIntegerProperty(14);
     private static Point snake ;
     private static Point monsterGun ;
