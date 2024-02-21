@@ -21,7 +21,7 @@ import java.util.*;
 public class SceneGame3 {
     private static int tileSize = 60 ;
     private static int width = tileSize*20;
-    private static int height = tileSize*16;
+    private static int height = tileSize*13;
     private static IntegerProperty score = new SimpleIntegerProperty(14);
     private static Point snake ;
     private static Point monsterGun ;
@@ -46,7 +46,7 @@ public class SceneGame3 {
     }
 
     public static Scene game3(Stage primaryStage , String username){
-        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
+//        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
         restart();
         UpdateMovie updateMovie = new UpdateMovie();
         Draws draws = new Draws();

@@ -8,6 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c3e3fc2-7d32-4662-8f7f-e409c662005f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneRank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/GetTop10User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/GetTop10User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame3.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Login.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Registers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
@@ -29,8 +36,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
-        <option value="CSS File" />
         <option value="FxmlFile" />
+        <option value="HTML File" />
+        <option value="CSS File" />
         <option value="Class" />
       </list>
     </option>
@@ -52,7 +60,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Demo.executor": "Run",
+    "Application.Demo.executor": "Debug",
     "Application.Display.executor": "Run",
     "Application.Game1 (1).executor": "Run",
     "Application.Game1 (2).executor": "Run",
@@ -68,25 +76,40 @@
     "Application.Register.executor": "Run",
     "Application.SceneGameover.executor": "Run",
     "Application.SceneInformation.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "OverrideImplement.generate.javadoc": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Windows 11/IdeaProjects/King_Snake",
     "last_opened_file_path": "C:/Users/pc/King_Snake/Snake_Game",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "settings.sync",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.snake_game.views" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Windows 11\IdeaProjects\Snake_Game\src\main\java\com\example\snake_game\resources\image" />
     </key>
   </component>
+  <component name="RunManager" selected="Application.Demo">
+    <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Demo" />
   <component name="RunManager" selected="Application.Main">
     <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Login" />
@@ -155,6 +178,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Demo" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MainHistory" />
+        <item itemvalue="Application.MainRanking" />
+        <item itemvalue="Application.SceneInformation1" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Login" />
         <item itemvalue="Application.Registers" />
@@ -162,6 +190,13 @@
         <item itemvalue="Application.LoginDisplay" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -172,6 +207,9 @@
       <option name="presentableId" value="Default" />
       <updated>1707327078115</updated>
       <workItem from="1707327079122" duration="6810000" />
+      <workItem from="1708429411107" duration="348000" />
+      <workItem from="1708430658525" duration="2929000" />
+      <workItem from="1708434206284" duration="22410000" />
       <workItem from="1708396749558" duration="106000" />
       <workItem from="1708396874104" duration="97000" />
       <workItem from="1708427403449" duration="733000" />
