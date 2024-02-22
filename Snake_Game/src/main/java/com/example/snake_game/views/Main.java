@@ -11,8 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        LoginDisplay loginDisplay = new LoginDisplay();
-        primaryStage.setResizable(false);
-        loginDisplay.start(primaryStage);
+        Login login= new Login();
+        login.start(primaryStage);
     }
 }
