@@ -1,5 +1,6 @@
 package com.example.snake_game.views;
 
+import com.example.snake_game.models.Alert;
 import com.example.snake_game.models.GetTop10User;
 import com.mongodb.client.FindIterable;
 import javafx.application.Application;
@@ -17,6 +18,7 @@ public class Demo extends Application {
        primaryStage.setScene(SceneRank.sceneRank());
         primaryStage.setResizable(false);
        primaryStage.show();
+
 
 
     }

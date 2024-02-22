@@ -1,8 +1,13 @@
 package com.example.snake_game.views;
 
+import com.example.snake_game.models.Alert;
+import com.example.snake_game.models.CheckUsername;
+import com.example.snake_game.models.CheckUsernamePassword;
+import com.example.snake_game.models.StringToHashCode;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,7 +27,7 @@ public class Login extends Application {
         BorderPane root = new BorderPane();
 
         // Path to background image
-        String backgroundImage = "file:C:/Users/pc/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/in.gif"; // Replace with the actual path of the image
+        String backgroundImage = "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/in.gif"; // Replace with the actual path of the image
 
         // Set CSS for the BorderPane
         root.setStyle("-fx-background-image: url('" + backgroundImage + "'); " +
@@ -48,6 +53,23 @@ public class Login extends Application {
         Button loginButton = new Button("Login");
         loginButton.setStyle("-fx-background-color: linear-gradient(to right, #ff8000, #8000ff, #00ff80); -fx-text-fill: white;");
         loginButton.setPrefWidth(120); // Set the preferred width of the button
+        loginButton.setOnAction(event -> {
+            String username = usernameField.getText();
+            String password = passwordField.getText();
+            if(CheckUsername.checkUsernameExist(username)){
+                if(CheckUsernamePassword.checkUsernamePassword(username,password)){
+                    SceneDisplay sceneDisplay = new SceneDisplay();
+                    sceneDisplay.setUsername(username);
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(SceneDisplay.display());
+                    stage.show();
+                }else {
+                    Alert.alert("Password fail !");
+                }
+            }else {
+                Alert.alert("Not found account !");
+            }
+        });
 
         // CSS for the title label
         titleLabel.setStyle("-fx-text-fill: linear-gradient(to right, #ff0000, #0000ff, #00ff00);");
@@ -71,7 +93,7 @@ public class Login extends Application {
         Scene scene = new Scene(root);
 
         // Set the window size
-        primaryStage.setWidth(1000);
+        primaryStage.setWidth(1200);
         primaryStage.setHeight(780);
 
         // Center the title
