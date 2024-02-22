@@ -29,34 +29,19 @@ public class Registers extends Application {
 
         Text title = new Text("Register");
         title.setFont(Font.font("Arial", FontWeight.BOLD, 30));
-        title.setStyle("-fx-fill: linear-gradient(#ff8000, #ff0000, #0000ff);");
-
-        Label emailLabel = new Label("Email:");
-        emailLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;");
-        TextField emailField = new TextField();
+        title.setStyle("-fx-fill: linear-gradient(#ff8000, #0000ff, #00ff80);");
 
         Label nameLabel = new Label("Name:");
         nameLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;");
         TextField nameField = new TextField();
 
-        Label passwordLabel = new Label("PassWord:");
+        Label passwordLabel = new Label("Password:");
         passwordLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;");
         PasswordField passwordField = new PasswordField();
 
-        Label genderLabel = new Label("Sex:");
-        genderLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;");
-        RadioButton maleRadioButton = new RadioButton("Male");
-        maleRadioButton.setStyle("-fx-text-fill: white");
-        RadioButton femaleRadioButton = new RadioButton("Female");
-        femaleRadioButton.setStyle("-fx-text-fill: white");
-        ToggleGroup genderToggleGroup = new ToggleGroup();
-        maleRadioButton.setToggleGroup(genderToggleGroup);
-        femaleRadioButton.setToggleGroup(genderToggleGroup);
-
-        Label typeLabel = new Label("Account type:");
-        typeLabel.setStyle("-fx-text-fill: white; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;");
-        ComboBox<String> typeComboBox = new ComboBox<>();
-        typeComboBox.getItems().addAll("Individual", "Company");
+        Label repasswordLabel = new Label("Repassword:");
+        repasswordLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;");
+        PasswordField repasswordField = new PasswordField();
 
         Button submitButton = new Button("Register");
         submitButton.setStyle("-fx-background-color: linear-gradient(#ff0000, #0000ff, #00ff80); -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-min-width: 120px;");
@@ -70,26 +55,21 @@ public class Registers extends Application {
 
         gridPane.add(title, 0, 0, 2, 1);
 
-        gridPane.add(emailLabel, 0, 1);
-        gridPane.add(emailField, 1, 1, 2, 1);
-
         gridPane.add(nameLabel, 0, 2);
         gridPane.add(nameField, 1, 2, 2, 1);
 
         gridPane.add(passwordLabel, 0, 3);
         gridPane.add(passwordField, 1, 3, 2, 1);
 
-        gridPane.add(genderLabel, 0, 4);
-        gridPane.add(maleRadioButton, 1, 4);
-        gridPane.add(femaleRadioButton, 2, 4);
+        gridPane.add(repasswordLabel, 0, 4);
+        gridPane.add(repasswordField, 1, 4, 2, 1);
 
-        gridPane.add(typeLabel, 0, 5);
-        gridPane.add(typeComboBox, 1, 5, 2, 1);
-
-        HBox hBox = new HBox();
-        hBox.getChildren().add(submitButton);
-        gridPane.add(hBox, 1, 6, 2, 1);
+        gridPane.add(submitButton, 1, 5, 2, 1);
         gridPane.setAlignment(Pos.CENTER);
+
+        // Center the title
+        GridPane.setHalignment(title, javafx.geometry.HPos.CENTER);
+
 
         // Thêm event cho nút "Đăng ký"
 

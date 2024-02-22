@@ -132,7 +132,6 @@ public class Display extends Application {
         skinsButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #FF0000, #00ff55); -fx-background-radius: 15;");
         skinsButton.setEffect(new DropShadow());
         skinsButton.setOnAction(event -> handleSkinsButtonClick());
-        VBox.setMargin(skinsButton, new Insets(0, 50, 0, 0));
 
         rightBox.getChildren().addAll(startButton, skinsButton);
 

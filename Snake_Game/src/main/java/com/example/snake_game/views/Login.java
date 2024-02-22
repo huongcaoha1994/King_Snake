@@ -44,8 +44,18 @@ public class Login extends Application {
         Label passwordLabel = new Label("Password:");
         passwordLabel.setStyle("-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;");
         PasswordField passwordField = new PasswordField();
-        Hyperlink registerLink = new Hyperlink("Do not have an account? Register now.");
+        Label registerLabel = new Label("Do not have an account? ");
+        registerLabel.setStyle("-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;");
+
+        Hyperlink registerLink = new Hyperlink();
+        registerLink.setText("Register now.");
         registerLink.setStyle("-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;");
+        registerLink.setOnAction(event -> {
+            // Open the Register window or navigate to the Register class
+            Registers registers = new Registers();
+            registers.start(new Stage());
+            primaryStage.close(); // Close the Login window
+        });
         Button loginButton = new Button("Login");
         loginButton.setStyle("-fx-background-color: linear-gradient(to right, #ff8000, #8000ff, #00ff80); -fx-text-fill: white;");
         loginButton.setPrefWidth(120); // Set the preferred width of the button
@@ -66,13 +76,6 @@ public class Login extends Application {
                 Alert.alert("Not found account !");
             }
         });
-        // Set action for registerLink
-        registerLink.setOnAction(event -> {
-            // Open the Register window or navigate to the Register class
-            Registers registers = new Registers();
-            registers.start(new Stage());
-            primaryStage.close(); // Close the Login window
-        });
 
         // CSS for the title label
         titleLabel.setStyle("-fx-text-fill: linear-gradient(to right, #ff0000, #0000ff, #00ff00);");
@@ -83,7 +86,8 @@ public class Login extends Application {
         gridPane.add(usernameField, 1, 1);
         gridPane.add(passwordLabel, 0, 2);
         gridPane.add(passwordField, 1, 2);
-        gridPane.add(registerLink, 0, 3, 2, 1); // Span 2 columns for the register label
+        gridPane.add(registerLabel,0,3);
+        gridPane.add(registerLink, 1, 3);
         gridPane.add(loginButton, 1, 4); // Change the row index of loginButton to 4
 
         // Center the GridPane
