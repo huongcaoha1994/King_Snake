@@ -8,10 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ToolBar;
 import javafx.scene.control.Tooltip;
-import javafx.scene.control.skin.ToolBarSkin;
-import javafx.scene.control.skin.TooltipSkin;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -22,8 +19,6 @@ import javafx.scene.layout.VBox;
 
 
 import javafx.stage.Stage;
-
-import java.util.spi.ToolProvider;
 
 public class SceneDisplay {
     public static String username;
@@ -98,7 +93,7 @@ public class SceneDisplay {
         leftBox.setPadding(new Insets(0, 0, 0, 50));
 
         ImageView rankingImageView = new ImageView(new Image("file:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\3.png"));
-        rankingImageView.setOnMouseClicked(event -> handleRankingImageClick());
+        rankingImageView.setOnMouseClicked(event -> handleRankingImageClick(event));
         rankingImageView.setFitWidth(114);
         rankingImageView.setFitHeight(112);
         Label rankingLabel = new Label("Ranking");
@@ -176,8 +171,10 @@ public class SceneDisplay {
         // Thực hiện các xử lý khác tại đây
     }
 
-    private static void handleRankingImageClick() {
-        System.out.println("User Image Clicked");
+    private static void handleRankingImageClick(MouseEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(SceneRank.sceneRank());
+        stage.show();
         // Thực hiện các xử lý khác tại đây
     }
 

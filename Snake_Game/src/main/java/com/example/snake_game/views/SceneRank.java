@@ -63,23 +63,23 @@ public class SceneRank {
 
             // In ra 10 tài liệu
             Text title1 = new Text("Username");
-            title1.setFont(Font.font("Arial", fontSize));
-            title1.setFill(Color.RED);
+            title1.setFont(Font.font("Arial", fontSize + 10));
+            title1.setFill(Color.BLUE);
             gridPane.add(title1,1,5);
 
             Text title2 = new Text("Level");
-            title2.setFont(Font.font("Arial", fontSize));
-            title2.setFill(Color.RED);
+            title2.setFont(Font.font("Arial", fontSize + 10));
+            title2.setFill(Color.BLUE);
             gridPane.add(title2,2,5);
 
             Text title3 = new Text("Score");
-            title3.setFont(Font.font("Arial", fontSize));
-            title3.setFill(Color.RED);
+            title3.setFont(Font.font("Arial", fontSize + 10));
+            title3.setFill(Color.BLUE);
             gridPane.add(title3,3,5);
 
             Text title4 = new Text("Rank");
-            title4.setFont(Font.font("Arial", fontSize));
-            title4.setFill(Color.RED);
+            title4.setFont(Font.font("Arial", fontSize + 10));
+            title4.setFill(Color.BLUE);
             gridPane.add(title4,4,5);
 
             int row = 10 ;
@@ -121,7 +121,7 @@ public class SceneRank {
 //        gridPane.add(textName,1,25);
 
 
-        Button buttonBack = new Button("Back Main");
+        Button buttonBack = new Button("Back");
         Tooltip tooltipStart = new Tooltip("Click để quay lại");
         buttonBack.setTooltip(tooltipStart);
         buttonBack.setPrefSize(143, 50);
@@ -132,7 +132,7 @@ public class SceneRank {
             stage.setScene(SceneDisplay.display());
             stage.show();
         });
-        gridPane.add(buttonBack,2,30);
+        gridPane.add(buttonBack,2,28);
 
 
 
