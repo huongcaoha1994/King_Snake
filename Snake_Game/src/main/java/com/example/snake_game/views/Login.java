@@ -3,16 +3,12 @@ package com.example.snake_game.views;
 import com.example.snake_game.models.Alert;
 import com.example.snake_game.models.CheckUsername;
 import com.example.snake_game.models.CheckUsernamePassword;
-import com.example.snake_game.models.StringToHashCode;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
@@ -48,8 +44,8 @@ public class Login extends Application {
         Label passwordLabel = new Label("Password:");
         passwordLabel.setStyle("-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;");
         PasswordField passwordField = new PasswordField();
-        Label registerLabel = new Label("Do not have an account? Register now.");
-        registerLabel.setStyle("-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;");
+        Hyperlink registerLink = new Hyperlink("Do not have an account? Register now.");
+        registerLink.setStyle("-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;");
         Button loginButton = new Button("Login");
         loginButton.setStyle("-fx-background-color: linear-gradient(to right, #ff8000, #8000ff, #00ff80); -fx-text-fill: white;");
         loginButton.setPrefWidth(120); // Set the preferred width of the button
@@ -70,6 +66,13 @@ public class Login extends Application {
                 Alert.alert("Not found account !");
             }
         });
+        // Set action for registerLink
+        registerLink.setOnAction(event -> {
+            // Open the Register window or navigate to the Register class
+            Registers registers = new Registers();
+            registers.start(new Stage());
+            primaryStage.close(); // Close the Login window
+        });
 
         // CSS for the title label
         titleLabel.setStyle("-fx-text-fill: linear-gradient(to right, #ff0000, #0000ff, #00ff00);");
@@ -80,7 +83,7 @@ public class Login extends Application {
         gridPane.add(usernameField, 1, 1);
         gridPane.add(passwordLabel, 0, 2);
         gridPane.add(passwordField, 1, 2);
-        gridPane.add(registerLabel, 0, 3, 2, 1); // Span 2 columns for the register label
+        gridPane.add(registerLink, 0, 3, 2, 1); // Span 2 columns for the register label
         gridPane.add(loginButton, 1, 4); // Change the row index of loginButton to 4
 
         // Center the GridPane

@@ -14,6 +14,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -22,7 +23,7 @@ import javafx.stage.Stage;
 public class Registers extends Application {
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage primaryStage) {
 
         // Tạo các thành phần giao diện
 
@@ -45,7 +46,9 @@ public class Registers extends Application {
         Label genderLabel = new Label("Sex:");
         genderLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;");
         RadioButton maleRadioButton = new RadioButton("Male");
+        maleRadioButton.setStyle("-fx-text-fill: white");
         RadioButton femaleRadioButton = new RadioButton("Female");
+        femaleRadioButton.setStyle("-fx-text-fill: white");
         ToggleGroup genderToggleGroup = new ToggleGroup();
         maleRadioButton.setToggleGroup(genderToggleGroup);
         femaleRadioButton.setToggleGroup(genderToggleGroup);
@@ -95,9 +98,32 @@ public class Registers extends Application {
             System.out.println("Registered!");
         });
 
+        // Tạo HBox chứa nút "Button1"
+        HBox button1Container = new HBox();
+        button1Container.setAlignment(Pos.TOP_LEFT);
+        button1Container.setPadding(new Insets(10));
+        Button button1 = new Button("Login");
+        button1Container.getChildren().add(button1);
+        button1.setStyle("-fx-background-color: linear-gradient(#ff0000, #0000ff, #00ff80); -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-min-width: 100px; -fx-min-height: 30px;");
+        button1.setOnAction(e -> {
+            Login login = new Login();
+            login.start(new Stage());
+            // Đóng cửa sổ đăng ký
+            primaryStage.close();
+        });
+
+        // Tạo VBox chứa HBox của nút
+        VBox buttonsContainer = new VBox();
+        buttonsContainer.setAlignment(Pos.TOP_RIGHT);
+        buttonsContainer.getChildren().addAll(button1Container);
+
         // Tạo BorderPane và đặt GridPane vào trung tâm
         BorderPane borderPane = new BorderPane();
         borderPane.setCenter(gridPane);
+        borderPane.setTop(buttonsContainer);
+        BorderPane.setAlignment(buttonsContainer, Pos.TOP_RIGHT);
+        BorderPane.setMargin(buttonsContainer, new Insets(10));
+
 
         String backgroundImage = "file:C:/Users/pc/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/in.gif";
         borderPane.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover;");
@@ -105,12 +131,12 @@ public class Registers extends Application {
         // Tạo scene và hiển thị
 
         Scene scene = new Scene(borderPane);
-        stage.setScene(scene);
-        stage.setTitle("Register");
-        stage.setResizable(false);
-        stage.setWidth(1000);
-        stage.setHeight(780);
-        stage.show();
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Register");
+        primaryStage.setResizable(false);
+        primaryStage.setWidth(1000);
+        primaryStage.setHeight(780);
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
