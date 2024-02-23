@@ -4,18 +4,14 @@ import com.example.snake_game.models.Alert;
 import com.example.snake_game.models.InsertUser;
 import com.example.snake_game.models.StringToHashCode;
 import com.example.snake_game.utils.StringPathImage;
-import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -25,13 +21,11 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class Registers extends Application {
-
-    @Override
-    public void start(Stage primaryStage) {
-
+public class Sceneregister {
+    public static Scene register(){
         // Tạo các thành phần giao diện
-
+        int width = 1200 ;
+        int height = 780 ;
         Text title = new Text("Register");
         title.setFont(Font.font("Arial", FontWeight.BOLD, 30));
         title.setStyle("-fx-fill: linear-gradient(#ff8000, #0000ff, #00ff80);");
@@ -86,8 +80,10 @@ public class Registers extends Application {
             if(password.equals(repassword)){
                 password = StringToHashCode.hashString(password);
                 InsertUser.insertUser(username,password);
-               Registers registers = new Registers();
-               registers.start(primaryStage);
+                Alert.alert("Register succesfully !");
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(SceneLogin.login());
+                stage.show();
 
             }else {
                 Alert.alert("Password not match !");
@@ -101,11 +97,10 @@ public class Registers extends Application {
         Button button1 = new Button("Login");
         button1Container.getChildren().add(button1);
         button1.setStyle("-fx-background-color: linear-gradient(#ff0000, #0000ff, #00ff80); -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-min-width: 100px; -fx-min-height: 30px;");
-        button1.setOnAction(e -> {
-            Login login = new Login();
-            login.start(new Stage());
-            // Đóng cửa sổ đăng ký
-            primaryStage.close();
+        button1.setOnAction(event -> {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(SceneLogin.login());
+            stage.show();
         });
 
         // Tạo VBox chứa HBox của nút
@@ -126,16 +121,7 @@ public class Registers extends Application {
 
         // Tạo scene và hiển thị
 
-        Scene scene = new Scene(borderPane);
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Register");
-        primaryStage.setResizable(false);
-        primaryStage.setWidth(1200);
-        primaryStage.setHeight(780);
-        primaryStage.show();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
+        Scene scene = new Scene(borderPane,width,height);
+        return scene;
     }
 }

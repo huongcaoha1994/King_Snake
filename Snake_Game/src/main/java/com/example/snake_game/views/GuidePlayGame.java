@@ -2,6 +2,7 @@ package com.example.snake_game.views;
 
 import com.example.snake_game.utils.GetImage;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
@@ -145,18 +146,27 @@ public class GuidePlayGame {
             switch (levelGame){
                 case 1 : {
                     primaryStage.setScene(SceneGame1.game1(primaryStage,username));
+                    primaryStage.show();
                     break;
                 }
                 case 2 : {
                     primaryStage.setScene(SceneGame2.game2(primaryStage,username));
+                    primaryStage.show();
                     break;
                 }
                 case 3 : {
                     primaryStage.setScene(SceneGame3.game3(primaryStage, username));
+                    primaryStage.show();
                     break;
                 }
                 case 4 : {
                     primaryStage.setScene(GameRank.gameRank(primaryStage, username));
+                    primaryStage.show();
+                    break;
+                }
+                case 5 : {
+                    primaryStage.setScene(SceneDisplay.display());
+                    primaryStage.show();
                     break;
                 }
 

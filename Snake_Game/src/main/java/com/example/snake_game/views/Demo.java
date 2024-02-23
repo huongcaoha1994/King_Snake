@@ -2,6 +2,7 @@ package com.example.snake_game.views;
 
 import com.example.snake_game.models.Alert;
 import com.example.snake_game.models.GetTop10User;
+import com.example.snake_game.models.UpdateScore;
 import com.mongodb.client.FindIterable;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -15,9 +16,11 @@ public class Demo extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-       primaryStage.setScene(SceneRank.sceneRank());
-        primaryStage.setResizable(false);
-       primaryStage.show();
+//       primaryStage.setScene(ScenePlaygame.playgame(primaryStage));
+//       primaryStage.show();
+        UpdateScore.updateScore("admin9",22);
+
+
 
 
 

@@ -2,6 +2,7 @@ package com.example.snake_game.views;
 
 import com.example.snake_game.models.GetLevel;
 import com.example.snake_game.models.GetScore;
+import com.example.snake_game.utils.StringPathImage;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.geometry.Pos;
@@ -180,9 +181,9 @@ public class ScenePlaygame {
 
 
 
-        VBox centerVBox1 = createVBoxWithImageAndButton("File:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\game1a.gif", playMan1Button);
-        VBox centerVBox2 = createVBoxWithImageAndButton("File:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\game2a.gif", playMan2Button);
-        VBox centerVBox3 = createVBoxWithImageAndButton("File:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\game3.gif", playMan3Button);
+        VBox centerVBox1 = createVBoxWithImageAndButton(StringPathImage.game1a_gif(), playMan1Button);
+        VBox centerVBox2 = createVBoxWithImageAndButton(StringPathImage.game2a_gif(), playMan2Button);
+        VBox centerVBox3 = createVBoxWithImageAndButton(StringPathImage.game3_gif(), playMan3Button);
 
 
         HBox hBox = new HBox(centerVBox1, centerVBox2, centerVBox3); // HBox để chứa 3 màn chơi
