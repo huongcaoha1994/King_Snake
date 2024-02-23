@@ -23,7 +23,7 @@ public class Display extends Application {
     @Override
     public void start(Stage primaryStage) {
         BorderPane root = new BorderPane();
-        root.setPrefSize(900, 650);
+        root.setPrefSize(1000, 780);
 
         String backgroundImage = "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/game_background.gif";
         root.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover");
@@ -122,21 +122,28 @@ public class Display extends Application {
 
 
         Button startButton = new Button("Start");
-        startButton.setPrefSize(143, 50);
+        startButton.setPrefSize(150, 50);
         startButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #aa00ff, #FFFF00); -fx-background-radius: 15;");
         startButton.setEffect(new DropShadow());
         startButton.setOnAction(event -> handleStartButtonClick());
 
         Button skinsButton = new Button("Skins");
-        skinsButton.setPrefSize(143, 50);
+        skinsButton.setPrefSize(150, 50);
         skinsButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #FF0000, #00ff55); -fx-background-radius: 15;");
         skinsButton.setEffect(new DropShadow());
         skinsButton.setOnAction(event -> handleSkinsButtonClick());
         VBox.setMargin(skinsButton, new Insets(0, 50, 0, 0));
 
-        rightBox.getChildren().addAll(startButton, skinsButton);
+        Button guideButton = new Button("Guide Play");
+        guideButton.setPrefSize(150, 50);
+        guideButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #aa00ff, #00ff55); -fx-background-radius: 15;");
+        guideButton.setEffect(new DropShadow());
+        guideButton.setOnAction(event -> handleGuideButtonClick());
 
-        root.setRight(rightBox);
+        rightBox.getChildren().addAll(startButton, skinsButton, guideButton);
+
+        rightBox.setSpacing(35);
+
 
         Image centerImage = new Image("File:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\ff.gif");
         ImageView centerImageView = new ImageView(centerImage);
@@ -175,6 +182,10 @@ public class Display extends Application {
 
     private void handleSkinsButtonClick() {
         System.out.println("Skins Button Clicked");
+    }
+
+    private void handleGuideButtonClick() {
+        System.out.println("Guides Button Clicked");
     }
 
     private void handleExitButtonClick() {
