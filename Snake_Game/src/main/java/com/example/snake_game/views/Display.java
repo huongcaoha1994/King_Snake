@@ -184,7 +184,7 @@ public class Display extends Application {
     }
 
     private void handleGuideButtonClick() {
-        System.out.println("Guides Button Clicked");
+        System.out.println("Guides Button Clicked"); //sos
     }
 
     private void handleExitButtonClick() {
