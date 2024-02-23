@@ -1,13 +1,12 @@
 package com.example.snake_game.views;
 
 import com.example.snake_game.utils.GetImage;
-import com.example.snake_game.utils.MediaPlay;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -15,18 +14,16 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.util.Stack;
-
-public class GuidePlay {
+public class GuidePlayGame {
     public static Scene guidePlay(Stage primaryStage ,int levelGame,String username){
         int width = 1200 ;
-        int height = 960;
-        int sizeImage = 100 ;
+        int height = 780;
+        int sizeImage = 60 ;
         int fontSize = 20 ;
 
 
-        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\gameover.mp3");
-        Image backgroundImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\guideplay.jpeg");
+
+        Image backgroundImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\guidePlay.gif");
         BackgroundImage background = new BackgroundImage(backgroundImage,
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.DEFAULT, new BackgroundSize(width, height, false, false, true, true));
@@ -77,72 +74,105 @@ public class GuidePlay {
         text3.setFont(Font.font("Arial", fontSize));
         gridPane.add(text3, 1, 6);
 
-        // Hình ảnh 4
         Image image4 = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monsterEat.gif");
         ImageView imageView4 = new ImageView(image4);
         imageView4.setFitWidth(sizeImage);
         imageView4.setFitHeight(sizeImage);
         gridPane.add(imageView4, 0, 8);
 
-        // Text 4
-        Text text4 = new Text("Monster Eat : Quái vật này thường xuyên tìm và nhặt chìa khóa giấu đi .");
+        // Text
+        Text text4 = new Text("Monster Eat : Quái vật này sẽ đi cướp chi khóa và giấu đi chỗ khác .");
         text4.setFont(Font.font("Arial", fontSize));
         gridPane.add(text4, 1, 8);
 
-        // Hình ảnh 5
+
+        // Hình ảnh 4
         Image image5 = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monsterGun.jpg");
         ImageView imageView5 = new ImageView(image5);
         imageView5.setFitWidth(sizeImage);
         imageView5.setFitHeight(sizeImage);
         gridPane.add(imageView5, 0, 10);
 
-        // Text 5
+        // Text 4
         Text text5 = new Text("Monster Gun : Quái vật này sẽ di chuyển về hướng snake và bắn súng , khi đạn trúng snake thì gameover.");
         text5.setFont(Font.font("Arial", fontSize));
         gridPane.add(text5, 1, 10);
 
-        // Hình ảnh 6
+        // Hình ảnh 5
         Image image6 = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\key.gif");
         ImageView imageView6 = new ImageView(image6);
         imageView6.setFitWidth(sizeImage);
         imageView6.setFitHeight(sizeImage);
         gridPane.add(imageView6, 0, 12);
 
-        // Text 6
+        // Text 5
         Text text6 = new Text("Key : Hãy thu thập đủ 15 chiếc chìa khóa này để qua màn chơi.");
         text6.setFont(Font.font("Arial", fontSize));
         gridPane.add(text6, 1, 12);
 
-        // Hình ảnh 7
+        // Hình ảnh 6
         Image image7 = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\gatespace.jpg");
         ImageView imageView7 = new ImageView(image7);
         imageView7.setFitWidth(sizeImage);
         imageView7.setFitHeight(sizeImage);
         gridPane.add(imageView7, 0, 14);
 
-        // TextField 7
+        // TextField 6
         Text text7 = new Text("GateSpace : Chỉ xuất hiện khi bạn có đủ 15 key , đi vào nó để qua màn chơi.");
         text7.setFont(Font.font("Arial", fontSize));
         gridPane.add(text7, 1, 14);
 
+        // Hình ảnh 8
+        Image image8 = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\anh4phim.png");
+        ImageView imageView8 = new ImageView(image8);
+        imageView8.setFitWidth(sizeImage);
+        imageView8.setFitHeight(sizeImage);
+        gridPane.add(imageView8, 0, 16);
+
+        // TextField 8
+        Text text8 = new Text ("scroll key : Điều khiển rắn bằng 4 phím lên , xuống , trái , phải .");
+        text8.setFont(Font.font("Arial", fontSize));
+        gridPane.add(text8, 1, 16);
+
+        Text task = new Text("=> Nhiệm vụ của bạn là phải thu thập đủ 15 chìa khóa rồi đi qua cánh cổng không gian để qua màn chơi");
+        task.setFont(Font.font("Arial", fontSize));
+        gridPane.add(task, 1, 18);
+
         Button next = new Button("Đã hiểu");
+        next.setPrefSize(143, 50);
+        next.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #aa00ff, #FFFF00); -fx-background-radius: 15;");
+        next.setEffect(new DropShadow());
         next.setOnAction(actionEvent -> {
             switch (levelGame){
                 case 1 : {
                     primaryStage.setScene(SceneGame1.game1(primaryStage,username));
+                    primaryStage.show();
                     break;
                 }
                 case 2 : {
                     primaryStage.setScene(SceneGame2.game2(primaryStage,username));
+                    primaryStage.show();
                     break;
                 }
                 case 3 : {
                     primaryStage.setScene(SceneGame3.game3(primaryStage, username));
+                    primaryStage.show();
                     break;
                 }
+                case 4 : {
+                    primaryStage.setScene(GameRank.gameRank(primaryStage, username));
+                    primaryStage.show();
+                    break;
+                }
+                case 5 : {
+                    primaryStage.setScene(SceneDisplay.display());
+                    primaryStage.show();
+                    break;
+                }
+
             }
         });
-        gridPane.add(next, 2, 16);
+        gridPane.add(next, 2, 18);
 
         gridPane.setBackground(new Background(background));
         Scene scene = new Scene(gridPane,width,height);

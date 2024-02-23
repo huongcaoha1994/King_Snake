@@ -13,13 +13,13 @@ import java.util.Date;
 public class InsertUser {
     public static void insertUser(String username ,String password){
         // Kết nối tới MongoDB local
-        String connectionString = "mongodb+srv://kingsnake:kingsnake@cluster0.baduwey.mongodb.net/?retryWrites=true&w=majority";
+        String connectionString = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(connectionString)) {
             // Chọn database
-            MongoDatabase database = mongoClient.getDatabase("huongcaoha");
+            MongoDatabase database = mongoClient.getDatabase("kingsnake");
 
             // Chọn collection
-            MongoCollection<Document> collection = database.getCollection("users");
+            MongoCollection<Document> collection = database.getCollection("user");
             Calendar calendar = Calendar.getInstance();
             Date currentDate = calendar.getTime();
             // Tạo document

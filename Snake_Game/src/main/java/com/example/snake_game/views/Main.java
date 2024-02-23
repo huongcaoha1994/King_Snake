@@ -1,6 +1,7 @@
 package com.example.snake_game.views;
 
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -11,7 +12,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        LoginDisplay loginDisplay = new LoginDisplay();
-        loginDisplay.start(primaryStage);
+
+        primaryStage.setScene(SceneLogin.login());
+        primaryStage.show();
     }
 }

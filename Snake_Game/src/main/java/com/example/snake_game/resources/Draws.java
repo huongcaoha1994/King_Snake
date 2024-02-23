@@ -2,6 +2,7 @@ package com.example.snake_game.resources;
 
 import com.example.snake_game.models.Point;
 import com.example.snake_game.utils.GetImage;
+import com.example.snake_game.utils.StringPathImage;
 import javafx.beans.property.IntegerProperty;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -11,15 +12,15 @@ import javafx.scene.text.Font;
 import java.util.List;
 
 public class Draws {
-    Image snakeImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\snakeyellow.gif");
-    Image bossImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\hero.gif");
-    Image foodImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\key.gif");
-    Image monsterImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\hero2.gif");
-    Image monsterEatImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monsterEat.gif");
-    Image monsterGunImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monsterGun.jpg");
-    Image bulletImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\bullet.jpg");
-    Image background = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\hinhnen.jpg");
-    Image gateImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\gatespace.jpg");
+    Image snakeImage = new Image(StringPathImage.snakeyellow_gif());
+    Image bossImage = new Image(StringPathImage.hero_gif());
+    Image foodImage = new Image(StringPathImage.key_gif());
+    Image monsterImage = new Image(StringPathImage.hero2_gif());
+    Image monsterEatImage = new Image(StringPathImage.monsterEat_gif());
+    Image monsterGunImage = new Image(StringPathImage.monsterGun_gif());
+    Image bulletImage = new Image(StringPathImage.bullet_jpg());
+    Image background = new Image(StringPathImage.hinhnen_jpg());
+    Image gateImage = new Image(StringPathImage.gatespace_jpg());
 
     public void draw(Point food, Point boss, Point snake, int width, int height, GraphicsContext gc, int tileSize, IntegerProperty score, Point monsters) {
         gc.setFill(Color.GREEN);
@@ -50,7 +51,7 @@ public class Draws {
 
         Font font = new Font("Arial", 24); // Đặt kích thước chữ
         gc.setFont(font);
-        gc.fillText("Score : " + score.get(), width / 2, tileSize);
+        gc.fillText("Score : " + score.get(), 300, tileSize);
 
 
     }
@@ -79,7 +80,7 @@ public class Draws {
 
         Font font = new Font("Arial", 24); // Đặt kích thước chữ
         gc.setFont(font);
-        gc.fillText("Score : " + score.get(), width / 2, tileSize);
+        gc.fillText("Score : " + score.get(), 300, tileSize);
 
 
     }
@@ -116,7 +117,7 @@ public class Draws {
         Font font = new Font("Arial", 24); // Đặt kích thước chữ
         gc.setFont(font);
         gc.setFill(Color.RED);
-        gc.fillText("Score : " + score.get(), width / 2, tileSize);
+        gc.fillText("Score : " + score.get(), 300, tileSize);
     }
 
     public void drawGame3(GraphicsContext gc, int width, int height, int tileSize, Point snake, Point monsterEat, Point monsterGun, List<Point> bullets,Point food,IntegerProperty score,Point monster) {
@@ -151,7 +152,7 @@ public class Draws {
         Font font = new Font("Arial", 24); // Đặt kích thước chữ
         gc.setFont(font);
         gc.setFill(Color.RED);
-        gc.fillText("Score : " + score.get(), width / 2, tileSize);
+        gc.fillText("Score : " + score.get(), 300, tileSize);
 
     }
 

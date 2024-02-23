@@ -20,7 +20,7 @@ import java.util.TimerTask;
 public class SceneGame2 {
     private static  int TILE_SIZE = 60 ;
     private static  int WIDTH = TILE_SIZE*20;
-    private static  int HEIGHT = TILE_SIZE*16 ;
+    private static  int HEIGHT = TILE_SIZE*13 ;
     static Random random = new Random();
     public static Point snake = new Point(TILE_SIZE*10,TILE_SIZE*7);
     public static Point monsterEat = new Point(WIDTH/2,HEIGHT/4);
@@ -44,7 +44,7 @@ public class SceneGame2 {
     }
 
     public static Scene game2(Stage primaryStage , String username){
-        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
+//        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
         UpdateMovie updateMovie = new UpdateMovie();
         Draws draws = new Draws() ;
         restart();

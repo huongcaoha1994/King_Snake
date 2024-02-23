@@ -1,8 +1,6 @@
 package com.example.snake_game.controllers;
 
 import com.example.snake_game.models.CheckUsernamePassword;
-import com.example.snake_game.models.StringToHashCode;
-import com.example.snake_game.models.UpdateUsername;
 import com.example.snake_game.views.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,8 +17,6 @@ import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 

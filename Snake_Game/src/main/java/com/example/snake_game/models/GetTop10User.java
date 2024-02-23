@@ -11,15 +11,15 @@ public class GetTop10User {
     public static FindIterable<Document> getTop10User(){
         MongoDatabase database = null;
         // Thay đổi URI kết nối theo cấu hình MongoDB của bạn
-        String connectionString = "mongodb+srv://kingsnake:kingsnake@cluster0.baduwey.mongodb.net/?retryWrites=true&w=majority";
+        String connectionString = "mongodb://localhost:27017";
         FindIterable<Document> result = null ;
         try (MongoClient mongoClient = new MongoClient(new MongoClientURI(connectionString))) {
             // Kết nối thành công
 
             // Chọn cơ sở dữ liệu
-            database = mongoClient.getDatabase("huongcaoha");
-            MongoCollection<Document> collection = database.getCollection("users");
-             result = collection.find()
+            database = mongoClient.getDatabase("kingsnake");
+            MongoCollection<Document> collection = database.getCollection("user");
+              result = collection.find()
                     .sort(new Document("score", -1))
                     .limit(10);
 

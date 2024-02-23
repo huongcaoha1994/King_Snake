@@ -20,7 +20,7 @@ import java.util.TimerTask;
 public class SceneGame1 {
     private static  int TILE_SIZE = 60 ;
     private static  int WIDTH = TILE_SIZE*20;
-    private static  int HEIGHT = TILE_SIZE*16 ;
+    private static  int HEIGHT = TILE_SIZE*13 ;
 
     private static IntegerProperty score = new SimpleIntegerProperty(14);
     static Random random = new Random();
@@ -49,7 +49,7 @@ public class SceneGame1 {
         score.set(14);
     }
     public static Scene game1(Stage primaryStage , String username){
-        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
+//        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
         restart();
         Canvas canvas = new Canvas(WIDTH,HEIGHT);
         GraphicsContext gc = canvas.getGraphicsContext2D();

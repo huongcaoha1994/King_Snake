@@ -1,7 +1,10 @@
 package com.example.snake_game.views;
 
 import com.example.snake_game.models.GetLevel;
-import com.example.snake_game.models.GetUsername;
+import com.example.snake_game.models.GetScore;
+import com.example.snake_game.utils.StringPathImage;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -24,6 +27,7 @@ public class ScenePlaygame {
     private static boolean man1Completed = true;
     private static boolean man2Completed = false;
     private static boolean man3Completed = false;
+//    private static int oldScore = GetScore.getScore(username);
     public static Scene playgame(Stage primaryStage){
 
         Button playMan1Button = new Button("Chơi màn 1");
@@ -75,16 +79,30 @@ public class ScenePlaygame {
 
         playMan1Button.setOnAction(event -> {
             if (man1Completed) {
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(SceneGame1.game1(stage,username));
-                stage.show(); // chơi màn 1
+                int oldScore = GetScore.getScore(username);
+                System.out.println(oldScore);
+                if(oldScore <= 0){
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(GuidePlayGame.guidePlay(primaryStage,1,username));
+                    stage.show();
+                }else if(oldScore > 0) {
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(SceneGame1.game1(stage,username));
+                    stage.show();
+                }
+                // chơi màn 1
             }
         });
 
         playMan2Button.setOnAction(event -> {
+            int oldScore = GetScore.getScore(username);
             if (GetLevel.getLevel(username) >= 2) {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(SceneGame2.game2(stage,username));
+                if(oldScore == 0){
+                    stage.setScene(GuidePlayGame.guidePlay(primaryStage,2,username));
+                }else {
+                    stage.setScene(SceneGame2.game2(stage,username));
+                }
                 stage.show();
                 // Xử lý chuyển đến màn 2
             } else {
@@ -93,9 +111,14 @@ public class ScenePlaygame {
         });
 
         playMan3Button.setOnAction(event -> {
+            int oldScore = GetScore.getScore(username);
             if (GetLevel.getLevel(username) >= 3) {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(SceneGame3.game3(stage,username));
+                if(oldScore == 0){
+                    stage.setScene(GuidePlayGame.guidePlay(primaryStage,3,username));
+                }else {
+                    stage.setScene(SceneGame3.game3(stage,username));
+                }
                 stage.show();
                 // Xử lý chuyển đến màn 3
             } else {
@@ -158,9 +181,9 @@ public class ScenePlaygame {
 
 
 
-        VBox centerVBox1 = createVBoxWithImageAndButton("File:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\game1a.gif", playMan1Button);
-        VBox centerVBox2 = createVBoxWithImageAndButton("File:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\game2a.gif", playMan2Button);
-        VBox centerVBox3 = createVBoxWithImageAndButton("File:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\game3.gif", playMan3Button);
+        VBox centerVBox1 = createVBoxWithImageAndButton(StringPathImage.game1a_gif(), playMan1Button);
+        VBox centerVBox2 = createVBoxWithImageAndButton(StringPathImage.game2a_gif(), playMan2Button);
+        VBox centerVBox3 = createVBoxWithImageAndButton(StringPathImage.game3_gif(), playMan3Button);
 
 
         HBox hBox = new HBox(centerVBox1, centerVBox2, centerVBox3); // HBox để chứa 3 màn chơi
@@ -171,7 +194,7 @@ public class ScenePlaygame {
         BorderPane root = new BorderPane();
         root.setTop(topBox);
         root.setCenter(hBox); // Đặt HBox vào phần center của BorderPane
-        Scene scene = new Scene(root, 1200, 800);
+        Scene scene = new Scene(root, 1200, 780);
         scene.getRoot().setStyle(
                 "-fx-background-color: linear-gradient(to bottom right, #00FFFF, #8A2BE2);"
         );

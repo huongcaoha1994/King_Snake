@@ -25,7 +25,7 @@ public class Display extends Application {
         BorderPane root = new BorderPane();
         root.setPrefSize(1000, 780);
 
-        String backgroundImage = "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/game_background.gif";
+        String backgroundImage = "file:C:/Users/pc/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/game_background.gif";
         root.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover");
         String audioFile = "C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\TFT Set 10 - 8-bit Music.mp4";
         Media media = new Media(new File(audioFile).toURI().toString());
@@ -44,7 +44,7 @@ public class Display extends Application {
         topBox.setSpacing(10);
         topBox.setPadding(new Insets(20, 0, 0, 20));
 
-        ImageView userImageView = new ImageView(new Image("File:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\a.jpg"));
+        ImageView userImageView = new ImageView(new Image("File:C:/Users/pc/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/a.jpg"));
         userImageView.setOnMouseClicked(event -> handleUserImageClick());
         userImageView.setFitWidth(75);
         userImageView.setFitHeight(75);
@@ -85,7 +85,7 @@ public class Display extends Application {
         leftBox.setSpacing(20);
         leftBox.setPadding(new Insets(0, 0, 0, 50));
 
-        ImageView rankingImageView = new ImageView(new Image("file:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\3.png"));
+        ImageView rankingImageView = new ImageView(new Image("file:C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\3.png"));
         rankingImageView.setOnMouseClicked(event -> handleRankingImageClick());
         rankingImageView.setFitWidth(114);
         rankingImageView.setFitHeight(112);
@@ -98,7 +98,7 @@ public class Display extends Application {
         rankingBox.setAlignment(Pos.BOTTOM_CENTER);
         leftBox.getChildren().add(rankingBox);
 
-        ImageView eventImageView = new ImageView(new Image("file:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\2.png"));
+        ImageView eventImageView = new ImageView(new Image("file:C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\2.png"));
         eventImageView.setOnMouseClicked(event -> handleEventImageClick());
         eventImageView.setFitWidth(114);
         eventImageView.setFitHeight(112);
@@ -132,7 +132,6 @@ public class Display extends Application {
         skinsButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #FF0000, #00ff55); -fx-background-radius: 15;");
         skinsButton.setEffect(new DropShadow());
         skinsButton.setOnAction(event -> handleSkinsButtonClick());
-        VBox.setMargin(skinsButton, new Insets(0, 50, 0, 0));
 
         Button guideButton = new Button("Guide Play");
         guideButton.setPrefSize(150, 50);
@@ -145,7 +144,7 @@ public class Display extends Application {
         rightBox.setSpacing(35);
 
 
-        Image centerImage = new Image("File:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\ff.gif");
+        Image centerImage = new Image("File:C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\ff.gif");
         ImageView centerImageView = new ImageView(centerImage);
         centerImageView.setFitWidth(200); // Đặt chiều rộng mong muốn cho hình ảnh
         centerImageView.setFitHeight(200); // Đặt chiều cao mong muốn cho hình ảnh
