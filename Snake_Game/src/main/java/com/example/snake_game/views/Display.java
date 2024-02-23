@@ -25,17 +25,17 @@ public class Display extends Application {
         BorderPane root = new BorderPane();
         root.setPrefSize(1000, 780);
 
-        String backgroundImage = "file:C:/Users/pc/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/game_background.gif";
+        String backgroundImage = "file:C:/Users/pc/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/game_background.gif";
         root.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover");
-        String audioFile = "C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\TFT Set 10 - 8-bit Music.mp4";
-        Media media = new Media(new File(audioFile).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        // Đặt số lần lặp lại là vô hạn
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        String musicFile = "C:\\Users\\pc\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\TFT Set 10 - 8-bit Music.mp4";
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+
+        // Đặt số lần lặp lại âm thanh
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE); // Để lặp vô hạn, sử dụng MediaPlayer.INDEFINITE
 
         // Phát âm thanh
         mediaPlayer.play();
-
 
         // Top
         HBox topBox = new HBox();
@@ -44,7 +44,7 @@ public class Display extends Application {
         topBox.setSpacing(10);
         topBox.setPadding(new Insets(20, 0, 0, 20));
 
-        ImageView userImageView = new ImageView(new Image("File:C:/Users/pc/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/a.jpg"));
+        ImageView userImageView = new ImageView(new Image("File:C:\\Users\\pc\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\a.jpg"));
         userImageView.setOnMouseClicked(event -> handleUserImageClick());
         userImageView.setFitWidth(75);
         userImageView.setFitHeight(75);
@@ -85,7 +85,7 @@ public class Display extends Application {
         leftBox.setSpacing(20);
         leftBox.setPadding(new Insets(0, 0, 0, 50));
 
-        ImageView rankingImageView = new ImageView(new Image("file:C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\3.png"));
+        ImageView rankingImageView = new ImageView(new Image("file:C:\\Users\\pc\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\3.png"));
         rankingImageView.setOnMouseClicked(event -> handleRankingImageClick());
         rankingImageView.setFitWidth(114);
         rankingImageView.setFitHeight(112);
@@ -98,7 +98,7 @@ public class Display extends Application {
         rankingBox.setAlignment(Pos.BOTTOM_CENTER);
         leftBox.getChildren().add(rankingBox);
 
-        ImageView eventImageView = new ImageView(new Image("file:C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\2.png"));
+        ImageView eventImageView = new ImageView(new Image("file:C:\\Users\\pc\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\2.png"));
         eventImageView.setOnMouseClicked(event -> handleEventImageClick());
         eventImageView.setFitWidth(114);
         eventImageView.setFitHeight(112);
@@ -113,22 +113,32 @@ public class Display extends Application {
 
         root.setLeft(leftBox);
 
+
+        Image centerImage = new Image("File:C:\\Users\\pc\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\ff.gif");
+        ImageView centerImageView = new ImageView(centerImage);
+        centerImageView.setFitWidth(200); // Đặt chiều rộng mong muốn cho hình ảnh
+        centerImageView.setFitHeight(200); // Đặt chiều cao mong muốn cho hình ảnh
+        centerImageView.setTranslateX(40); // Dịch chuyển hình ảnh sang phải 10 điểm ảnh
+        centerImageView.setTranslateY(-53); // Dịch chuyển hình ảnh lên trên 40 điểm ảnh
+
+        root.setCenter(centerImageView);
+
         // Right
         VBox rightBox = new VBox();
-        rightBox.setPrefSize(250, 500);
+        rightBox.setPrefSize(300, 500);
         rightBox.setAlignment(Pos.CENTER);
         rightBox.setSpacing(35);
         rightBox.setPadding(new Insets(0, 30, 0, 0));
 
 
         Button startButton = new Button("Start");
-        startButton.setPrefSize(150, 50);
+        startButton.setPrefSize(143, 50);
         startButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #aa00ff, #FFFF00); -fx-background-radius: 15;");
         startButton.setEffect(new DropShadow());
         startButton.setOnAction(event -> handleStartButtonClick());
 
         Button skinsButton = new Button("Skins");
-        skinsButton.setPrefSize(150, 50);
+        skinsButton.setPrefSize(143, 50);
         skinsButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #FF0000, #00ff55); -fx-background-radius: 15;");
         skinsButton.setEffect(new DropShadow());
         skinsButton.setOnAction(event -> handleSkinsButtonClick());
@@ -142,16 +152,7 @@ public class Display extends Application {
         rightBox.getChildren().addAll(startButton, skinsButton, guideButton);
 
         rightBox.setSpacing(35);
-
-
-        Image centerImage = new Image("File:C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\ff.gif");
-        ImageView centerImageView = new ImageView(centerImage);
-        centerImageView.setFitWidth(200); // Đặt chiều rộng mong muốn cho hình ảnh
-        centerImageView.setFitHeight(200); // Đặt chiều cao mong muốn cho hình ảnh
-        centerImageView.setTranslateX(40); // Dịch chuyển hình ảnh sang phải 10 điểm ảnh
-        centerImageView.setTranslateY(-53); // Dịch chuyển hình ảnh lên trên 40 điểm ảnh
-
-        root.setCenter(centerImageView);
+        root.setRight(rightBox);
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
@@ -184,7 +185,7 @@ public class Display extends Application {
     }
 
     private void handleGuideButtonClick() {
-        System.out.println("Guides Button Clicked"); //sos
+        System.out.println("Guides Button Clicked");
     }
 
     private void handleExitButtonClick() {
