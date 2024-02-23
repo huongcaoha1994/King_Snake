@@ -2,6 +2,7 @@ package com.example.snake_game.views;
 
 import com.example.snake_game.utils.GetImage;
 import com.example.snake_game.utils.MediaPlay;
+import com.example.snake_game.utils.StringPathImage;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -16,7 +17,7 @@ public class SceenGameWin {
         int height = 780 ;
 
         MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\wingame.mp3");
-        Image backgroundImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\winner1.gif");
+        Image backgroundImage = new Image(StringPathImage.winner1_gif());
         BackgroundImage background = new BackgroundImage(backgroundImage,
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.DEFAULT, new BackgroundSize(width, height, false, false, true, true));

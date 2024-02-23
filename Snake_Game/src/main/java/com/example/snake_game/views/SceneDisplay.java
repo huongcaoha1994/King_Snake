@@ -1,6 +1,7 @@
 package com.example.snake_game.views;
 
 import com.example.snake_game.models.GetScore;
+import com.example.snake_game.utils.StringPathImage;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -38,13 +39,13 @@ public class SceneDisplay {
         BorderPane root = new BorderPane();
         root.setPrefSize(1200, 780);
 
-        String backgroundImage = "file:/C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/background.jpg";
+        String backgroundImage = StringPathImage.background_jpg();
         root.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover;");
 
 
         // Top
         HBox topBox = new HBox();
-        topBox.setPrefSize(800, 74);
+        topBox.setPrefSize(780, 74);
         topBox.setAlignment(Pos.CENTER_LEFT);
         topBox.setSpacing(10);
         topBox.setPadding(new Insets(20, 0, 0, 20));
@@ -53,7 +54,7 @@ public class SceneDisplay {
         userImageView.setOnMouseClicked(event -> handleUserImageClick(event));
         userImageView.setFitWidth(75);
         userImageView.setFitHeight(75);
-        Label userLabel = new Label("User");
+        Label userLabel = new Label(username);
         userLabel.setAlignment(Pos.CENTER);
         userLabel.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
         userLabel.setPrefSize(76, 44);
@@ -92,7 +93,7 @@ public class SceneDisplay {
         leftBox.setSpacing(20);
         leftBox.setPadding(new Insets(0, 0, 0, 50));
 
-        ImageView rankingImageView = new ImageView(new Image("file:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\3.png"));
+        ImageView rankingImageView = new ImageView(new Image(StringPathImage.a_jpg()));
         rankingImageView.setOnMouseClicked(event -> handleRankingImageClick(event));
         rankingImageView.setFitWidth(114);
         rankingImageView.setFitHeight(112);
@@ -105,11 +106,11 @@ public class SceneDisplay {
         rankingBox.setAlignment(Pos.BOTTOM_CENTER);
         leftBox.getChildren().add(rankingBox);
 
-        ImageView eventImageView = new ImageView(new Image("file:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\2.png"));
-        eventImageView.setOnMouseClicked(event -> handleEventImageClick());
+        ImageView eventImageView = new ImageView(new Image(StringPathImage.png_2()));
+        eventImageView.setOnMouseClicked(event -> handleEventImageClick(event));
         eventImageView.setFitWidth(114);
         eventImageView.setFitHeight(112);
-        Label eventLabel = new Label("Event");
+        Label eventLabel = new Label("GuidePlay");
         eventLabel.setAlignment(Pos.CENTER);
         eventLabel.setPrefSize(110, 35);
         eventLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-text-fill: white ");
@@ -149,7 +150,7 @@ public class SceneDisplay {
 
         root.setRight(rightBox);
 
-        Image centerImage = new Image("File:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\ff.gif");
+        Image centerImage = new Image(StringPathImage.ff_gif());
         ImageView centerImageView = new ImageView(centerImage);
         centerImageView.setFitWidth(200); // Đặt chiều rộng mong muốn cho hình ảnh
         centerImageView.setFitHeight(200); // Đặt chiều cao mong muốn cho hình ảnh
@@ -178,8 +179,10 @@ public class SceneDisplay {
         // Thực hiện các xử lý khác tại đây
     }
 
-    private static void handleEventImageClick() {
-        System.out.println("User Image Clicked");
+    private static void handleEventImageClick(MouseEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(GuidePlayGame.guidePlay(stage,4,username));
+        stage.show();
         // Thực hiện các xử lý khác tại đây
     }
 
@@ -189,7 +192,8 @@ public class SceneDisplay {
         gameRank.setUsername(username);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         if(oldScore == 0){
-            stage.setScene(GuidePlayGame.guidePlay(stage,4,username));
+            stage.setScene(GuidePlayGame.guidePlay(stage,5,username));
+
         }else {
             stage.setScene(GameRank.gameRank(stage,username));
         }

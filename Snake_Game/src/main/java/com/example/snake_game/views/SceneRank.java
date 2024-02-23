@@ -4,6 +4,7 @@ import com.example.snake_game.models.GetLevel;
 import com.example.snake_game.models.GetRank;
 import com.example.snake_game.models.GetScore;
 import com.example.snake_game.utils.GetImage;
+import com.example.snake_game.utils.StringPathImage;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.FindIterable;
@@ -30,7 +31,7 @@ public class SceneRank {
         int height = 780;
         int fontSize = 35 ;
 
-        Image backgroundImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\rank.jpg");
+        Image backgroundImage = new Image(StringPathImage.rank_jpg());
         BackgroundImage background = new BackgroundImage(backgroundImage,
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.DEFAULT, new BackgroundSize(width, height, false, false, true, true));

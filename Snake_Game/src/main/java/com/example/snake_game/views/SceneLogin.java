@@ -4,7 +4,6 @@ import com.example.snake_game.models.Alert;
 import com.example.snake_game.models.CheckUsername;
 import com.example.snake_game.models.CheckUsernamePassword;
 import com.example.snake_game.utils.StringPathImage;
-import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -16,11 +15,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-public class Login extends Application {
-    private String username ;
-
-    @Override
-    public void start(Stage primaryStage) {
+public class SceneLogin {
+    public static Scene login(){
+        int width = 1200 ;
+        int height = 780 ;
         // Create a BorderPane
         BorderPane root = new BorderPane();
 
@@ -54,15 +52,15 @@ public class Login extends Application {
         registerLink.setStyle("-fx-text-fill: blue; -fx-font-size: 16px; -fx-font-weight: bold;");
         registerLink.setOnAction(event -> {
             // Open the Register window or navigate to the Register class
-            Registers registers = new Registers();
-            registers.start(new Stage());
-            primaryStage.close(); // Close the Login window
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(Sceneregister.register());
+            stage.show();
         });
         Button loginButton = new Button("Login");
         loginButton.setStyle("-fx-background-color: linear-gradient(to right, #ff8000, #8000ff, #00ff80); -fx-text-fill: white;");
         loginButton.setPrefWidth(120); // Set the preferred width of the button
         loginButton.setOnAction(event -> {
-             username = usernameField.getText();
+            String username = usernameField.getText();
             String password = passwordField.getText();
             if(CheckUsername.checkUsernameExist(username)){
                 if(CheckUsernamePassword.checkUsernamePassword(username,password)){
@@ -72,7 +70,7 @@ public class Login extends Application {
                     stage.setScene(SceneDisplay.display());
                     stage.show();
                 }else {
-                    Alert.alert("Password fail !");
+                    com.example.snake_game.models.Alert.alert("Password fail !");
                 }
             }else {
                 Alert.alert("Not found account !");
@@ -99,32 +97,13 @@ public class Login extends Application {
         root.setCenter(gridPane);
 
         // Create a Scene with the BorderPane as the root
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,width,height);
 
         // Set the window size
-        primaryStage.setWidth(1200);
-        primaryStage.setHeight(780);
+
 
         // Center the title
         GridPane.setHalignment(titleLabel, javafx.geometry.HPos.CENTER);
-
-        // Disable window resizing
-        primaryStage.setResizable(false);
-
-        // Set the Scene to the Stage
-        primaryStage.setScene(scene);
-
-        // Set the window title
-        primaryStage.setTitle("Login Form");
-
-        // Show the Stage
-        primaryStage.show();
-    }
-    public String getUsername(){
-        return this.username;
-    }
-
-    public static void main(String[] args) {
-        launch(args);
+        return scene;
     }
 }

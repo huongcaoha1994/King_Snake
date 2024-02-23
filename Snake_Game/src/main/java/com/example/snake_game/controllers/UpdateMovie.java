@@ -4,6 +4,7 @@ import com.example.snake_game.models.Point;
 //import com.example.snake_game.utils.Random;
 import com.example.snake_game.utils.GetImage;
 import com.example.snake_game.utils.MediaPlay;
+import com.example.snake_game.utils.StringPathImage;
 import javafx.beans.property.IntegerProperty;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Random;
 
 public class UpdateMovie {
+    Image gateImage = new Image(StringPathImage.gatespace_jpg());
     public void updateBoss(Point boss,Point snake,Point area, int tileSize){
         if(snake.getX() < area.getX() && snake.getY() < area.getY()){
             if(boss.getY() > snake.getY()){
@@ -29,7 +31,7 @@ public class UpdateMovie {
 
     }
     public void updateSnake(GraphicsContext gc,Scene scene, Point snake, int tileSize, Point food, int width, int height, IntegerProperty scoreProperty){
-        Image gateImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\gate.png");
+
         scene.setOnKeyPressed(keyEvent -> {
             KeyCode keyCode = keyEvent.getCode();
             switch (keyCode){
@@ -69,7 +71,7 @@ public class UpdateMovie {
         });
     }
     public void updateSnakeGameRank(GraphicsContext gc,Scene scene, Point snake, int tileSize, Point food, int width, int height, IntegerProperty scoreProperty,IntegerProperty speed){
-        Image gateImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\gate.png");
+
         scene.setOnKeyPressed(keyEvent -> {
             KeyCode keyCode = keyEvent.getCode();
             switch (keyCode){

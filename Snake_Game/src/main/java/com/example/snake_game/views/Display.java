@@ -143,7 +143,6 @@ public class Display extends Application {
 
         rightBox.setSpacing(35);
 
-        root.setRight(rightBox);
 
         Image centerImage = new Image("File:C:\\Users\\pc\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\ff.gif");
         ImageView centerImageView = new ImageView(centerImage);
