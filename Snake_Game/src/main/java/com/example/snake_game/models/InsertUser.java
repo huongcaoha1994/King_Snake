@@ -6,6 +6,8 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -28,6 +30,9 @@ public class InsertUser {
                     .append("level", 1)
                     .append("score", 0)
                     .append("rank","Iron")
+                    .append("coin",0)
+                    .append("skin",1)
+                    .append("outfit", Arrays.asList(1))
                     .append("created_at", currentDate);
 
 

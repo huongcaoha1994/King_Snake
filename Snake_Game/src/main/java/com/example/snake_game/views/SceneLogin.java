@@ -16,6 +16,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class SceneLogin {
+    static String username = "" ;
     public static Scene login(){
         int width = 1200 ;
         int height = 780 ;
@@ -60,7 +61,7 @@ public class SceneLogin {
         loginButton.setStyle("-fx-background-color: linear-gradient(to right, #ff8000, #8000ff, #00ff80); -fx-text-fill: white;");
         loginButton.setPrefWidth(120); // Set the preferred width of the button
         loginButton.setOnAction(event -> {
-            String username = usernameField.getText();
+             username = usernameField.getText();
             String password = passwordField.getText();
             if(CheckUsername.checkUsernameExist(username)){
                 if(CheckUsernamePassword.checkUsernamePassword(username,password)){
@@ -105,5 +106,8 @@ public class SceneLogin {
         // Center the title
         GridPane.setHalignment(titleLabel, javafx.geometry.HPos.CENTER);
         return scene;
+    }
+    public String getUsername(){
+        return this.username ;
     }
 }

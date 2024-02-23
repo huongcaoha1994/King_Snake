@@ -64,6 +64,9 @@ public class StringPathImage {
     public static String guidePlay_jpeg(){
         return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/guideplay.jpeg";
     }
+    public static String guidePlay_gif(){
+        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/guidePlay.gif";
+    }
     public static String hero_gif(){
         return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/hero.gif";
     }

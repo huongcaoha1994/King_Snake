@@ -1,6 +1,7 @@
 package com.example.snake_game.views;
 
 import com.example.snake_game.utils.GetImage;
+import com.example.snake_game.utils.StringPathImage;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -23,7 +24,7 @@ public class GuidePlayGame {
 
 
 
-        Image backgroundImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\guidePlay.gif");
+        Image backgroundImage = new Image(StringPathImage.guidePlay_gif());
         BackgroundImage background = new BackgroundImage(backgroundImage,
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.DEFAULT, new BackgroundSize(width, height, false, false, true, true));
@@ -38,7 +39,7 @@ public class GuidePlayGame {
         gridPane.add(textGuide,1,0);
 
         // Hình ảnh 1
-        Image image1 = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\hero.gif");
+        Image image1 = new Image(StringPathImage.hero_gif());
         ImageView imageView1 = new ImageView(image1);
         imageView1.setFitWidth(sizeImage);
         imageView1.setFitHeight(sizeImage);
@@ -50,7 +51,7 @@ public class GuidePlayGame {
         gridPane.add(text1, 1, 2);
 
         // Hình ảnh 2
-        Image image2 = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\hero2.gif");
+        Image image2 = new Image(StringPathImage.hero2_gif());
         ImageView imageView2 = new ImageView(image2);
         imageView2.setFitWidth(sizeImage);
         imageView2.setFitHeight(sizeImage);
@@ -63,7 +64,7 @@ public class GuidePlayGame {
         gridPane.add(text2, 1, 4);
 
         // Hình ảnh 3
-        Image image3 = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\snakegreen.gif");
+        Image image3 = new Image(StringPathImage.snakegreen_gif());
         ImageView imageView3 = new ImageView(image3);
         imageView3.setFitWidth(sizeImage);
         imageView3.setFitHeight(sizeImage);
@@ -74,7 +75,7 @@ public class GuidePlayGame {
         text3.setFont(Font.font("Arial", fontSize));
         gridPane.add(text3, 1, 6);
 
-        Image image4 = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monsterEat.gif");
+        Image image4 = new Image(StringPathImage.monsterEat_gif());
         ImageView imageView4 = new ImageView(image4);
         imageView4.setFitWidth(sizeImage);
         imageView4.setFitHeight(sizeImage);
@@ -87,7 +88,7 @@ public class GuidePlayGame {
 
 
         // Hình ảnh 4
-        Image image5 = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\monsterGun.jpg");
+        Image image5 = new Image(StringPathImage.monsterGun_gif());
         ImageView imageView5 = new ImageView(image5);
         imageView5.setFitWidth(sizeImage);
         imageView5.setFitHeight(sizeImage);
@@ -99,7 +100,7 @@ public class GuidePlayGame {
         gridPane.add(text5, 1, 10);
 
         // Hình ảnh 5
-        Image image6 = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\key.gif");
+        Image image6 = new Image(StringPathImage.key_gif());
         ImageView imageView6 = new ImageView(image6);
         imageView6.setFitWidth(sizeImage);
         imageView6.setFitHeight(sizeImage);
@@ -111,7 +112,7 @@ public class GuidePlayGame {
         gridPane.add(text6, 1, 12);
 
         // Hình ảnh 6
-        Image image7 = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\gatespace.jpg");
+        Image image7 = new Image(StringPathImage.gatespace_jpg());
         ImageView imageView7 = new ImageView(image7);
         imageView7.setFitWidth(sizeImage);
         imageView7.setFitHeight(sizeImage);
@@ -123,7 +124,7 @@ public class GuidePlayGame {
         gridPane.add(text7, 1, 14);
 
         // Hình ảnh 8
-        Image image8 = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\anh4phim.png");
+        Image image8 = new Image(StringPathImage.anh4phim_png());
         ImageView imageView8 = new ImageView(image8);
         imageView8.setFitWidth(sizeImage);
         imageView8.setFitHeight(sizeImage);
