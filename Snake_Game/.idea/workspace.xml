@@ -93,9 +93,22 @@
       <recent name="C:\Users\Windows 11\IdeaProjects\Snake_Game\src\main\java\com\example\snake_game\resources\image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Display">
     <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Demo" />
+      <module name="Snake_Game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.snake_game.views.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Display" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Display" />
       <module name="Snake_Game" />
       <extension name="coverage">
         <pattern>
@@ -146,26 +159,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SceneInformation1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.SceneInformation1" />
-      <module name="Snake_Game" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.snake_game.views.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Display" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Demo" />
         <item itemvalue="Application.MainHistory" />
         <item itemvalue="Application.MainRanking" />
-        <item itemvalue="Application.SceneInformation1" />
       </list>
     </recent_temporary>
   </component>
