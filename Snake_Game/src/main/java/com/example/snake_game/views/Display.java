@@ -118,14 +118,14 @@ public class Display extends Application {
         ImageView centerImageView = new ImageView(centerImage);
         centerImageView.setFitWidth(200); // Đặt chiều rộng mong muốn cho hình ảnh
         centerImageView.setFitHeight(200); // Đặt chiều cao mong muốn cho hình ảnh
-        centerImageView.setTranslateX(40); // Dịch chuyển hình ảnh sang phải 10 điểm ảnh
-        centerImageView.setTranslateY(-53); // Dịch chuyển hình ảnh lên trên 40 điểm ảnh
+        centerImageView.setTranslateX(70); // Dịch chuyển hình ảnh sang phải 10 điểm ảnh
+        centerImageView.setTranslateY(-55); // Dịch chuyển hình ảnh lên trên 40 điểm ảnh
 
         root.setCenter(centerImageView);
 
         // Right
         VBox rightBox = new VBox();
-        rightBox.setPrefSize(300, 500);
+        rightBox.setPrefSize(250, 500);
         rightBox.setAlignment(Pos.CENTER);
         rightBox.setSpacing(35);
         rightBox.setPadding(new Insets(0, 30, 0, 0));
