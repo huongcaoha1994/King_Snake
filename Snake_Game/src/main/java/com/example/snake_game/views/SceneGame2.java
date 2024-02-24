@@ -10,6 +10,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -45,6 +46,8 @@ public class SceneGame2 {
 
     public static Scene game2(Stage primaryStage , String username){
 //        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
+        int skin = Getskin.getSkin(username);
+        Image skinImage = GetSnakeDisplay.getImageSnakeDisplay(skin);
         UpdateMovie updateMovie = new UpdateMovie();
         Draws draws = new Draws() ;
         restart();
@@ -57,14 +60,14 @@ public class SceneGame2 {
         scene.setOnKeyPressed(keyEvent -> {
             updateMovie.updateSnake(gc,scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score);
 
-            draws.drawGame2(gc,snake,monsterEat,monsterLeft,monsterRight,food,TILE_SIZE,WIDTH,HEIGHT,score);
+            draws.drawGame2(gc,snake,monsterEat,monsterLeft,monsterRight,food,TILE_SIZE,WIDTH,HEIGHT,score,skinImage);
         });
         Timer timerMonsterEAt = new Timer();
         timerMonsterEAt.schedule(new TimerTask() {
             @Override
             public void run() {
                 updateMovie.updateMonsterEat(monsterEat,food,WIDTH,HEIGHT,TILE_SIZE);
-                draws.drawGame2(gc,snake,monsterEat,monsterLeft,monsterRight,food,TILE_SIZE,WIDTH,HEIGHT,score);
+                draws.drawGame2(gc,snake,monsterEat,monsterLeft,monsterRight,food,TILE_SIZE,WIDTH,HEIGHT,score,skinImage);
                 Platform.runLater(() -> {
                     if(monsterEat.getX() == snake.getX() && monsterEat.getY() == snake.getY()){
                         int oldScore = GetScore.getScore(username);
@@ -86,7 +89,7 @@ public class SceneGame2 {
             @Override
             public void run() {
                 updateMovie.updateMonsterBotLelt(monsterLeft,snake,WIDTH,HEIGHT,TILE_SIZE);
-                draws.drawGame2(gc,snake,monsterEat,monsterLeft,monsterRight,food,TILE_SIZE,WIDTH,HEIGHT,score);
+                draws.drawGame2(gc,snake,monsterEat,monsterLeft,monsterRight,food,TILE_SIZE,WIDTH,HEIGHT,score,skinImage);
                 Platform.runLater(() -> {
                     if(monsterLeft.getX() == snake.getX() && monsterLeft.getY() == snake.getY()){
                         timerMonsterEAt.cancel();
@@ -108,7 +111,7 @@ public class SceneGame2 {
             @Override
             public void run() {
                 updateMovie.updateMonsterBotRight(monsterRight,snake,WIDTH,HEIGHT,TILE_SIZE);
-                draws.drawGame2(gc,snake,monsterEat,monsterLeft,monsterRight,food,TILE_SIZE,WIDTH,HEIGHT,score);
+                draws.drawGame2(gc,snake,monsterEat,monsterLeft,monsterRight,food,TILE_SIZE,WIDTH,HEIGHT,score,skinImage);
                 Platform.runLater(() -> {
                     if(monsterRight.getX() == snake.getX() && monsterRight.getY() == snake.getY()){
                         timerMonsterEAt.cancel();

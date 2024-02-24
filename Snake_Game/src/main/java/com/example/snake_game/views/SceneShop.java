@@ -27,7 +27,7 @@ public class SceneShop {
         int sizeImage = 225 ;
         int fontSize = 20 ;
 
-        Image backgroundImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\shop.gif");
+        Image backgroundImage = new Image(StringPathImage.shop_gif());
         BackgroundImage background = new BackgroundImage(backgroundImage,
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.DEFAULT, new BackgroundSize(width, height, false, false, true, true));
@@ -46,35 +46,35 @@ public class SceneShop {
 
 
         // Hình ảnh 1
-        Image image1 = new Image(StringPathImage.snakegreen_gif());
+        Image image1 = new Image(StringPathImage.ff_gif());
         ImageView imageView1 = new ImageView(image1);
         imageView1.setFitWidth(sizeImage);
         imageView1.setFitHeight(sizeImage);
         gridPane.add(imageView1, 0, 10);
 
-        // Hình ảnh 1
-        Image image2 = new Image(StringPathImage.snakegreen_gif());
+        // Hình ảnh 2
+        Image image2 = new Image(StringPathImage.image2_gif());
         ImageView imageView2 = new ImageView(image2);
         imageView2.setFitWidth(sizeImage);
         imageView2.setFitHeight(sizeImage);
         gridPane.add(imageView2, 1, 10);
 
-        // Hình ảnh 1
-        Image image3 = new Image(StringPathImage.snakegreen_gif());
+        // Hình ảnh 3
+        Image image3 = new Image(StringPathImage.image3_gif());
         ImageView imageView3 = new ImageView(image3);
         imageView3.setFitWidth(sizeImage);
         imageView3.setFitHeight(sizeImage);
         gridPane.add(imageView3, 2, 10);
 
-        // Hình ảnh 1
-        Image image4 = new Image(StringPathImage.snakegreen_gif());
+        // Hình ảnh 4
+        Image image4 = new Image(StringPathImage.image4_gif());
         ImageView imageView4 = new ImageView(image4);
         imageView4.setFitWidth(sizeImage);
         imageView4.setFitHeight(sizeImage);
         gridPane.add(imageView4, 3, 10);
 
-        // Hình ảnh 1
-        Image image5 = new Image(StringPathImage.snakegreen_gif());
+        // Hình ảnh 5
+        Image image5 = new Image(StringPathImage.image5_gif());
         ImageView imageView5 = new ImageView(image5);
         imageView5.setFitWidth(sizeImage);
         imageView5.setFitHeight(sizeImage);

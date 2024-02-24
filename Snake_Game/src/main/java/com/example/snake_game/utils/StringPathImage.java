@@ -86,7 +86,7 @@ public class StringPathImage {
         return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/monsterEat.gif";
     }
     public static String monsterGun_gif(){
-        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/monsterGun.gif";
+        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/monsterGun.jpg";
     }
     public static String rank_jpg(){
         return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/rank.jpg";
@@ -111,6 +111,21 @@ public class StringPathImage {
     }
     public static String winner1_gif(){
         return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/winner1.gif";
+    }
+    public static String image2_gif(){
+        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/image2.gif";
+    }
+    public static String image3_gif(){
+        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/image3.gif";
+    }
+    public static String image4_gif(){
+        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/image4.gif";
+    }
+    public static String image5_gif(){
+        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/image5.gif";
+    }
+    public static String shop_gif(){
+        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/shop.gif";
     }
 
 }

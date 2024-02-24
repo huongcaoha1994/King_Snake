@@ -1,6 +1,8 @@
 package com.example.snake_game.views;
 
 import com.example.snake_game.models.GetScore;
+import com.example.snake_game.models.GetSnakeDisplay;
+import com.example.snake_game.models.Getskin;
 import com.example.snake_game.utils.StringPathImage;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
@@ -23,6 +25,7 @@ import javafx.stage.Stage;
 
 public class SceneDisplay {
     public static String username;
+
     private static int oldScore = GetScore.getScore(username);
     public void setUsername(String username){
         this.username = username ;
@@ -35,7 +38,7 @@ public class SceneDisplay {
         stage.show();
     }
     public static Scene display(){
-
+        int skin = Getskin.getSkin(username);
         BorderPane root = new BorderPane();
         root.setPrefSize(1200, 780);
 
@@ -50,7 +53,7 @@ public class SceneDisplay {
         topBox.setSpacing(10);
         topBox.setPadding(new Insets(20, 0, 0, 20));
 
-        ImageView userImageView = new ImageView(new Image("File:C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\a.jpg"));
+        ImageView userImageView = new ImageView(new Image(StringPathImage.a_jpg()));
         userImageView.setOnMouseClicked(event -> handleUserImageClick(event));
         userImageView.setFitWidth(75);
         userImageView.setFitHeight(75);
@@ -150,13 +153,13 @@ public class SceneDisplay {
 
         root.setRight(rightBox);
 
-        Image centerImage = new Image(StringPathImage.ff_gif());
+        Image centerImage = GetSnakeDisplay.getImageSnakeDisplay(skin);
         ImageView centerImageView = new ImageView(centerImage);
         centerImageView.setFitWidth(200); // Đặt chiều rộng mong muốn cho hình ảnh
         centerImageView.setFitHeight(200); // Đặt chiều cao mong muốn cho hình ảnh
         centerImageView.setTranslateX(40); // Dịch chuyển hình ảnh sang phải 10 điểm ảnh
         centerImageView.setTranslateY(-53); // Dịch chuyển hình ảnh lên trên 40 điểm ảnh
-
+        System.out.println(skin);
         root.setCenter(centerImageView);
 
         Scene scene = new Scene(root);

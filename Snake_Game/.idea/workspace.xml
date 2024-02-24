@@ -8,14 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c3e3fc2-7d32-4662-8f7f-e409c662005f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/GetSnakeDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/Getskin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/Getskin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/SetButtonBuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/models/SetButtonBuy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/resources/image/shop.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/resources/image/shop.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/resources/Draws.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/resources/Draws.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/utils/StringPathImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/utils/StringPathImage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/GameRank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/GameRank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneInformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneShop.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +99,7 @@
       <recent name="C:\Users\Windows 11\IdeaProjects\Snake_Game\src\main\java\com\example\snake_game\resources\image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Demo">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.snake_game.views.Demo" />
       <module name="Snake_Game" />
@@ -165,8 +167,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Demo" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Demo" />
         <item itemvalue="Application.Display" />
         <item itemvalue="Application.MainHistory" />
         <item itemvalue="Application.MainRanking" />

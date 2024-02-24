@@ -1,10 +1,7 @@
 package com.example.snake_game.views;
 
 import com.example.snake_game.controllers.UpdateMovie;
-import com.example.snake_game.models.GetScore;
-import com.example.snake_game.models.Point;
-import com.example.snake_game.models.UpdateRank;
-import com.example.snake_game.models.UpdateScore;
+import com.example.snake_game.models.*;
 import com.example.snake_game.resources.Draws;
 import com.example.snake_game.utils.MediaPlay;
 import javafx.application.Platform;
@@ -13,6 +10,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -37,16 +35,19 @@ public class SceneGame3 {
         food.setY(random.nextInt(height/tileSize)*tileSize);
     }
     public static void restart(){
-        snake = new Point(width/2,height/2);
+        snake = new Point(tileSize*10,tileSize*7);
         monsterGun = new Point((width/tileSize)*tileSize,0);
         monsterEat = new Point(random.nextInt(width/tileSize)*tileSize,(height/tileSize)*tileSize);
         food = new Point(random.nextInt(width/tileSize)*tileSize, random.nextInt(height/tileSize)*tileSize );
         monster = new Point(random.nextInt(width/tileSize)*tileSize, random.nextInt(height/tileSize)*tileSize );
+        bullets.clear();
         score.set(14);
     }
 
     public static Scene game3(Stage primaryStage , String username){
 //        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
+        int skin = Getskin.getSkin(username);
+        Image skinImage = GetSnakeDisplay.getImageSnakeDisplay(skin);
         restart();
         UpdateMovie updateMovie = new UpdateMovie();
         Draws draws = new Draws();
@@ -58,7 +59,7 @@ public class SceneGame3 {
         Scene scene = new Scene(layout,width,height);
         scene.setOnKeyPressed(keyEvent -> {
             updateMovie.updateSnake(gc,scene,snake,tileSize,food,width,height,score);
-            draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster);
+            draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster,skinImage);
 
 
         });
@@ -67,7 +68,7 @@ public class SceneGame3 {
             @Override
             public void run() {
                 updateMovie.updateMonsterGun(monsterGun,snake,tileSize,bullets);
-                draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster);
+                draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster,skinImage);
             }
         },0,300);
 
@@ -76,7 +77,7 @@ public class SceneGame3 {
             @Override
             public void run() {
                 updateMovie.updateMonsterEat3(monsterEat,food,width,height,tileSize);
-                draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster);
+                draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster,skinImage);
                 Platform.runLater(() -> {
                     if(monsterEat.getX() == snake.getX() && monsterEat.getY() == snake.getY()){
                         timerMonsterEat.cancel();
@@ -99,7 +100,7 @@ public class SceneGame3 {
             public void run() {
 
                 updateMovie.updateMonster(monster,snake,tileSize);
-                draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster);
+                draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster,skinImage);
                 Platform.runLater(() -> {
                     if(monster.getX() == snake.getX() && monster.getY() == snake.getY()){
                         timerMonster.cancel();

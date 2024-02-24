@@ -20,7 +20,7 @@ public class Demo extends Application {
 //       for (Integer number : arr){
 //           System.out.println(number);
 //       }
-        primaryStage.setScene(SceneShop.shop("admin10"));
+        primaryStage.setScene(SceneGame1.game1(primaryStage,"admin10"));
         primaryStage.show();
 
 

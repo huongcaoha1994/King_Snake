@@ -10,6 +10,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -50,6 +51,8 @@ public class SceneGame1 {
     }
     public static Scene game1(Stage primaryStage , String username){
 //        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
+        int skin = Getskin.getSkin(username);
+        Image skinImage = GetSnakeDisplay.getImageSnakeDisplay(skin);
         restart();
         Canvas canvas = new Canvas(WIDTH,HEIGHT);
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -60,7 +63,7 @@ public class SceneGame1 {
             UpdateMovie updateMovie = new UpdateMovie();
             updateMovie.updateSnake(gc,scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score);
 
-            draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
+            draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters,skinImage);
 
 
         });
@@ -71,7 +74,7 @@ public class SceneGame1 {
             public void run() {
                 UpdateMovie updateMovie = new UpdateMovie();
                 updateMovie.updateBoss(boss,snake,new Point(TILE_SIZE*10,TILE_SIZE*10),TILE_SIZE);
-                draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
+                draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters,skinImage);
                 Platform.runLater(() -> {
 
                     if(boss.getX() == snake.getX() && boss.getY() == snake.getY()){
@@ -96,7 +99,7 @@ public class SceneGame1 {
 
                 updateMovie.updateMonster(monsters,snake,TILE_SIZE);
 
-                draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
+                draws.draw(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters,skinImage);
                 Platform.runLater(() -> {
                     if(monsters.getX() == snake.getX() && monsters.getY() == snake.getY()){
                         timer2.cancel();

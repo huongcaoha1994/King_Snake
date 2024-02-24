@@ -10,6 +10,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -25,7 +26,8 @@ public class GameRank {
     private static  int TILE_SIZE = 60 ;
     private static  int WIDTH = TILE_SIZE*20;
     private static  int HEIGHT = TILE_SIZE*13 ;
-
+    private static int skin = Getskin.getSkin(username);
+    private static Image skinImage = GetSnakeDisplay.getImageSnakeDisplay(skin);
     private static IntegerProperty score = new SimpleIntegerProperty(0);
     private static IntegerProperty speed = new SimpleIntegerProperty(300);
     static Random random = new Random();
@@ -55,6 +57,7 @@ public class GameRank {
         speed.set(300);
     }
     public static Scene gameRank(Stage primaryStage , String username){
+
         MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
         restart();
         Canvas canvas = new Canvas(WIDTH,HEIGHT);
@@ -65,7 +68,7 @@ public class GameRank {
         scene.setOnKeyPressed(keyEvent -> {
             UpdateMovie updateMovie = new UpdateMovie();
             updateMovie.updateSnakeGameRank(gc,scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score,speed);
-            draws.drawGameRank(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
+            draws.drawGameRank(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters,skinImage);
 
 
 
@@ -77,7 +80,7 @@ public class GameRank {
             public void run() {
                 UpdateMovie updateMovie = new UpdateMovie();
                 updateMovie.updateBoss(boss,snake,new Point(TILE_SIZE*10,TILE_SIZE*10),TILE_SIZE);
-                draws.drawGameRank(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
+                draws.drawGameRank(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters,skinImage);
                 Platform.runLater(() -> {
 
                     if(boss.getX() == snake.getX() && boss.getY() == snake.getY()){
@@ -103,7 +106,7 @@ public class GameRank {
 
                 updateMovie.updateMonster(monsters,snake,TILE_SIZE);
 
-                draws.drawGameRank(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters);
+                draws.drawGameRank(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters,skinImage);
                 Platform.runLater(() -> {
                     if(monsters.getX() == snake.getX() && monsters.getY() == snake.getY()){
                         timer2.cancel();
