@@ -1,5 +1,6 @@
 package com.example.snake_game.views;
 
+import com.example.snake_game.models.GetCoin;
 import com.example.snake_game.models.GetLevel;
 import com.example.snake_game.models.GetRank;
 import com.example.snake_game.models.GetScore;
@@ -66,6 +67,11 @@ public class SceneInformation {
         textRank.setFill(Color.RED);
         gridPane.add(textRank,1,31);
 
+        Text textCoin = new Text("Coin : \t" + GetCoin.coin(username));
+        textCoin.setFont(Font.font("Arial", fontSize));
+        textCoin.setFill(Color.RED);
+        gridPane.add(textCoin,1,33);
+
         Button buttonBack = new Button("Back Main");
         Tooltip tooltipStart = new Tooltip("Click để quay lại");
         buttonBack.setTooltip(tooltipStart);
@@ -77,7 +83,7 @@ public class SceneInformation {
             stage.setScene(SceneDisplay.display());
             stage.show();
         });
-        gridPane.add(buttonBack,1,33);
+        gridPane.add(buttonBack,1,35);
 
 
 

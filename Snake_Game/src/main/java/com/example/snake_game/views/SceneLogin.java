@@ -67,6 +67,8 @@ public class SceneLogin {
                 if(CheckUsernamePassword.checkUsernamePassword(username,password)){
                     SceneDisplay sceneDisplay = new SceneDisplay();
                     sceneDisplay.setUsername(username);
+                    SceneShop sceneShop = new SceneShop();
+                    sceneShop.setUsername(username);
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.setScene(SceneDisplay.display());
                     stage.show();

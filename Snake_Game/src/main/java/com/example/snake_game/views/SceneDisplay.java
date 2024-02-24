@@ -180,8 +180,10 @@ public class SceneDisplay {
     }
 
     private static void handleEventImageClick(MouseEvent event) {
+        SceneShop sceneShop = new SceneShop();
+        sceneShop.setUsername(username);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(GuidePlayGame.guidePlay(stage,4,username));
+        stage.setScene(SceneShop.shop(username));
         stage.show();
         // Thực hiện các xử lý khác tại đây
     }

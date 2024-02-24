@@ -11,33 +11,31 @@ import javafx.stage.Stage;
 import java.util.List;
 
 public class SetButtonBuy {
-    public static Button setButton(int numberOutfit,int price){
-        SceneLogin sceneLogin = new SceneLogin();
-        String username = sceneLogin.getUsername();
+    public static Button setButton(int numberOutfit,int price,String username){
         List<Integer> listOutfit = GetListOutfit.getListOutfit(username) ;
         int skin = Getskin.getSkin(username);
 
         Button buttonUsing = new Button("Using");
         buttonUsing.setPrefSize(143, 50);
-        buttonUsing.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #aa00ff, #FFFF00); -fx-background-radius: 15;");
+        buttonUsing.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #0048ff, #0048ff); -fx-background-radius: 15;");
         buttonUsing.setEffect(new DropShadow());
         buttonUsing.setOnAction(actionEvent -> {
         });
 
         Button buttonUse = new Button("Use");
         buttonUse.setPrefSize(143, 50);
-        buttonUse.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #aa00ff, #FFFF00); -fx-background-radius: 15;");
+        buttonUse.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #aa00ff, #8c00ff); -fx-background-radius: 15;");
         buttonUse.setEffect(new DropShadow());
         buttonUse.setOnAction(actionEvent -> {
             UpdateSkin.udpateSkin(username,numberOutfit);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            stage.setScene(SceneShop.shop());
+            stage.setScene(SceneShop.shop(username));
             stage.show();
         });
 
         Button buttonBuy = new Button("Buy");
         buttonBuy.setPrefSize(143, 50);
-        buttonBuy.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #aa00ff, #FFFF00); -fx-background-radius: 15;");
+        buttonBuy.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #ffc400, #fffb00); -fx-background-radius: 15;");
         buttonBuy.setEffect(new DropShadow());
         buttonBuy.setOnAction(actionEvent -> {
             int coin = GetCoin.coin(username);
@@ -46,7 +44,7 @@ public class SetButtonBuy {
                 UpdateCoin.updateCoin(username,rs);
                 AddOutfit.addOutfit(username,numberOutfit);
                 Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                stage.setScene(SceneShop.shop());
+                stage.setScene(SceneShop.shop(username));
                 stage.show();
             }else {
                 Alert.alert("Not enough coins");
@@ -60,6 +58,7 @@ public class SetButtonBuy {
                 }else {
                     button = buttonUse;
                 }
+                break;
             }else {
                 button = buttonBuy;
             }

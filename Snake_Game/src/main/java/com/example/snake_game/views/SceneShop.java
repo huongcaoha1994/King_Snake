@@ -4,6 +4,7 @@ import com.example.snake_game.models.SetButtonBuy;
 import com.example.snake_game.utils.GetImage;
 import com.example.snake_game.utils.StringPathImage;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
@@ -12,15 +13,19 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class SceneShop {
-    public static Scene shop(){
+    public static String username ;
+    public void setUsername(String username){
+        this.username = username ;
+    }
+    public static Scene shop(String username){
+        System.out.println(username);
         int width = 1200 ;
         int height = 780;
         int sizeImage = 225 ;
         int fontSize = 20 ;
-
-
 
         Image backgroundImage = GetImage.getImage("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\image\\shop.gif");
         BackgroundImage background = new BackgroundImage(backgroundImage,
@@ -106,19 +111,19 @@ public class SceneShop {
         gridPane.add(price5, 4, 11);
 
 
-        Button button1 = SetButtonBuy.setButton(1,1000);
+        Button button1 = SetButtonBuy.setButton(1,1000,username);
         gridPane.add(button1, 0, 12);
 
-        Button button2 = SetButtonBuy.setButton(2,1500);
+        Button button2 = SetButtonBuy.setButton(2,1500,username);
         gridPane.add(button2, 1, 12);
 
-        Button button3 = SetButtonBuy.setButton(3,2000);
+        Button button3 = SetButtonBuy.setButton(3,2000,username);
         gridPane.add(button3, 2, 12);
 
-        Button button4 = SetButtonBuy.setButton(4,2500);
+        Button button4 = SetButtonBuy.setButton(4,2500,username);
         gridPane.add(button4, 3, 12);
 
-        Button button5 = SetButtonBuy.setButton(5,3000);
+        Button button5 = SetButtonBuy.setButton(5,3000,username);
         gridPane.add(button5, 4, 12);
 
         Button next = new Button("Back");
@@ -126,7 +131,9 @@ public class SceneShop {
         next.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #fffb00, #d51111); -fx-background-radius: 15;");
         next.setEffect(new DropShadow());
         next.setOnAction(actionEvent -> {
-
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(SceneDisplay.display());
+            stage.show();
         });
         gridPane.add(next, 3, 30);
 

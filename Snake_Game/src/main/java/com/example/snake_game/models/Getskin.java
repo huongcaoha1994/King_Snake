@@ -21,7 +21,7 @@ public class Getskin {
             Document query = new Document("username",(username));
             Document rs = collection.find(query).first();
             if(rs != null){
-                skin = rs.getInteger("skind");
+                skin = rs.getInteger("skin");
             }
 
         } catch (Exception e) {
