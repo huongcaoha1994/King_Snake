@@ -16,6 +16,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -25,12 +26,22 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.net.URL;
+
 public class Registers extends Application {
 
     @Override
     public void start(Stage primaryStage) {
 
         // Tạo các thành phần giao diện
+
+        BorderPane root = new BorderPane();
+
+        String backgroundImage ="file:D:/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/in.gif";
+
+        root.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover;");
+
 
         Text title = new Text("Register");
         title.setFont(Font.font("Arial", FontWeight.BOLD, 30));
@@ -121,8 +132,9 @@ public class Registers extends Application {
         BorderPane.setMargin(buttonsContainer, new Insets(10));
 
 
-        String backgroundImage = StringPathImage.in_gif();
-        borderPane.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover;");
+//        String backgroundImage = StringPathImage.in_gif();
+//
+//        borderPane.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover;");
 
         // Tạo scene và hiển thị
 

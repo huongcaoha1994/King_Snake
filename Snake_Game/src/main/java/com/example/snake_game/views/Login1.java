@@ -3,7 +3,6 @@ package com.example.snake_game.views;
 import com.example.snake_game.models.Alert;
 import com.example.snake_game.models.CheckUsername;
 import com.example.snake_game.models.CheckUsernamePassword;
-import com.example.snake_game.utils.StringPathImage;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -16,16 +15,26 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-public class Login extends Application {
-    private String username ;
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 
+public class Login1 extends Application {
+    private String username;
     @Override
     public void start(Stage primaryStage) {
         // Create a BorderPane
         BorderPane root = new BorderPane();
 
         // Path to background image
-        String backgroundImage ="file:D:/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/in.gif"; // Replace with the actual path of the image
+        String backgroundImage = "file:D:/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/in.gif"; // Replace with the actual path of the image
 
         // Set CSS for the BorderPane
         root.setStyle("-fx-background-image: url('" + backgroundImage + "'); " +
@@ -43,26 +52,29 @@ public class Login extends Application {
         Label usernameLabel = new Label("Username:");
         usernameLabel.setStyle("-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;");
         TextField usernameField = new TextField();
+
         Label passwordLabel = new Label("Password:");
         passwordLabel.setStyle("-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;");
         PasswordField passwordField = new PasswordField();
+
         Label registerLabel = new Label("Do not have an account? ");
         registerLabel.setStyle("-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;");
 
         Hyperlink registerLink = new Hyperlink();
         registerLink.setText("Register now.");
-        registerLink.setStyle("-fx-text-fill: blue; -fx-font-size: 16px; -fx-font-weight: bold;");
+        registerLink.setStyle("-fx-text-fill:#1a1afa; -fx-font-size: 16px; -fx-font-weight: bold;");
         registerLink.setOnAction(event -> {
             // Open the Register window or navigate to the Register class
-            Registers registers = new Registers();
-            registers.start(new Stage());
+            Register register = new Register();
+            register.start(new Stage());
             primaryStage.close(); // Close the Login window
         });
         Button loginButton = new Button("Login");
         loginButton.setStyle("-fx-background-color: linear-gradient(to right, #ff8000, #8000ff, #00ff80); -fx-text-fill: white;");
         loginButton.setPrefWidth(120); // Set the preferred width of the button
+
         loginButton.setOnAction(event -> {
-             username = usernameField.getText();
+            username = usernameField.getText();
             String password = passwordField.getText();
             if(CheckUsername.checkUsernameExist(username)){
                 if(CheckUsernamePassword.checkUsernamePassword(username,password)){
@@ -78,9 +90,9 @@ public class Login extends Application {
                 Alert.alert("Not found account !");
             }
         });
-
         // CSS for the title label
         titleLabel.setStyle("-fx-text-fill: linear-gradient(to right, #ff0000, #0000ff, #00ff00);");
+
 
         // Add components to the GridPane
         gridPane.add(titleLabel, 0, 0, 2, 1); // Span 2 columns for the title
@@ -88,8 +100,8 @@ public class Login extends Application {
         gridPane.add(usernameField, 1, 1);
         gridPane.add(passwordLabel, 0, 2);
         gridPane.add(passwordField, 1, 2);
-        gridPane.add(registerLabel,0,3);
-        gridPane.add(registerLink, 1, 3);
+        gridPane.add(registerLabel, 0, 3);
+        gridPane.add(registerLink, 1, 3); // Span 2 columns for the register label
         gridPane.add(loginButton, 1, 4); // Change the row index of loginButton to 4
 
         // Center the GridPane
@@ -102,7 +114,7 @@ public class Login extends Application {
         Scene scene = new Scene(root);
 
         // Set the window size
-        primaryStage.setWidth(1200);
+        primaryStage.setWidth(1000);
         primaryStage.setHeight(780);
 
         // Center the title
@@ -119,12 +131,12 @@ public class Login extends Application {
 
         // Show the Stage
         primaryStage.show();
+
     }
     public String getUsername(){
         return this.username;
     }
-
     public static void main(String[] args) {
         launch(args);
     }
-}
+    }
