@@ -28,7 +28,7 @@ public class GameRank {
     private static  int WIDTH = TILE_SIZE*20;
     private static  int HEIGHT = TILE_SIZE*13 ;
     private static IntegerProperty score = new SimpleIntegerProperty(0);
-    private static IntegerProperty speed = new SimpleIntegerProperty(300);
+    private static int speed = 300;
     static Random random = new Random();
     static Point snake = new Point(WIDTH,HEIGHT);
     static Point boss = new Point(TILE_SIZE,TILE_SIZE);
@@ -53,7 +53,7 @@ public class GameRank {
         food.setY(random.nextInt(HEIGHT / TILE_SIZE)*TILE_SIZE);
 
         score.set(0);
-        speed.set(300);
+        speed = 300;
     }
     public static Scene gameRank(Stage primaryStage , String username){
         int skin = Getskin.getSkin(username);
@@ -67,7 +67,7 @@ public class GameRank {
         Scene scene = new Scene(layout,WIDTH,HEIGHT);
         scene.setOnKeyPressed(keyEvent -> {
             UpdateMovie updateMovie = new UpdateMovie();
-            updateMovie.updateSnakeGameRank(gc,scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score,speed);
+            updateMovie.updateSnakeGameRank(gc,scene,snake,TILE_SIZE,food,WIDTH,HEIGHT,score);
             draws.drawGameRank(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters,skinImage);
 
 
@@ -120,9 +120,12 @@ public class GameRank {
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,4,username));
                         primaryStage.show();
                     }
+                    if(score.get() % 5 == 0 && score.get() >= 5){
+                        speed+= 50 ;
+                    }
                 });
             }
-        },0,speed.get());
+        },0,speed);
         return scene ;
     }
 }

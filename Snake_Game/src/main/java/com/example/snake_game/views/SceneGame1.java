@@ -23,13 +23,16 @@ public class SceneGame1 {
     private static  int WIDTH = TILE_SIZE*20;
     private static  int HEIGHT = TILE_SIZE*13 ;
 
-    private static IntegerProperty score = new SimpleIntegerProperty(14);
+    private static IntegerProperty score = new SimpleIntegerProperty(0);
     static Random random = new Random();
     static Point snake = new Point(WIDTH,HEIGHT);
     static Point boss = new Point(TILE_SIZE,TILE_SIZE);
     static Point food = new Point();
     public static Point monsters ;
     public static Point gate = new Point(WIDTH/2,0);
+    private static int timmer1 = 200;
+    private static int timmer2 = 310;
+
 
 
 
@@ -47,7 +50,9 @@ public class SceneGame1 {
         food.setX(random.nextInt(WIDTH / TILE_SIZE)*TILE_SIZE);
         food.setY(random.nextInt(HEIGHT / TILE_SIZE)*TILE_SIZE);
         gate = new Point(WIDTH/2,0);
-        score.set(14);
+        score.set(0);
+        timmer1 = 200 ;
+        timmer2 = 310 ;
     }
     public static Scene game1(Stage primaryStage , String username){
 //        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
@@ -90,7 +95,7 @@ public class SceneGame1 {
                 });
 
             }
-        },0,200);
+        },0,timmer1);
         Timer timer2 = new Timer();
         timer2.schedule(new TimerTask() {
             @Override
@@ -118,7 +123,6 @@ public class SceneGame1 {
                         if(score.get() > oldScore){
                             UpdateScore.updateScore(username,score.get());
                             UpdateRank.updateRank(username,score.get());
-                            AddCoin.updateCoin(username,500);
                         }
 
                         int oldLevel = GetLevel.getLevel(username);
@@ -130,7 +134,7 @@ public class SceneGame1 {
                     }
                 });
             }
-        },0,310);
+        },0,timmer2);
         return scene ;
     }
 }

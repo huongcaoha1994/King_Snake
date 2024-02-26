@@ -172,7 +172,7 @@ public class SceneDisplay {
         startButton.setOnAction(event -> handleStartButtonClick(event));
 
         Button rankingMatchButton = new Button("Earn Coin");
-        Tooltip tooltipRank = new Tooltip("Click để xem bảng xếp hạng");
+        Tooltip tooltipRank = new Tooltip("Click để kiếm coin");
         Tooltip.install(rankingMatchButton,tooltipRank);
         rankingMatchButton.setPrefSize(143, 50);
         rankingMatchButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #FF0000, #00ff55); -fx-background-radius: 15;");
@@ -226,15 +226,18 @@ public class SceneDisplay {
     private static void handleSkinsButtonClick(ActionEvent event) {
         GameRank gameRank = new GameRank();
         gameRank.setUsername(username);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
         if(oldScore == 0){
-            stage.setScene(GuidePlayGame.guidePlay(stage,5,username));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(GuidePlayGame.guidePlay(stage,4,username));
+            stage.show();
 
         }else {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(GameRank.gameRank(stage,username));
+            stage.show();
         }
 
-        stage.show();
     }
 
     private static void handleExitButtonClick(MouseEvent event) {

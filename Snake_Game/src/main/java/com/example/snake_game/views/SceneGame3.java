@@ -20,7 +20,7 @@ public class SceneGame3 {
     private static int tileSize = 60 ;
     private static int width = tileSize*20;
     private static int height = tileSize*13;
-    private static IntegerProperty score = new SimpleIntegerProperty(14);
+    private static IntegerProperty score = new SimpleIntegerProperty(0);
     private static Point snake ;
     private static Point monsterGun ;
     private static Point monsterEat ;
@@ -29,6 +29,10 @@ public class SceneGame3 {
     public static Point gate = new Point(width/2,0);
     private static List<Point> bullets = new ArrayList<>();
     static Random random = new Random();
+    private static int timer1 = 350;
+    private static int timer2 = 200;
+    private static int timer3 = 300;
+
     public void setFood(){
         Random random = new Random();
         food.setX(random.nextInt(width/tileSize)*tileSize);
@@ -41,7 +45,10 @@ public class SceneGame3 {
         food = new Point(random.nextInt(width/tileSize)*tileSize, random.nextInt(height/tileSize)*tileSize );
         monster = new Point(random.nextInt(width/tileSize)*tileSize, random.nextInt(height/tileSize)*tileSize );
         bullets.clear();
-        score.set(14);
+        score.set(0);
+        timer1 = 350 ;
+        timer2 = 200 ;
+        timer3 = 300 ;
     }
 
     public static Scene game3(Stage primaryStage , String username){
@@ -70,7 +77,7 @@ public class SceneGame3 {
                 updateMovie.updateMonsterGun(monsterGun,snake,tileSize,bullets);
                 draws.drawGame3(gc,width,height,tileSize,snake,monsterEat,monsterGun,bullets,food,score,monster,skinImage);
             }
-        },0,300);
+        },0,timer3);
 
         Timer timerMonsterEat = new Timer();
         timerMonsterEat.schedule(new TimerTask() {
@@ -92,7 +99,7 @@ public class SceneGame3 {
                     }
                 });
             }
-        },0,200);
+        },0,timer2);
 
         Timer timerMonster = new Timer();
         timerMonster.schedule(new TimerTask() {
@@ -116,7 +123,7 @@ public class SceneGame3 {
                     }
                 });
             }
-        },0,300);
+        },0,timer1);
 
 
         Timer timerBullet = new Timer();

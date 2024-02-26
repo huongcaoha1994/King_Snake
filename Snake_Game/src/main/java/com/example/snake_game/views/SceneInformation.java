@@ -72,7 +72,7 @@ public class SceneInformation {
         textCoin.setFill(Color.RED);
         gridPane.add(textCoin,1,33);
 
-        Button buttonBack = new Button("Back Main");
+        Button buttonBack = new Button("Back");
         Tooltip tooltipStart = new Tooltip("Click để quay lại");
         buttonBack.setTooltip(tooltipStart);
         buttonBack.setPrefSize(143, 50);

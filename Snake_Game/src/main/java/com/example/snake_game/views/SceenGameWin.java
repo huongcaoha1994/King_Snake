@@ -1,5 +1,6 @@
 package com.example.snake_game.views;
 
+import com.example.snake_game.models.AddCoin;
 import com.example.snake_game.utils.GetImage;
 import com.example.snake_game.utils.MediaPlay;
 import com.example.snake_game.utils.StringPathImage;
@@ -15,6 +16,20 @@ public class SceenGameWin {
     public static Scene WinGame(Stage primaryStage,int levelGame,String username){
         int width = 1200 ;
         int height = 780 ;
+        switch (levelGame){
+            case 1 : {
+                AddCoin.updateCoin(username,500);
+                break;
+            }
+            case 2 : {
+                AddCoin.updateCoin(username,1000);
+                break;
+            }
+            case 3 : {
+                AddCoin.updateCoin(username,1500);
+                break;
+            }
+        }
 
         MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\wingame.mp3");
         Image backgroundImage = new Image(StringPathImage.winner1_gif());
