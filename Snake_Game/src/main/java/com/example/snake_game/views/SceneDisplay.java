@@ -60,8 +60,8 @@ public class SceneDisplay {
         Label userLabel = new Label(username);
         userLabel.setAlignment(Pos.CENTER);
         userLabel.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
-        userLabel.setPrefSize(76, 44);
-        userLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 23");
+        userLabel.setPrefSize(200, 44);
+        userLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 23 ; -fx-text-fill: yellow");
 
         HBox userBox = new HBox(userImageView, userLabel);
         userBox.setAlignment(Pos.CENTER);
@@ -70,15 +70,46 @@ public class SceneDisplay {
         HBox hbox = new HBox();
         hbox.setAlignment(Pos.CENTER_RIGHT);
         hbox.setSpacing(10);
+        hbox.setPadding(new Insets(0, 0, 0, 750));
+
+        //tạo button hươớng dẫn chơi
+
+        HBox guidebox = new HBox();
+        hbox.setAlignment(Pos.CENTER_RIGHT);
+        hbox.setSpacing(10);
         hbox.setPadding(new Insets(0, 0, 0, 600));
 
 
-        Button exitButton = new Button("Exit");
+        Button guideButton = new Button("GuidePlay");
+        Tooltip tooltipGuide = new Tooltip("Hướng dẫn chơi");
+        guideButton.setTooltip(tooltipGuide);
+        guideButton.setPrefSize(150, 45);
+        guideButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #FF0000, #FFFF00); -fx-background-radius: 15;");
+        guideButton.setOnAction(event -> {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(GuidePlayGame.guidePlay(stage,5,username));
+            stage.show();
+        });
+
+        HBox.setMargin(guideButton, new Insets(0, 0, 0, 0)); // Đặt khoảng cách lề phải cho nút Exit
+
+        hbox.getChildren().add(guideButton);
+
+        topBox.getChildren().add(guidebox);
+
+        root.setTop(topBox);
+
+        Button exitButton = new Button("Logout");
         Tooltip tooltipExit = new Tooltip("Click để thoát");
         exitButton.setTooltip(tooltipExit);
-        exitButton.setPrefSize(75, 45);
+        exitButton.setPrefSize(120, 45);
         exitButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #FF0000, #FFFF00); -fx-background-radius: 15;");
-        exitButton.setOnAction(event -> handleExitButtonClick());
+        exitButton.setOnAction(event -> {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(SceneLogin.login());
+            stage.show();
+            // logout về login
+        });
 
         HBox.setMargin(exitButton, new Insets(0, 0, 0, 0)); // Đặt khoảng cách lề phải cho nút Exit
 
@@ -113,7 +144,7 @@ public class SceneDisplay {
         eventImageView.setOnMouseClicked(event -> handleEventImageClick(event));
         eventImageView.setFitWidth(114);
         eventImageView.setFitHeight(112);
-        Label eventLabel = new Label("GuidePlay");
+        Label eventLabel = new Label("Shoping");
         eventLabel.setAlignment(Pos.CENTER);
         eventLabel.setPrefSize(110, 35);
         eventLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-text-fill: white ");
@@ -140,14 +171,14 @@ public class SceneDisplay {
         startButton.setEffect(new DropShadow());
         startButton.setOnAction(event -> handleStartButtonClick(event));
 
-        Button rankingMatchButton = new Button("Game Rank");
+        Button rankingMatchButton = new Button("Earn Coin");
         Tooltip tooltipRank = new Tooltip("Click để xem bảng xếp hạng");
         Tooltip.install(rankingMatchButton,tooltipRank);
         rankingMatchButton.setPrefSize(143, 50);
         rankingMatchButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #FF0000, #00ff55); -fx-background-radius: 15;");
         rankingMatchButton.setEffect(new DropShadow());
         rankingMatchButton.setOnAction(event -> handleSkinsButtonClick(event));
-        VBox.setMargin(rankingMatchButton, new Insets(0, 50, 0, 0));
+        VBox.setMargin(rankingMatchButton, new Insets(0, 0, 0, 0));
 
         rightBox.getChildren().addAll(startButton, rankingMatchButton);
 
@@ -206,8 +237,11 @@ public class SceneDisplay {
         stage.show();
     }
 
-    private static void handleExitButtonClick() {
-        System.exit(0); // Đóng ứng dụng
+    private static void handleExitButtonClick(MouseEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(SceneLogin.login());
+        stage.show();
+        // logout về login
     }
 
 

@@ -22,6 +22,7 @@ public class Draws {
     Image bulletImage = new Image(StringPathImage.bullet_jpg());
     Image background = new Image(StringPathImage.hinhnen_jpg());
     Image gateImage = new Image(StringPathImage.gatespace_jpg());
+    Image coinImage = new Image(StringPathImage.coin_gif());
 
     public void draw(Point food, Point boss, Point snake, int width, int height, GraphicsContext gc, int tileSize, IntegerProperty score, Point monsters,Image skin) {
         gc.setFill(Color.GREEN);
@@ -60,7 +61,7 @@ public class Draws {
         gc.setFill(Color.CORAL);
         gc.fillRect(0, 0, width, height);
 //        gc.drawImage(background,0,0,width,height);
-            gc.drawImage(foodImage, food.getX(), food.getY(), tileSize, tileSize);
+            gc.drawImage(coinImage, food.getX(), food.getY(), tileSize, tileSize);
 
         gc.drawImage(skin, snake.getX(), snake.getY(), tileSize, tileSize);
 

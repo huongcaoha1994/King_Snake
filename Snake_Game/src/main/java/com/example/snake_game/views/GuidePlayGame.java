@@ -107,7 +107,7 @@ public class GuidePlayGame {
         gridPane.add(imageView6, 0, 12);
 
         // Text 5
-        Text text6 = new Text("Key : Hãy thu thập đủ 15 chiếc chìa khóa này để qua màn chơi.");
+        Text text6 = new Text("Key : Hãy thu thập đủ 15 chiếc chìa khóa này để xuất hiện cánh cổng không gian.");
         text6.setFont(Font.font("Arial", fontSize));
         gridPane.add(text6, 1, 12);
 
@@ -119,7 +119,7 @@ public class GuidePlayGame {
         gridPane.add(imageView7, 0, 14);
 
         // TextField 6
-        Text text7 = new Text("GateSpace : Chỉ xuất hiện khi bạn có đủ 15 key , đi vào nó để qua màn chơi.");
+        Text text7 = new Text("GateSpace : Đi vào bên trong sẽ qua màn và nhận được tiền thưởng qua màn.");
         text7.setFont(Font.font("Arial", fontSize));
         gridPane.add(text7, 1, 14);
 

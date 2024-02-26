@@ -118,6 +118,7 @@ public class SceneGame1 {
                         if(score.get() > oldScore){
                             UpdateScore.updateScore(username,score.get());
                             UpdateRank.updateRank(username,score.get());
+                            AddCoin.updateCoin(username,500);
                         }
 
                         int oldLevel = GetLevel.getLevel(username);

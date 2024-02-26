@@ -127,5 +127,8 @@ public class StringPathImage {
     public static String shop_gif(){
         return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/shop.gif";
     }
+    public static String coin_gif(){
+        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/coin.gif";
+    }
 
 }

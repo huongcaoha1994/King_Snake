@@ -4,6 +4,7 @@ import com.example.snake_game.controllers.UpdateMovie;
 import com.example.snake_game.models.*;
 import com.example.snake_game.resources.Draws;
 import com.example.snake_game.utils.MediaPlay;
+import com.example.snake_game.utils.StringPathImage;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -26,8 +27,6 @@ public class GameRank {
     private static  int TILE_SIZE = 60 ;
     private static  int WIDTH = TILE_SIZE*20;
     private static  int HEIGHT = TILE_SIZE*13 ;
-    private static int skin = Getskin.getSkin(username);
-    private static Image skinImage = GetSnakeDisplay.getImageSnakeDisplay(skin);
     private static IntegerProperty score = new SimpleIntegerProperty(0);
     private static IntegerProperty speed = new SimpleIntegerProperty(300);
     static Random random = new Random();
@@ -57,8 +56,9 @@ public class GameRank {
         speed.set(300);
     }
     public static Scene gameRank(Stage primaryStage , String username){
-
-        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
+        int skin = Getskin.getSkin(username);
+        Image skinImage = GetSnakeDisplay.getImageSnakeDisplay(skin);
+//        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
         restart();
         Canvas canvas = new Canvas(WIDTH,HEIGHT);
         GraphicsContext gc = canvas.getGraphicsContext2D();

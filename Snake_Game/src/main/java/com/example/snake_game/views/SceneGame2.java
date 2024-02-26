@@ -137,6 +137,7 @@ public class SceneGame2 {
                         if(score.get() > oldScore){
                             UpdateScore.updateScore(username,score.get());
                             UpdateRank.updateRank(username,score.get());
+                            AddCoin.updateCoin(username,1000);
                         }
                         primaryStage.setScene(SceenGameWin.WinGame(primaryStage,2,username));
                         primaryStage.show();
