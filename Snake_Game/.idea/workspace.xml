@@ -9,18 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6c3e3fc2-7d32-4662-8f7f-e409c662005f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/controllers/UpdateMovie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/controllers/UpdateMovie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/resources/image/image2.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/resources/image/image2.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/resources/image/image3.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/resources/image/image3.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/GameRank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/GameRank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceenGameWin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceenGameWin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceenGameover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceenGameover.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneInformation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
