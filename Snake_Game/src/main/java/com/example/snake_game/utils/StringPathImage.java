@@ -109,5 +109,8 @@ public class StringPathImage {
     public static String winner1_gif(){
         return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/winner1.gif";
     }
+    public static String dong_gif(){
+        return "file:D:/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/dong.gif";
+    }
 
 }

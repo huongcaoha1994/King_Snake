@@ -23,14 +23,16 @@ public class Login extends Application {
     public void start(Stage primaryStage) {
         // Create a BorderPane
         BorderPane root = new BorderPane();
+//
+//        // Path to background image
+//        String backgroundImage ="file:D:/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/in.gif"; // Replace with the actual path of the image
+//
+//        // Set CSS for the BorderPane
+//        root.setStyle("-fx-background-image: url('" + backgroundImage + "'); " +
+//                "-fx-background-size: cover;");
+        String backgroundImage = StringPathImage.dong_gif();
 
-        // Path to background image
-        String backgroundImage ="file:D:/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/in.gif"; // Replace with the actual path of the image
-
-        // Set CSS for the BorderPane
-        root.setStyle("-fx-background-image: url('" + backgroundImage + "'); " +
-                "-fx-background-size: cover;");
-
+        root.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover;");
         // Create a GridPane to hold the login form
         GridPane gridPane = new GridPane();
         gridPane.setPadding(new Insets(70));
