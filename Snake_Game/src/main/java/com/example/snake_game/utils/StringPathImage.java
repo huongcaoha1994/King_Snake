@@ -131,4 +131,5 @@ public class StringPathImage {
         return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/coin.gif";
     }
 
+
 }

@@ -127,7 +127,7 @@ public class SceneDisplay {
         leftBox.setSpacing(20);
         leftBox.setPadding(new Insets(0, 0, 0, 50));
 
-        ImageView rankingImageView = new ImageView(new Image(StringPathImage.a_jpg()));
+        ImageView rankingImageView = new ImageView(new Image(StringPathImage.ranking_png()));
         rankingImageView.setOnMouseClicked(event -> handleRankingImageClick(event));
         rankingImageView.setFitWidth(114);
         rankingImageView.setFitHeight(112);

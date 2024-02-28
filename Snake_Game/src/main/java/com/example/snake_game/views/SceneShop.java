@@ -112,12 +112,12 @@ public class SceneShop {
         gridPane.add(name4, 3, 4);
 
         Button name5 = new Button("Unicorn Special");
-        name5.setPrefSize(150, 100);
+        name5.setPrefSize(200, 100);
         name5.setStyle("-fx-font-weight: bold; -fx-font-size: 20; -fx-background-color: transparent; -fx-text-fill: #00a6ff;");
         name5.setEffect(new DropShadow());
         gridPane.add(name5, 4, 4);
 
-        Button price1 = new Button("1000 coin");
+        Button price1 = new Button("0 coin");
         price1.setPrefSize(150, 100);
         price1.setStyle("-fx-font-weight: bold; -fx-font-size: 20; -fx-background-color: transparent; -fx-text-fill: #c8ff00;");
         price1.setEffect(new DropShadow());
