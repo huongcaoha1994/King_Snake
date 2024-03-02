@@ -20,7 +20,8 @@ public class Demo extends Application {
 //       for (Integer number : arr){
 //           System.out.println(number);
 //       }
-        primaryStage.setScene(SceenGameover.SceneClose(primaryStage,1,"admin11"));
+        SceneMinigame sceneMinigame = new SceneMinigame();
+        primaryStage.setScene(sceneMinigame.minigame());
         primaryStage.show();
 
 

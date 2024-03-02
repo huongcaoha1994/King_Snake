@@ -171,16 +171,32 @@ public class SceneDisplay {
         startButton.setEffect(new DropShadow());
         startButton.setOnAction(event -> handleStartButtonClick(event));
 
-        Button rankingMatchButton = new Button("Earn Coin");
+        Button earnCoinButton = new Button("Earn Coin");
         Tooltip tooltipRank = new Tooltip("Click để kiếm coin");
-        Tooltip.install(rankingMatchButton,tooltipRank);
-        rankingMatchButton.setPrefSize(143, 50);
-        rankingMatchButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #FF0000, #00ff55); -fx-background-radius: 15;");
-        rankingMatchButton.setEffect(new DropShadow());
-        rankingMatchButton.setOnAction(event -> handleSkinsButtonClick(event));
-        VBox.setMargin(rankingMatchButton, new Insets(0, 0, 0, 0));
+        Tooltip.install(earnCoinButton,tooltipRank);
+        earnCoinButton.setPrefSize(143, 50);
+        earnCoinButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #FF0000, #00ff55); -fx-background-radius: 15;");
+        earnCoinButton.setEffect(new DropShadow());
+        earnCoinButton.setOnAction(event -> handleSkinsButtonClick(event));
+        VBox.setMargin(earnCoinButton, new Insets(0, 0, 0, 0));
 
-        rightBox.getChildren().addAll(startButton, rankingMatchButton);
+        Button minigameButton = new Button("MiniGame");
+        Tooltip tooltipminigame = new Tooltip("Click để chơi mini game");
+        Tooltip.install(minigameButton,tooltipminigame);
+        minigameButton.setPrefSize(143, 50);
+        minigameButton.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #FF0000, #00ff55); -fx-background-radius: 15;");
+        minigameButton.setEffect(new DropShadow());
+        minigameButton.setOnAction(event -> {
+            // xử lý chơi mini game
+            SceneMinigame sceneMinigame = new SceneMinigame();
+            sceneMinigame.setUsername(username);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(sceneMinigame.minigame());
+            stage.show();
+        });
+        VBox.setMargin(minigameButton, new Insets(0, 0, 0, 0));
+
+        rightBox.getChildren().addAll(startButton, earnCoinButton,minigameButton);
 
         root.setRight(rightBox);
 

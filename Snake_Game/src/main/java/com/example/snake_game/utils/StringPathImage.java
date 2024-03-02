@@ -130,6 +130,23 @@ public class StringPathImage {
     public static String coin_gif(){
         return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/coin.gif";
     }
-
+    public static String minigame_jpg(){
+        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/minigame.jpg";
+    }
+    public static String dong_gif(){
+        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/dong.gif";
+    }
+    public static String la_jpg(){
+        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/la.jpg";
+    }
+    public static String hopbian_png(){
+        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/hopbian.png";
+    }
+    public static String keo_jpg(){
+        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/keo.jpg";
+    }
+    public static String bua_jpg(){
+        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/bua.jpg";
+    }
 
 }
