@@ -74,7 +74,7 @@ public class Sceneregister {
 
         submitButton.setOnAction(event -> {
             // Xử lý đăng ký
-            String username = nameField.getText();
+            String username = nameField.getText().replaceAll(" ","");
             String password = passwordField.getText();
             String repassword = repasswordField.getText();
             if(password.equals(repassword)){
