@@ -16,6 +16,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -25,16 +26,17 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.net.URL;
+
 public class Registers extends Application {
 
     @Override
     public void start(Stage primaryStage) {
 
-        // Tạo các thành phần giao diện
-
         Text title = new Text("Register");
-        title.setFont(Font.font("Arial", FontWeight.BOLD, 30));
-        title.setStyle("-fx-fill: linear-gradient(#ff8000, #0000ff, #00ff80);");
+        title.setFont(Font.font("Arial", FontWeight.BOLD, 50));
+        title.setStyle("-fx-fill: linear-gradient(#072667, #0000ff, #00ff80);");
 
         Label nameLabel = new Label("Name:");
         nameLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;");
@@ -49,7 +51,7 @@ public class Registers extends Application {
         PasswordField repasswordField = new PasswordField();
 
         Button submitButton = new Button("Register");
-        submitButton.setStyle("-fx-background-color: linear-gradient(#ff0000, #0000ff, #00ff80); -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-min-width: 120px;");
+        submitButton.setStyle("-fx-background-color: linear-gradient(#1667f1, #3d8af5, #c7caec); -fx-text-fill: #eee7e7; -fx-font-size: 14px; -fx-font-weight: bold; -fx-min-width: 120px;");
 
         // Tạo layout
 
@@ -100,7 +102,7 @@ public class Registers extends Application {
         button1Container.setPadding(new Insets(10));
         Button button1 = new Button("Login");
         button1Container.getChildren().add(button1);
-        button1.setStyle("-fx-background-color: linear-gradient(#ff0000, #0000ff, #00ff80); -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-min-width: 100px; -fx-min-height: 30px;");
+        button1.setStyle("-fx-background-color: linear-gradient(#1667f1, #3d8af5, #9ea0bb); -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-min-width: 100px; -fx-min-height: 30px; -fx-padding: 5px 10px;");
         button1.setOnAction(e -> {
             Login login = new Login();
             login.start(new Stage());
@@ -121,7 +123,8 @@ public class Registers extends Application {
         BorderPane.setMargin(buttonsContainer, new Insets(10));
 
 
-        String backgroundImage = StringPathImage.in_gif();
+        String backgroundImage = StringPathImage.dong_gif();
+
         borderPane.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover;");
 
         // Tạo scene và hiển thị
