@@ -189,7 +189,7 @@ public class SceneDisplay {
         minigameButton.setOnAction(event -> {
             // xử lý chơi mini game
             SceneMinigame sceneMinigame = new SceneMinigame();
-            sceneMinigame.setUsername(username);
+            sceneMinigame.setData(0,0,true,username);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(sceneMinigame.minigame());
             stage.show();

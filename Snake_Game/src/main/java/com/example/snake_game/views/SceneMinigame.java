@@ -4,6 +4,8 @@ import com.example.snake_game.models.Alert;
 import com.example.snake_game.models.GetCoin;
 import com.example.snake_game.models.UpdateCoin;
 import com.example.snake_game.utils.StringPathImage;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -15,13 +17,10 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class SceneMinigame {
-    public static String username ;
-
-    public void setUsername(String username){
-        this.username = username ;
-    }
     public static Image getImageBoss(int selectBoss){
         Image boss = null;
         switch (selectBoss){
@@ -43,27 +42,39 @@ public class SceneMinigame {
         }
         return boss ;
     }
-    private static int width = 1200 ;
-    private static int height = 780;
-    private static int sizeImage = 80 ;
-    private static int coinUser = 10000;
-    private static int selectUser = 0 ;
-    private static int selectBoss = 0 ;
-    private static int monneyOrder = 0 ;
-    private static int newCoin = 0 ;
 
-    public void restart(){
-        coinUser = GetCoin.coin(username);
 
-        selectUser = 0 ;
-        monneyOrder = 0 ;
+    //    public void restart(){
+//        coinUser = GetCoin.coin(username);
+//
+//        selectUser = 0 ;
+//        monneyOrder = 0 ;
+//    }
+    public static String username;
+    public static int dataSelectUser ;
+    public static int dataSelectBoss;
+    public static boolean dataStatusGame;
+    public void setData(int selectUser , int selectBoss , boolean statusGame,String username){
+        this.dataSelectUser = selectUser ;
+        this.dataSelectBoss = selectBoss ;
+        this.dataStatusGame = statusGame ;
+        this.username = username ;
     }
     public Scene minigame(){
-        System.out.println(username);
+         int width = 1200 ;
+         int height = 780;
+         int sizeImage = 80 ;
+         IntegerProperty coinUser = new SimpleIntegerProperty();
+        coinUser.set(GetCoin.coin(username));
+         AtomicInteger selectUser = new AtomicInteger(dataSelectUser);
+        AtomicInteger selectBoss = new AtomicInteger(dataSelectBoss);
+         AtomicInteger monneyOrder = new AtomicInteger();
+         AtomicInteger newCoin = new AtomicInteger();
+         AtomicBoolean statusGame = new AtomicBoolean(dataStatusGame);
         Random random = new Random();
 
 
-        String numberCoin = "Coin : "+ coinUser ;
+        String numberCoin = "Coin : "+ coinUser.get() ;
 
         ImageView optionLa = new ImageView(new Image(StringPathImage.la_jpg()));
         optionLa.setFitWidth(sizeImage);
@@ -101,7 +112,7 @@ public class SceneMinigame {
 
         HBox hBox1 = new HBox();
         // lựa chọn của boss
-        Image image1 = getImageBoss(selectBoss);
+        Image image1 = getImageBoss(selectBoss.get());
         ImageView imageBoss = new ImageView(image1);
         imageBoss.setFitWidth(sizeImage);
         imageBoss.setFitHeight(sizeImage);
@@ -124,7 +135,7 @@ public class SceneMinigame {
 
         HBox hBox2 = new HBox();
         //lựa chọn của User
-        Image image2 = new Image(StringPathImage.hopbian_png());
+        Image image2 = getImageBoss(selectUser.get());
         ImageView imageUser = new ImageView(image2);
         imageUser.setFitWidth(sizeImage);
         imageUser.setFitHeight(sizeImage);
@@ -144,7 +155,7 @@ public class SceneMinigame {
         option1.setGraphic(optionLa);
         option1.setOnAction(event -> {
             //chọn lá
-            selectUser = 1 ;
+            selectUser.set(1);
             imageUser.setImage(new Image(StringPathImage.la_jpg()));
         });
 
@@ -153,7 +164,7 @@ public class SceneMinigame {
         option2.setGraphic(optionKeo);
         option2.setOnAction(event -> {
             // chọn kéo
-            selectUser = 2 ;
+            selectUser.set(2);
             imageUser.setImage(new Image(StringPathImage.keo_jpg()));
         });
 
@@ -162,7 +173,7 @@ public class SceneMinigame {
         option3.setGraphic(optionBua);
         option3.setOnAction(event -> {
             // chọn búa
-            selectUser = 3;
+            selectUser.set(3);
             imageUser.setImage(new Image(StringPathImage.bua_jpg()));
         });
 
@@ -181,11 +192,11 @@ public class SceneMinigame {
         Button od1000 = new Button("1000");
         od1000.setOnAction(event -> {
             //đặt cược 1000
-            if(coinUser < 1000){
+            if(coinUser.get() < 1000){
                 Alert.alert("Not enough money");
             }
             else {
-                monneyOrder = 1000 ;
+                monneyOrder.set(1000);
             }
         });
 
@@ -193,11 +204,11 @@ public class SceneMinigame {
         Button od1500 = new Button("1500");
         od1500.setOnAction(event -> {
             // đặt cược 1500
-            if(coinUser < 1500){
+            if(coinUser.get() < 1500){
                 Alert.alert("Not enough money");
             }
             else {
-                monneyOrder = 1500;
+                monneyOrder.set(1500);
             }
 
         });
@@ -206,44 +217,44 @@ public class SceneMinigame {
         Button od2000 = new Button("2000");
         od2000.setOnAction(event -> {
             // đặt cược 2000
-            if(coinUser < 2000){
+            if(coinUser.get() < 2000){
                 Alert.alert("Not enough money");
             }
             else {
-                monneyOrder = 2000 ;
+                monneyOrder.set(2000);
             }
         });
 
         Button od2500 = new Button("2500");
         od2500.setOnAction(event -> {
             // đặt cược 2500
-            if(coinUser < 2500){
+            if(coinUser.get() < 2500){
                 Alert.alert("Not enough money");
             }
             else {
-                monneyOrder = 2500;
+                monneyOrder.set(2500);
             }
         });
 
         Button od3000 = new Button("3000");
         od3000.setOnAction(event -> {
             // đặt cược 3000
-            if(coinUser < 3000){
+            if(coinUser.get() < 3000){
                 Alert.alert("Not enough money");
             }
             else {
-                monneyOrder = 3000;
+                monneyOrder.set(3000);
             }
         });
 
         Button odAll = new Button("Tất tay");
         odAll.setOnAction(event -> {
             // đặt cược tất tay
-            if(coinUser < 1){
+            if(coinUser.get() < 1){
                 Alert.alert("Not enough money");
             }
             else {
-                monneyOrder = coinUser;
+                monneyOrder.set(coinUser.get());
             }
         });
 
@@ -252,7 +263,7 @@ public class SceneMinigame {
 
         Button next = new Button("Back");
         next.setPrefSize(143, 50);
-        next.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #fffb00, #d51111); -fx-background-radius: 15;");
+        next.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #fffb00, #00a6ff); -fx-background-radius: 15;");
         next.setEffect(new DropShadow());
         next.setOnAction(actionEvent -> {
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -261,53 +272,82 @@ public class SceneMinigame {
         });
         gridPane.add(next, 2, 7);
 
-        Button play = new Button("Play");
-        play.setPrefSize(143, 50);
-        play.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #fffb00, #d51111); -fx-background-radius: 15;");
-        play.setEffect(new DropShadow());
-        play.setOnAction(actionEvent -> {
-            // xử lý trò chơi
-            if(monneyOrder == 0){
-                Alert.alert("Please order money !");
-            } else if (selectUser == 0) {
-                Alert.alert("Please select option !");
-            } else {
-                selectBoss = random.nextInt(3)+1;
-                imageBoss.setImage(getImageBoss(selectBoss));
-                int rs = result(selectBoss,selectUser);
-                switch (rs){
-                    case 1 : {
-                        Alert.alert("You Win !");
-                         newCoin = coinUser + monneyOrder;
-                        UpdateCoin.updateCoin(username,newCoin);
-                        break;
+        Button play = null;
+            if(statusGame.get()){
+                play = new Button("Play");
+                play.setPrefSize(143, 50);
+                play.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #fffb00, #d51111); -fx-background-radius: 15;");
+                play.setEffect(new DropShadow());
+                play.setOnAction(actionEvent -> {
+                    // xử lý trò chơi
+                    if(monneyOrder.get() == 0){
+                        Alert.alert("Please order money !");
+                    } else if (selectUser.get() == 0) {
+                        Alert.alert("Please select option !");
+                    } else {
+                        selectBoss.set(random.nextInt(3) + 1);
+                        imageBoss.setImage(getImageBoss(selectBoss.get()));
+                        int rs = result(selectBoss.get(), selectUser.get());
+                        switch (rs){
+                            case 1 : {
+                                Alert.alert("You Win : " + monneyOrder.get());
+                                newCoin.set(coinUser.get() + monneyOrder.get());
+                                coinUser.set(GetCoin.coin(username));
+                                UpdateCoin.updateCoin(username, newCoin.get());
+                                break;
+
+                            }
+                            case 2 : {
+                                Alert.alert("You Lose : " + monneyOrder.get());
+                                newCoin.set(coinUser.get() - monneyOrder.get());
+                                coinUser.set(GetCoin.coin(username));
+                                UpdateCoin.updateCoin(username, newCoin.get());
+                                break;
+                            }
+                            case 3 : {
+                                Alert.alert("Hòa !");
+                                break;
+                            }
+                        }
+                        statusGame.set(false);
+                        SceneMinigame sceneMinigame = new SceneMinigame();
+                        sceneMinigame.setData(selectUser.get(),selectBoss.get(), statusGame.get(),username);
+                        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                        stage.setScene(this.minigame());
+                        stage.show();
+
 
                     }
-                    case 2 : {
-                        Alert.alert("You Lose !");
-                         newCoin = coinUser - monneyOrder;
-                        UpdateCoin.updateCoin(username,newCoin);
-                        break;
-                    }
-                    case 3 : {
-                        Alert.alert("Hòa !");
-                        break;
-                    }
-                }
-                this.restart();
+                });
+            }else {
+                play = new Button("Replay");
+                play.setPrefSize(143, 50);
+                play.setStyle("-fx-font-weight: bold; -fx-font-size: 23; -fx-background-color: linear-gradient(to right, #fffb00, #d51111); -fx-background-radius: 15;");
+                play.setEffect(new DropShadow());
+                play.setOnAction(event -> {
+                    statusGame.set(true);
+                    selectUser.set(0);
+                    selectBoss.set(0);
+                    SceneMinigame sceneMinigame = new SceneMinigame();
+                    sceneMinigame.setData(selectUser.get(),selectBoss.get(), statusGame.get(),username);
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(this.minigame());
+                    stage.show();
 
+                });
             }
-        });
+
         gridPane.add(play, 4, 7);
 
         gridPane.setBackground(new Background(background));
         Scene scene = new Scene(gridPane,width,height);
         return scene;
     }
+
     public static int result(int selectBoss, int selectUser){
         int rs = 1 ;
         if(selectBoss == selectUser){
-           rs = 3 ;
+            rs = 3 ;
         } else if (selectBoss == 1 && selectUser == 3) {
             rs = 2 ;
 

@@ -8,12 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c3e3fc2-7d32-4662-8f7f-e409c662005f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneMinigame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/utils/StringPathImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/utils/StringPathImage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneMinigame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneMinigame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +188,7 @@
       <workItem from="1708430658525" duration="2929000" />
       <workItem from="1708434206284" duration="23450000" />
       <workItem from="1708685642086" duration="3939000" />
-      <workItem from="1709126133970" duration="16815000" />
+      <workItem from="1709126133970" duration="21636000" />
     </task>
     <servers />
   </component>
@@ -210,7 +208,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneMinigame.java</url>
-          <line>136</line>
+          <line>147</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
