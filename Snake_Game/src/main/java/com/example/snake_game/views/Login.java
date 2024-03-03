@@ -30,7 +30,7 @@ public class Login extends Application {
 //        // Set CSS for the BorderPane
 //        root.setStyle("-fx-background-image: url('" + backgroundImage + "'); " +
 //                "-fx-background-size: cover;");
-        String backgroundImage = StringPathImage.dong_gif();
+        String backgroundImage = StringPathImage.nen_gif();
 
         root.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover;");
         // Create a GridPane to hold the login form
@@ -53,7 +53,7 @@ public class Login extends Application {
 
         Hyperlink registerLink = new Hyperlink();
         registerLink.setText("Register now.");
-        registerLink.setStyle("-fx-text-fill: blue; -fx-font-size: 16px; -fx-font-weight: bold;");
+        registerLink.setStyle("-fx-text-fill: #ecda7a; -fx-font-size: 16px; -fx-font-weight: bold;");
         registerLink.setOnAction(event -> {
             // Open the Register window or navigate to the Register class
             Registers registers = new Registers();
@@ -61,7 +61,7 @@ public class Login extends Application {
             primaryStage.close(); // Close the Login window
         });
         Button loginButton = new Button("Login");
-        loginButton.setStyle("-fx-background-color: linear-gradient(to right, #ff8000, #8000ff, #00ff80); -fx-text-fill: white;");
+        loginButton.setStyle("-fx-background-color: linear-gradient(to right, #3c488d, #2d4264, #3c488d); -fx-text-fill: #e8e59f;");
         loginButton.setPrefWidth(120); // Set the preferred width of the button
         loginButton.setOnAction(event -> {
              username = usernameField.getText();
@@ -82,7 +82,7 @@ public class Login extends Application {
         });
 
         // CSS for the title label
-        titleLabel.setStyle("-fx-text-fill: linear-gradient(to right, #ff0000, #0000ff, #00ff00);");
+        titleLabel.setStyle("-fx-text-fill: linear-gradient(to right, #e5d48f, #eae886, #d6f389);");
 
         // Add components to the GridPane
         gridPane.add(titleLabel, 0, 0, 2, 1); // Span 2 columns for the title
