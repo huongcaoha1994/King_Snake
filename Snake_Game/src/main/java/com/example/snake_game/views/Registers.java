@@ -111,6 +111,8 @@ public class Registers extends Application {
             primaryStage.close();
         });
 
+
+
         // Tạo VBox chứa HBox của nút
         VBox buttonsContainer = new VBox();
         buttonsContainer.setAlignment(Pos.TOP_RIGHT);
@@ -124,6 +126,7 @@ public class Registers extends Application {
         BorderPane.setMargin(buttonsContainer, new Insets(10));
 
 
+        
         String backgroundImage = StringPathImage.nen_gif();
 
         borderPane.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover;");
@@ -138,6 +141,7 @@ public class Registers extends Application {
         primaryStage.setHeight(780);
         primaryStage.show();
     }
+
 
     public static void main(String[] args) {
         launch(args);

@@ -30,6 +30,8 @@ public class Login extends Application {
 //        // Set CSS for the BorderPane
 //        root.setStyle("-fx-background-image: url('" + backgroundImage + "'); " +
 //                "-fx-background-size: cover;");
+
+
         String backgroundImage = StringPathImage.nen_gif();
 
         root.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover;");
@@ -60,6 +62,8 @@ public class Login extends Application {
             registers.start(new Stage());
             primaryStage.close(); // Close the Login window
         });
+
+
         Button loginButton = new Button("Login");
         loginButton.setStyle("-fx-background-color: linear-gradient(to right, #3c488d, #2d4264, #3c488d); -fx-text-fill: #e8e59f;");
         loginButton.setPrefWidth(120); // Set the preferred width of the button
