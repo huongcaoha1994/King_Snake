@@ -28,7 +28,8 @@ public class GameRank {
     private static  int WIDTH = TILE_SIZE*20;
     private static  int HEIGHT = TILE_SIZE*13 ;
     private static IntegerProperty score = new SimpleIntegerProperty(0);
-    private static int speed = 300;
+    private static int speed = 250;
+    public static int oldScore = 0 ;
     static Random random = new Random();
     static Point snake = new Point(WIDTH,HEIGHT);
     static Point boss = new Point(TILE_SIZE,TILE_SIZE);
@@ -86,13 +87,18 @@ public class GameRank {
                     if(boss.getX() == snake.getX() && boss.getY() == snake.getY()){
                         timer1.cancel();
                         int oldScore = GetScore.getScore(username);
-                        if(score.get() > oldScore){
-                            UpdateScore.updateScore(username,score.get());
+                        int newScore = score.get() % 100 ;
+                        if(newScore > oldScore){
+                            UpdateScore.updateScore(username,newScore);
                             UpdateRank.updateRank(username,score.get());
                             AddCoin.updateCoin(username,score.get());
                         }
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,4,username));
                         primaryStage.show();
+                    }
+                    if(score.get() % 10 == 0 && score.get() > oldScore){
+                        score.set(score.get()+500);
+                        oldScore = score.get();
                     }
                 });
 
@@ -112,8 +118,10 @@ public class GameRank {
                         timer2.cancel();
                         timer1.cancel();
                         int oldScore = GetScore.getScore(username);
-                        if(score.get() > oldScore){
-                            UpdateScore.updateScore(username,score.get());
+                        int newScore = score.get() % 100 ;
+                        if(newScore > oldScore){
+
+                            UpdateScore.updateScore(username,newScore);
                             UpdateRank.updateRank(username,score.get());
                             AddCoin.updateCoin(username,score.get());
                         }
