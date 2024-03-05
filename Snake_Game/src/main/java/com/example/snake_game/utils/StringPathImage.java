@@ -151,4 +151,7 @@ public class StringPathImage {
     public static String nen_gif(){
         return "file:D:/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/nen.gif";
     }
+    public static String bgplayGame_jpg(){
+        return "file:C:/Users/dell/IdeaProjects/King_Snake/Snake_Game/src/main/java/com/example/snake_game/resources/image/bgplayGame.jpg";
+    }
 }

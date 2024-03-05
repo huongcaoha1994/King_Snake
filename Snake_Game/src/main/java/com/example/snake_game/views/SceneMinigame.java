@@ -105,7 +105,7 @@ public class SceneMinigame {
         gridPane.add(shop, 2, 0);
 
         Button coin = new Button(numberCoin);
-        coin.setPrefSize(150, 100);
+        coin.setPrefSize(350, 100);
         coin.setStyle("-fx-font-weight: bold; -fx-font-size: 20; -fx-background-color: transparent; -fx-text-fill: #c8ff00;");
         coin.setEffect(new DropShadow());
         gridPane.add(coin, 2, 1);

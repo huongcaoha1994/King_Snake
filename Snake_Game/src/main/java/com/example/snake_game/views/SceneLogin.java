@@ -50,7 +50,7 @@ public class SceneLogin {
 
         Hyperlink registerLink = new Hyperlink();
         registerLink.setText("Register now.");
-        registerLink.setStyle("-fx-text-fill: blue; -fx-font-size: 16px; -fx-font-weight: bold;");
+        registerLink.setStyle("-fx-text-fill: #fffb00; -fx-font-size: 16px; -fx-font-weight: bold;");
         registerLink.setOnAction(event -> {
             // Open the Register window or navigate to the Register class
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

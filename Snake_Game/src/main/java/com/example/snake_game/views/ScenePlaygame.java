@@ -12,10 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class ScenePlaygame {
@@ -190,14 +187,19 @@ public class ScenePlaygame {
         hBox.setAlignment(Pos.CENTER); // Canh giữa các màn chơi
         hBox.setSpacing(60); // Khoảng cách giữa các màn chơi
 
+        Image backgroundImage = new Image(StringPathImage.bgplayGame_jpg());
+        BackgroundImage background = new BackgroundImage(backgroundImage,
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.DEFAULT, new BackgroundSize(1200, 780, false, false, true, true));
 
         BorderPane root = new BorderPane();
         root.setTop(topBox);
         root.setCenter(hBox); // Đặt HBox vào phần center của BorderPane
+        root.setBackground(new Background(background));
         Scene scene = new Scene(root, 1200, 780);
-        scene.getRoot().setStyle(
-                "-fx-background-color: linear-gradient(to bottom right, #00FFFF, #8A2BE2);"
-        );
+//        scene.getRoot().setStyle(
+//                "-fx-background-color: linear-gradient(to bottom right, #00FFFF, #8A2BE2);"
+//        );
         return scene;
     }
     private static VBox createVBoxWithImageAndButton(String imagePath, Button button) {
