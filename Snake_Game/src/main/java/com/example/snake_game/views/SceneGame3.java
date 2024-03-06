@@ -45,7 +45,7 @@ public class SceneGame3 {
         food = new Point(random.nextInt(width/tileSize)*tileSize, random.nextInt(height/tileSize)*tileSize );
         monster = new Point(random.nextInt(width/tileSize)*tileSize, random.nextInt(height/tileSize)*tileSize );
         bullets.clear();
-        score.set(0);
+        score.set(14);
         timer1 = 350 ;
         timer2 = 200 ;
         timer3 = 300 ;
@@ -94,6 +94,7 @@ public class SceneGame3 {
                             UpdateScore.updateScore(username,score.get());
                             UpdateRank.updateRank(username,score.get());
                         }
+                        AddCoin.updateCoin(username,score.get());
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,3,username));
                         primaryStage.show();
                     }
@@ -118,6 +119,7 @@ public class SceneGame3 {
                             UpdateScore.updateScore(username,score.get());
                             UpdateRank.updateRank(username,score.get());
                         }
+                        AddCoin.updateCoin(username,score.get());
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,3,username));
                         primaryStage.show();
                     }
@@ -144,6 +146,7 @@ public class SceneGame3 {
                                 UpdateScore.updateScore(username,score.get());
                                 UpdateRank.updateRank(username,score.get());
                             }
+                            AddCoin.updateCoin(username,score.get());
                             primaryStage.setScene(SceenGameover.SceneClose(primaryStage,3,username));
                             primaryStage.show();
                         }
@@ -159,6 +162,7 @@ public class SceneGame3 {
                             UpdateRank.updateRank(username,score.get());
                             AddCoin.updateCoin(username,1500);
                         }
+                        AddCoin.updateCoin(username,score.get());
                         primaryStage.setScene(SceenGameWin.WinGame(primaryStage,3,username));
                         primaryStage.show();
                     }

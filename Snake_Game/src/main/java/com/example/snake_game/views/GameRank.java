@@ -29,7 +29,12 @@ public class GameRank {
     private static  int HEIGHT = TILE_SIZE*13 ;
     private static IntegerProperty score = new SimpleIntegerProperty(0);
     private static int speed = 250;
-    public static int oldScore = 0 ;
+    public static int oldScore = GetScore.getScore(username) ;
+    public static int oldScoreGame = 0 ;
+
+    public static int monney = 0 ;
+
+
     static Random random = new Random();
     static Point snake = new Point(WIDTH,HEIGHT);
     static Point boss = new Point(TILE_SIZE,TILE_SIZE);
@@ -53,7 +58,7 @@ public class GameRank {
         food.setX(random.nextInt(WIDTH / TILE_SIZE)*TILE_SIZE);
         food.setY(random.nextInt(HEIGHT / TILE_SIZE)*TILE_SIZE);
 
-        score.set(0);
+        score.set(9);
         speed = 300;
     }
     public static Scene gameRank(Stage primaryStage , String username){
@@ -83,22 +88,21 @@ public class GameRank {
                 updateMovie.updateBoss(boss,snake,new Point(TILE_SIZE*10,TILE_SIZE*10),TILE_SIZE);
                 draws.drawGameRank(food,boss,snake,WIDTH,HEIGHT,gc,TILE_SIZE,score,monsters,skinImage);
                 Platform.runLater(() -> {
-
+                    int newScore = score.get() % 100;
                     if(boss.getX() == snake.getX() && boss.getY() == snake.getY()){
                         timer1.cancel();
-                        int oldScore = GetScore.getScore(username);
-                        int newScore = score.get() % 100 ;
+
                         if(newScore > oldScore){
                             UpdateScore.updateScore(username,newScore);
-                            UpdateRank.updateRank(username,score.get());
+                            UpdateRank.updateRank(username,newScore);
                             AddCoin.updateCoin(username,score.get());
                         }
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,4,username));
                         primaryStage.show();
                     }
-                    if(score.get() % 10 == 0 && score.get() > oldScore){
-                        score.set(score.get()+500);
-                        oldScore = score.get();
+                    if(newScore % 10 == 0 && newScore > oldScoreGame){
+                        score.set(score.get()+500); ;
+                        oldScoreGame = newScore;
                     }
                 });
 
@@ -117,12 +121,10 @@ public class GameRank {
                     if(monsters.getX() == snake.getX() && monsters.getY() == snake.getY()){
                         timer2.cancel();
                         timer1.cancel();
-                        int oldScore = GetScore.getScore(username);
-                        int newScore = score.get() % 100 ;
+                        int newScore = score.get() % 100;
                         if(newScore > oldScore){
-
                             UpdateScore.updateScore(username,newScore);
-                            UpdateRank.updateRank(username,score.get());
+                            UpdateRank.updateRank(username,newScore);
                             AddCoin.updateCoin(username,score.get());
                         }
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,4,username));
@@ -131,6 +133,7 @@ public class GameRank {
                     if(score.get() % 5 == 0 && score.get() >= 5){
                         speed+= 50 ;
                     }
+
                 });
             }
         },0,speed);

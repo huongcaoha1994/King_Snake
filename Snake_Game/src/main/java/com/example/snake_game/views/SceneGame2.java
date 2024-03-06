@@ -41,7 +41,7 @@ public class SceneGame2 {
         monsterRight = new Point(TILE_SIZE*15,TILE_SIZE*12);
         food.setX(random.nextInt(WIDTH / TILE_SIZE)*TILE_SIZE);
         food.setY(random.nextInt(HEIGHT / TILE_SIZE)*TILE_SIZE);
-        score.set(0);
+        score.set(14);
         timer1 = 190 ;
         timer2 = 210 ;
         timer3 = 200 ;
@@ -82,6 +82,7 @@ public class SceneGame2 {
                             UpdateScore.updateScore(username,score.get());
                             UpdateRank.updateRank(username,score.get());
                         }
+                        AddCoin.updateCoin(username,score.get());
                         timerMonsterEAt.cancel();
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,2,username));
                         primaryStage.show();
@@ -106,6 +107,7 @@ public class SceneGame2 {
                             UpdateScore.updateScore(username,score.get());
                             UpdateRank.updateRank(username,score.get());
                         }
+                        AddCoin.updateCoin(username,score.get());
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,2,username));
                         primaryStage.show();
                     }
@@ -129,6 +131,7 @@ public class SceneGame2 {
                             UpdateScore.updateScore(username,score.get());
                             UpdateRank.updateRank(username,score.get());
                         }
+                        AddCoin.updateCoin(username,score.get());
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,2,username));
                         primaryStage.show();
                     }
@@ -145,6 +148,7 @@ public class SceneGame2 {
                             UpdateScore.updateScore(username,score.get());
                             UpdateRank.updateRank(username,score.get());
                         }
+                        AddCoin.updateCoin(username,score.get());
                         primaryStage.setScene(SceenGameWin.WinGame(primaryStage,2,username));
                         primaryStage.show();
                     }

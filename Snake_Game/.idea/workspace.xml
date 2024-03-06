@@ -8,25 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c3e3fc2-7d32-4662-8f7f-e409c662005f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/utils/StringPathImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/utils/StringPathImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Game1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Game2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Game3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Login.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Login1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/MainHistory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/MainRanking.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/PlayScreen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Register.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Registers.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneInformation1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneMinigame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneMinigame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/ScenePlaygame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/ScenePlaygame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneShop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/GameRank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/GameRank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceenGameWin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceenGameWin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame3.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,11 +24,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaFXApplication" />
         <option value="FxmlFile" />
         <option value="HTML File" />
         <option value="CSS File" />
         <option value="Class" />
+        <option value="JavaFXApplication" />
       </list>
     </option>
   </component>
@@ -176,9 +164,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Demo" />
         <item itemvalue="Application.Login" />
         <item itemvalue="Application.Registers" />
-        <item itemvalue="Application.Demo" />
         <item itemvalue="Application.Display" />
       </list>
     </recent_temporary>
@@ -209,6 +197,7 @@
       <workItem from="1709565909807" duration="4803000" />
       <workItem from="1709645002721" duration="1078000" />
       <workItem from="1709649553524" duration="629000" />
+      <workItem from="1709655642748" duration="4770000" />
     </task>
     <servers />
   </component>

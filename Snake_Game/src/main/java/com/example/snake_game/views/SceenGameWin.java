@@ -18,15 +18,15 @@ public class SceenGameWin {
         int height = 780 ;
         switch (levelGame){
             case 1 : {
-                AddCoin.updateCoin(username,500);
-                break;
-            }
-            case 2 : {
                 AddCoin.updateCoin(username,1000);
                 break;
             }
+            case 2 : {
+                AddCoin.updateCoin(username,2000);
+                break;
+            }
             case 3 : {
-                AddCoin.updateCoin(username,1500);
+                AddCoin.updateCoin(username,3000);
                 break;
             }
         }

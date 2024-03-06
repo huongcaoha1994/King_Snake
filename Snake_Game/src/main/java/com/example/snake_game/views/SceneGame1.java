@@ -50,13 +50,15 @@ public class SceneGame1 {
         food.setX(random.nextInt(WIDTH / TILE_SIZE)*TILE_SIZE);
         food.setY(random.nextInt(HEIGHT / TILE_SIZE)*TILE_SIZE);
         gate = new Point(WIDTH/2,0);
-        score.set(0);
+        score.set(14);
         timmer1 = 200 ;
         timmer2 = 310 ;
     }
     public static Scene game1(Stage primaryStage , String username){
 //        MediaPlay.playMusic("C:\\Users\\dell\\IdeaProjects\\King_Snake\\Snake_Game\\src\\main\\java\\com\\example\\snake_game\\resources\\music\\nhacnen.mp3");
         int skin = Getskin.getSkin(username);
+        int oldScore = GetScore.getScore(username);
+
         Image skinImage = GetSnakeDisplay.getImageSnakeDisplay(skin);
         restart();
         Canvas canvas = new Canvas(WIDTH,HEIGHT);
@@ -84,11 +86,13 @@ public class SceneGame1 {
 
                     if(boss.getX() == snake.getX() && boss.getY() == snake.getY()){
                         timer1.cancel();
-                        int oldScore = GetScore.getScore(username);
+
                         if(score.get() > oldScore){
                             UpdateScore.updateScore(username,score.get());
                             UpdateRank.updateRank(username,score.get());
                         }
+
+                        AddCoin.updateCoin(username,score.get());
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,1,username));
                         primaryStage.show();
                     }
@@ -109,10 +113,10 @@ public class SceneGame1 {
                     if(monsters.getX() == snake.getX() && monsters.getY() == snake.getY()){
                         timer2.cancel();
                         timer1.cancel();
-                        int oldScore = GetScore.getScore(username);
                         if(score.get() > oldScore){
                             UpdateScore.updateScore(username,score.get());
                         }
+                        AddCoin.updateCoin(username,score.get());
                         primaryStage.setScene(SceenGameover.SceneClose(primaryStage,1,username));
                         primaryStage.show();
                     }
@@ -124,7 +128,7 @@ public class SceneGame1 {
                             UpdateScore.updateScore(username,score.get());
                             UpdateRank.updateRank(username,score.get());
                         }
-
+                        AddCoin.updateCoin(username,score.get());
                         int oldLevel = GetLevel.getLevel(username);
                         if(oldLevel < 2){
                             UpdateLevel.updateLevel(username,2);
