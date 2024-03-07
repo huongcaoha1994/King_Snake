@@ -1,0 +1,431 @@
+[{
+  "_id": {
+    "$oid": "65d4b6ae030c11204cae2420"
+  },
+  "username": "huongcaoha",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 1,
+  "score": 0,
+  "rank": "Iron",
+  "created_at": {
+    "$date": "2024-02-20T14:26:54.783Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d4b924631d6b6196bb7d8a"
+  },
+  "username": "huongcaoha1995",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 2,
+  "score": 15,
+  "rank": "Silver",
+  "created_at": {
+    "$date": "2024-02-20T14:37:24.410Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d5e9b980dfa76df52da833"
+  },
+  "username": "huongcaoha95",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 3,
+  "score": 15,
+  "rank": "Silver",
+  "created_at": {
+    "$date": "2024-02-21T12:16:57.319Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d5f7492be2b53317f5b19f"
+  },
+  "username": "huongcaoha97",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 1,
+  "score": 14,
+  "rank": "Iron",
+  "created_at": {
+    "$date": "2024-02-21T13:14:49.515Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d5fa738f41ee1ba6fc32c4"
+  },
+  "username": "huongcaoha94",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 1,
+  "score": 14,
+  "rank": "Iron",
+  "created_at": {
+    "$date": "2024-02-21T13:28:19.598Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d5fcd8b4af2c0c8862505d"
+  },
+  "username": "admin",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 2,
+  "score": 15,
+  "rank": "Silver",
+  "created_at": {
+    "$date": "2024-02-21T13:38:32.864Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d5fd41a1c9155f75d683d2"
+  },
+  "username": "admin1",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 1,
+  "score": 14,
+  "rank": "Iron",
+  "created_at": {
+    "$date": "2024-02-21T13:40:17.784Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d5fe2139f9b328e82947e7"
+  },
+  "username": "admin2",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 1,
+  "score": 14,
+  "rank": "Iron",
+  "created_at": {
+    "$date": "2024-02-21T13:44:00.982Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d5fe7a60b39b39c908aeb4"
+  },
+  "username": "admin3",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 3,
+  "score": 15,
+  "rank": "Silver",
+  "created_at": {
+    "$date": "2024-02-21T13:45:30.602Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d602e72eb35f1d6f685972"
+  },
+  "username": "admin4",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 1,
+  "score": 14,
+  "rank": "Iron",
+  "created_at": {
+    "$date": "2024-02-21T14:04:23.341Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d604d56bf3a71cecf79875"
+  },
+  "username": "annhien123",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 2,
+  "score": 21,
+  "rank": "Gold",
+  "created_at": {
+    "$date": "2024-02-21T14:12:36.984Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d72d674583dd14db948c60"
+  },
+  "username": "admin5",
+  "password": "123456789",
+  "level": 1,
+  "score": 0,
+  "rank": "Iron",
+  "created_at": {
+    "$date": "2024-02-22T11:17:59.710Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d72ddc506b9902a14e8c36"
+  },
+  "username": "admin6",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 3,
+  "score": 15,
+  "rank": "Silver",
+  "created_at": {
+    "$date": "2024-02-22T11:19:56.886Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d88d024d097921f43f5d3b"
+  },
+  "username": "admin8",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 1,
+  "score": 0,
+  "rank": "Iron",
+  "created_at": {
+    "$date": "2024-02-23T12:18:10.106Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d88d4fc8efdb264f9623bd"
+  },
+  "username": "admin9",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 1,
+  "score": 22,
+  "rank": "Iron",
+  "created_at": {
+    "$date": "2024-02-23T12:19:27.035Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d8b700d0ed1420921e27a4"
+  },
+  "username": "admin10",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 1,
+  "score": 15,
+  "rank": "Silver",
+  "coin": 85500,
+  "skin": 3,
+  "outfit": [
+    1,
+    2,
+    2,
+    1,
+    2,
+    3,
+    4,
+    5,
+    4,
+    3,
+    1
+  ],
+  "created_at": {
+    "$date": "2024-02-23T15:17:20.284Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d9e6a89f33ee5adb53939f"
+  },
+  "username": "admin11",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 3,
+  "score": 12,
+  "rank": "Bronze",
+  "coin": 12235,
+  "skin": 5,
+  "outfit": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "created_at": {
+    "$date": "2024-02-24T12:52:55.974Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d9f16d68bd6f6d6f4825b1"
+  },
+  "username": "admin12",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 1,
+  "score": 14,
+  "rank": "Iron",
+  "coin": 0,
+  "skin": 1,
+  "outfit": [
+    1
+  ],
+  "created_at": {
+    "$date": "2024-02-24T13:38:53.307Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65db10afe8612e35e6c64d07"
+  },
+  "username": "huongcaoha1994",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 2,
+  "score": 15,
+  "rank": "Silver",
+  "coin": 500,
+  "skin": 1,
+  "outfit": [
+    1
+  ],
+  "created_at": {
+    "$date": "2024-02-25T10:04:31.827Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65dc57f19acbac12e1ec79e7"
+  },
+  "username": "admin13",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 3,
+  "score": 15,
+  "rank": "Silver",
+  "coin": 1,
+  "skin": 3,
+  "outfit": [
+    1,
+    5,
+    4,
+    3,
+    2
+  ],
+  "created_at": {
+    "$date": "2024-02-26T09:20:48.996Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65dc84d3dd28015d65b11518"
+  },
+  "username": "admin14",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 1,
+  "score": 15,
+  "rank": "Iron",
+  "coin": 0,
+  "skin": 1,
+  "outfit": [
+    1
+  ],
+  "created_at": {
+    "$date": "2024-02-26T12:32:19.164Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65dc85b2c4659b7ce8ed8ba3"
+  },
+  "username": "admin15",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 3,
+  "score": 11,
+  "rank": "Gold",
+  "coin": 511,
+  "skin": 5,
+  "outfit": [
+    1,
+    2,
+    5
+  ],
+  "created_at": {
+    "$date": "2024-02-26T12:36:02.543Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65df33649517be72b6eb016d"
+  },
+  "username": "admin16",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 2,
+  "score": 15,
+  "rank": "Silver",
+  "coin": 500,
+  "skin": 1,
+  "outfit": [
+    1
+  ],
+  "created_at": {
+    "$date": "2024-02-28T13:21:40.872Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e0a1f685917f7ae6ca25a4"
+  },
+  "username": "nguyen cong huong",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 1,
+  "score": 0,
+  "rank": "Iron",
+  "coin": 0,
+  "skin": 1,
+  "outfit": [
+    1
+  ],
+  "created_at": {
+    "$date": "2024-02-29T15:25:42.266Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e0a258968eaa607dc23721"
+  },
+  "username": "nguyen cong huong",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 1,
+  "score": 0,
+  "rank": "Iron",
+  "coin": 0,
+  "skin": 1,
+  "outfit": [
+    1
+  ],
+  "created_at": {
+    "$date": "2024-02-29T15:27:20.522Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e0a2ed9fedcd75abd79671"
+  },
+  "username": "nguyentrang",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 1,
+  "score": 2,
+  "rank": "Iron",
+  "coin": 0,
+  "skin": 1,
+  "outfit": [
+    1
+  ],
+  "created_at": {
+    "$date": "2024-02-29T15:29:49.758Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e5ecd5b7800d068ee2be9f"
+  },
+  "username": "admin20",
+  "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+  "level": 1,
+  "score": 11,
+  "rank": "Gold",
+  "coin": 4120,
+  "skin": 1,
+  "outfit": [
+    1
+  ],
+  "created_at": {
+    "$date": "2024-03-04T15:46:29.013Z"
+  }
+}]

@@ -8,13 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c3e3fc2-7d32-4662-8f7f-e409c662005f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Demo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/GameRank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/GameRank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceenGameWin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceenGameWin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/SceneGame3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/snake_game/views/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +192,7 @@
       <workItem from="1709565909807" duration="4803000" />
       <workItem from="1709645002721" duration="1078000" />
       <workItem from="1709649553524" duration="629000" />
-      <workItem from="1709655642748" duration="4770000" />
+      <workItem from="1709655642748" duration="5877000" />
     </task>
     <servers />
   </component>
